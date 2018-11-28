@@ -6,6 +6,7 @@
 
 * [Install](get-started/installation.md)
 * [Usage](get-started/usage.md)
+* [Test drive](get-started/test-drive.md)
 
 ## Guide
 
