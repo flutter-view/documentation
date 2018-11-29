@@ -2,7 +2,7 @@
 
 ## Requirements
 
-Flutter-view is an npm project and requires a working [NodeJS](https://nodejs.org/en/) installation. 
+Flutter-view is an npm project and requires a working [NodeJS](https://nodejs.org/en/) installation. Of course you should have a working Flutter install as well.
 
 ## Installation
 
