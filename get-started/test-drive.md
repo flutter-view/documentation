@@ -24,7 +24,9 @@ Now that we have a working project, let's create a flutter-view that shows a sim
 
 In the lib directory of your project, add a directory called "**screens**". In it create a directory "**homepage**". In the homepage directory, create a file named **homepage.pug**.
 
-Now let's create our first flutter-view. Open homepage.pug and put in the following pug code:
+![](../.gitbook/assets/screen-shot-2018-11-28-at-4.37.33-pm.png)
+
+Now let's create our first flutter-view. Open **homepage.pug** and put in the following pug code:
 
 {% code-tabs %}
 {% code-tabs-item title="homepage.pug" %}
@@ -80,13 +82,13 @@ Scaffold HomePage() {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-You may notice the comments referring back to the Pug file. These can be turned off, but help the VSCode plugin \(and you\) easily navigate between the Pug file and the Dart file.
+You may notice the comments referring back to the Pug file. These can be turned off, but help the [VSCode flutter-view plugin](vs-code-support.md#linking-between-pug-and-generated-dart) \(and you\) easily navigate between the Pug file and the Dart file.
 
 Also, notice comments are created for **\#title** and **.greeting** ids and classes in the pug file. These can also be turned off if you wish.
 
 ## Using the new homepage
 
-A view is simply a function that renders some widgets. This means you can use it in your application as any other Flutter function. Let's change **main.dart** to show our new homepage:
+A view is simply a Dart function that renders some widgets. This means you can use it in your application as any other Flutter function. Let's change **main.dart** to show our new homepage:
 
 At the top of main.dart, import our new dart file: 
 
@@ -113,5 +115,121 @@ Start flutter-view in watch mode in your project directory:
 
 Now any changes you make will automatically be detected, and the Dart file will be updated. Try changing the **Hello world!** text in **homepage.pug** and press the refresh button in the emulator to see your changes.
 
+## Adding Styling
 
+Our homepage looks very bland, so let us add some styling.
+
+In the same directory as **homepage.pug**, create a new file called **homepage.sass**. Let's style the .**greeting**:
+
+{% code-tabs %}
+{% code-tabs-item title="homepage.sass" %}
+```css
+.greeting
+	color: blue
+	font-size: 30
+	font-weight: bold
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+Press hot refresh in your emulator and you will now see the greeting styled:
+
+![](../.gitbook/assets/screen-shot-2018-12-02-at-3.16.58-pm.png)
+
+Now let's add an image. We can choose to use a NetworkImage directly, or to use a background decoration on a container. To do the latter, we need to add the cover container for the image. Since we want to have the image and text to be centered together, we can wrap them in a [FittedBox](https://docs.flutter.io/flutter/widgets/FittedBox-class.html) widget. To do so, change **homepage.pug**:
+
+{% code-tabs %}
+{% code-tabs-item title="homepage.pug" %}
+```css
+home-page(flutter-view)
+	scaffold
+		app-bar(as='appBar')
+			#title(as='title') Welcome
+		center(as='body')
+			fitted-box
+				.cover
+				.greeting Hello world!
+
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+Flutter-view has some custom css properties that make sense for Flutter to set a background decoration in CSS style. Add the following to your **homepage.sass** and press refresh on your emulator:
+
+```css
+.cover
+	width: 300
+	height: 300
+	background-size: cover
+	background-image: url("https://goo.gl/49zLA9")
+```
+
+The result should look like this:
+
+![](../.gitbook/assets/screen-shot-2018-12-02-at-2.53.13-pm.png)
+
+If you look at the generated **homepage.dart**, you will see how flutter-view took homepage.pug and homepage.sass and merged them:
+
+{% code-tabs %}
+{% code-tabs-item title="homepage.dart" %}
+```dart
+Scaffold HomePage() {
+  return Scaffold( // project://lib/screens/homepage/homepage.pug#2,2
+    appBar: AppBar( // project://lib/screens/homepage/homepage.pug#3,3
+      title: 
+      //-- TITLE ----------------------------------------------------------
+      Container( // project://lib/screens/homepage/homepage.pug#4,4
+        child: Text( 
+          'Welcome',
+        ),
+      ),
+    ),
+    body: Center( // project://lib/screens/homepage/homepage.pug#5,3
+      child: FittedBox( // project://lib/screens/homepage/homepage.pug#6,4
+        child: Column( 
+          children: __flatten([
+
+            //-- COVER ----------------------------------------------------------
+            Container( // project://lib/screens/homepage/homepage.pug#7,5
+              decoration: BoxDecoration( 
+                image: DecorationImage( 
+                  image: NetworkImage( 
+                    'https://goo.gl/49zLA9',
+                  ),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              width: 300,
+              height: 300,
+            ),
+            DefaultTextStyle.merge( 
+              child: 
+              //-- GREETING ----------------------------------------------------------
+              Container( // project://lib/screens/homepage/homepage.pug#8,5
+                child: Text( 
+                  'Hello world!',
+                ),
+              ),
+              style: TextStyle( 
+                fontSize: 30,
+                color: Colors.blue,
+                fontWeight: FontWeight.bold,
+              ),
+            )
+          ]),
+        ),
+      ),
+    ),
+  );
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+Feel free to play around with some CSS styles to see effect. Some of the things you could try:
+
+* add margin between the cover image and the greeting by adding `margin-top: 10` to the .greeting class in **homepage.sass**.
+* instead of a background image, give the **.cover** class a `background-color: blue`.
+
+Currently you need to press the hot refresh button in your emulator to see changes. In the next section we add Visual Studio Code support so this will happen immediately when you change your .pug or .sass file.
 
