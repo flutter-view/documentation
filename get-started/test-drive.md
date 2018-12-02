@@ -154,7 +154,7 @@ home-page(flutter-view)
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Flutter-view has some custom css properties that make sense for Flutter to set a background decoration in CSS style. Add the following to your **homepage.sass** and press refresh on your emulator:
+Flutter-view has plugins that recognise css properties, and transform them into code. Setting a `background-image` CSS property on a **Container** will add an [BoxDecoration](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with a [DecorationImage](https://docs.flutter.io/flutter/painting/DecorationImage-class.html), and set it to the decoration property of that **Container**. Add the following to your **homepage.sass** and press refresh on your emulator:
 
 ```css
 .cover
