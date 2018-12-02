@@ -8,6 +8,7 @@
 * [Usage](get-started/usage.md)
 * [Test drive](get-started/test-drive.md)
 * [VS Code support](get-started/vs-code-support.md)
+* [Examples](get-started/examples.md)
 
 ## Guide
 

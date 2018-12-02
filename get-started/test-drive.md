@@ -1,6 +1,6 @@
 # Test drive
 
-To get to know how flutter-view works, let's create a little hello world example project.
+To get to know how flutter-view works, let's create a little hello world example project. You can also find [this project in the examples repository](https://github.com/flutter-view/examples/tree/master/testdrive).
 
 ## Create an example flutter project
 
