@@ -1,6 +1,6 @@
 # Examples
 
-There are some examples to see how you can use flutter-view in practice to create elegant apps.
+Examples can help to show some good patterns for creating elegant apps. These are currently available:
 
 ### [Testdrive](https://github.com/flutter-view/examples/tree/master/testdrive)
 
