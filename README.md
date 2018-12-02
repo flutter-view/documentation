@@ -1,6 +1,6 @@
 # Introduction
 
-**Flutter-view** is a tool that makes writing reactive [Flutter](http://flutter.io) layouts a breeze. It lets you use [Pug](http://pugjs.org) and [Sass](http://sass-lang.com) \(or HTML and CSS if you prefer\) to generate the Flutter Dart code that renders the views in your app.
+**Flutter-view** is an open source tool that makes writing reactive [Flutter](http://flutter.io) layouts a breeze. It lets you use [Pug](http://pugjs.org) and [Sass](http://sass-lang.com) \(or HTML and CSS if you prefer\) to generate the Flutter Dart code that renders the views in your app.
 
 You use it by running the `flutter-view` command in your terminal to let it monitor your project. When it detects changes in a Pug, HTML, Sass or CSS file, it automatically generates or updates a matching Dart file.
 
