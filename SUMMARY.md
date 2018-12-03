@@ -13,5 +13,5 @@
 ## Guide
 
 * [Creating a new view](guide/creating-a-new-view.md)
-* [Adding content](guide/adding-content.md)
+* [Returning content](guide/adding-content.md)
 
