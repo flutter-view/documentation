@@ -12,5 +12,7 @@ In almost every case, you want to go to your project directory and type:
 
 This will tell flutter-view to watch your lib directory, and keep watching \(-w\) for changes.
 
-When flutter-view creates or updates Dart files, it will tell you.
+When flutter-view creates or updates Dart files, it will tell you:
+
+![](../.gitbook/assets/screen-shot-2018-12-04-at-12.36.39-am.png)
 
