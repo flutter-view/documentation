@@ -266,5 +266,54 @@ The [Scaffold](https://docs.flutter.io/flutter/material/Scaffold-class.html) cla
 
 ### Passing Functions / Closures
 
+Passing a function or closure is no different than in Dart:
 
+```css
+my-button(flutter-view :on-click[Function])
+    flat-button(:on-pressed='onClick') Click me!
+```
+
+A common case is a closure without any parameters. In that case you can use the @ sign to create a closure handler:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+my-button(flutter-view)
+    flat-button(@on-pressed='print("Click!")') Click me!
+```
+{% endtab %}
+
+{% tab title="generated Dart" %}
+```dart
+MyButton() {
+    return FlatButton(
+        onPressed: () { print("Click!"); },
+        child: Text('Click me!'),
+    );
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Automatic Containers
+
+A nice Pug feature is that classes and ids are automatically converted into DIV tags. In flutter-view, they are automatically converted into [Container](https://docs.flutter.io/flutter/widgets/Container-class.html) widgets:
+
+```css
+container hello world
+#greeting hello world
+.greeting hello world
+```
+
+All three are equivalent and convert to:
+
+```dart
+Container(
+    child: Text('hello world'),
+)
+```
+
+The classes and ids you use are forgotten after the conversion to Dart code. However, you do get automatic commenting, which will make it easier to read the generated code.
+
+The biggest benefit is however that you can use them to style your widgets, which will be discussed in the next section.
 
