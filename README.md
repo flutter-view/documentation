@@ -174,5 +174,5 @@ Widget Hello({user}) {
 {% endtab %}
 {% endtabs %}
 
-The view now takes a User as a parameter and watches it for changes. Now when we change the the user name and call  `user.notifyListeners()`,  the view will automatically update.
+The view takes a User as a parameter and watches it for changes. Now when we change the the user name and call  `user.notifyListeners()`,  the view will automatically update.
 
