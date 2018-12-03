@@ -25,8 +25,7 @@ foo-page(flutter-view :greeting)
 {% code-tabs %}
 {% code-tabs-item title="foo-page.dart" %}
 ```dart
-FooPag
-e({@required greeting}) {
+FooPage({@required greeting}) {
     return Scaffold(
         appBar: AppBar(
             title: Container(
@@ -58,13 +57,11 @@ class TestApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Test App',
-
       home: FooPage(greeting: 'world!')
     );
   }
 
 }
-
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
@@ -295,6 +292,34 @@ MyButton() {
 {% endtab %}
 {% endtabs %}
 
+### Passing Arrays
+
+Sometimes you need to pass an array of specific items to a parameter. In that case you can use the **array** tag.
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+custom-scroll-view
+    array(as='slivers')
+        sliver1
+        sliver2
+        sliver3
+```
+{% endtab %}
+
+{% tab title="generated Dart" %}
+```dart
+CustomScrollView(
+    slivers: [
+        sliver1,
+        sliver2,
+        sliver3,
+    ],
+)
+```
+{% endtab %}
+{% endtabs %}
+
 ## Automatic Containers
 
 A nice Pug feature is that classes and ids are automatically converted into DIV tags. In flutter-view, they are automatically converted into [Container](https://docs.flutter.io/flutter/widgets/Container-class.html) widgets:
@@ -315,5 +340,5 @@ Container(
 
 The classes and ids you use are forgotten after the conversion to Dart code. However, you do get automatic commenting, which will make it easier to read the generated code.
 
-The biggest benefit is however that you can use them to style your widgets, which will be discussed in the next section.
+The biggest benefit is however that you can use them to style your widgets.
 

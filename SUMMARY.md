@@ -14,4 +14,5 @@
 
 * [Creating a new view](guide/creating-a-new-view.md)
 * [Returning content](guide/adding-content.md)
+* [Flow control](guide/flow-control.md)
 
