@@ -203,7 +203,7 @@ Some widgets take an unnamed parameter in their constructor. You can pass this u
 ```css
 container
     icon(:value='Icons.add')
-    text(:value='Hello world')
+    text(value='Hello world')
 ```
 {% endtab %}
 
