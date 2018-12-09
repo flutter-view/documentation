@@ -17,8 +17,8 @@
 * [Returning content](guide/adding-content.md)
 * [Flow control](guide/flow-control.md)
 
-## CSS Reference
+## Shortcuts Reference
 
-* [Untitled](reference/untitled.md)
+* [Overview](reference/overview.md)
 * [Layout](reference/css-properties.md)
 

@@ -96,7 +96,7 @@ Container(
 
 ## padding
 
-Adds [padding](https://docs.flutter.io/flutter/widgets/Container/padding.html) to [containers](https://docs.flutter.io/flutter/widgets/Container-class.html) and other widgets.
+Adds [padding](https://docs.flutter.io/flutter/widgets/Container/padding.html) to [containers](https://docs.flutter.io/flutter/widgets/Container-class.html).
 
 Creates a Flutter padding property using[ **EdgeInsets.only\(\)**](https://docs.flutter.io/flutter/painting/EdgeInsets/EdgeInsets.only.html)**.**
 
@@ -146,7 +146,7 @@ Container(
 
 ## margin
 
-Adds [margin](https://docs.flutter.io/flutter/material/Card/margin.html) to [containers](https://docs.flutter.io/flutter/widgets/Container-class.html) and other widgets.
+Adds [margin](https://docs.flutter.io/flutter/material/Card/margin.html) to [containers](https://docs.flutter.io/flutter/widgets/Container-class.html).
 
 Creates a Flutter margin property using[ **EdgeInsets.only\(\)**](https://docs.flutter.io/flutter/painting/EdgeInsets/EdgeInsets.only.html)**.**
 
@@ -235,4 +235,73 @@ Container( // project://lib/pages/homepage/homepage.pug#8,5
 ```
 {% endtab %}
 {% endtabs %}
+
+## border
+
+Adds [borders](https://docs.flutter.io/flutter/painting/Border-class.html) to [containers](https://docs.flutter.io/flutter/widgets/Container-class.html).
+
+Creates a Flutter Border widget property using[ **EdgeInsets.only\(\)**](https://docs.flutter.io/flutter/painting/EdgeInsets/EdgeInsets.only.html)**.**
+
+Creates a Flutter [**BoxDecoration**](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with [**border**](https://docs.flutter.io/flutter/painting/BoxDecoration/border.html) set using [**Border\(\)**](https://docs.flutter.io/flutter/painting/Border-class.html). The values passed to Border\(\) for each side are values of [**BorderSide**](https://docs.flutter.io/flutter/painting/BorderSide-class.html), with an optional width, style and color.
+
+There are several border properties you can use:
+
+* **border-left:** style of the left border
+* **border-right:** style of the right border
+* **border-top:** style of the top border
+* **border-bottom:** style of the bottom border
+* **border:** style for all border sides
+* **border-style**: line style for all border sides
+* **border-width**: width of all border sides
+* **border-color**: color of all border sides
+
+These properties take values according to the [CSS specification](https://developer.mozilla.org/en-US/docs/Web/CSS/border), with these exceptions:
+
+* for styles, only solid and none are accepted
+* width must be a number
+* color must be a name _\(this is a bug, will be fixed soon\)_
+* the **border** property only allows a single style for all, not a style per side
+
+Examples of valid values:
+
+```css
+border-left: 1 solid red
+border-width: 3.3
+border: none
+border: 5.5 blue
+```
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.greeting(border-top='1.4 red' border-bottom='0.5 green') Hello world!
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+Container(
+  child: Text( 
+    'Hello world!',
+  ),
+  decoration: BoxDecoration( 
+    border: Border( 
+      top: BorderSide( 
+        width: 1.4,
+        color: Colors.red,
+      ),
+      bottom: BorderSide( 
+        width: 0.5,
+        color: Colors.green,
+      ),
+    ),
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
+## 
 
