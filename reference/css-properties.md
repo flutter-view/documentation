@@ -473,7 +473,7 @@ Container(
 
 ## background-repeat <a id="box-shadow"></a>
 
-Sets how background images of a [container](https://docs.flutter.io/flutter/widgets/Container-class.html) should be repeated.
+Sets how background images of a [container](https://docs.flutter.io/flutter/widgets/Container-class.html) should be repeated. Usually used together with [**background-image**](css-properties.md#box-shadow-1).
 
 Creates a Flutter [**BoxDecoration**](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with the repeat property of the image set to the value you pass. 
 
@@ -548,5 +548,163 @@ Container(
 {% endtab %}
 {% endtabs %}
 
-##  <a id="box-shadow"></a>
+## main-axis-alignment <a id="box-shadow"></a>
+
+Controls how a row or column aligns its children on the main axis. See the [Flutter layout documentation](https://flutter.io/docs/development/ui/layout#aligning-widgets) for more information.
+
+Maps to Flutter [**MainAxisAlignment**](https://docs.flutter.io/flutter/rendering/MainAxisAlignment-class.html) enum values in camelcase.
+
+Valid values:
+
+* **start:** Place the children as close to the start of the main axis as possible
+* **end:** Place the children as close to the end of the main axis as possible
+* **center:** Place the children as close to the middle of the main axis as possible
+* **space-around:** Place the free space evenly between the children as well as half of that space before and after the first and last child
+* **space-between:** Place the free space evenly between the children
+* **space-evenly:** Place the free space evenly between the children as well as before and after the first and last child
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+row(main-axis-alignment="space-evenly")
+    .entry We
+    .entry Are
+    .entry Spaced
+    .entry Evenly
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+Row(
+  children: [
+    Container(
+      child: Text( 
+        'We',
+      ),
+    ),
+    Container(
+      child: Text( 
+        'Are',
+      ),
+    ),
+    Container(
+      child: Text( 
+        'Spaced',
+      ),
+    ),
+    Container(
+      child: Text( 
+        'Evenly',
+      ),
+    )
+  ],
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+)
+```
+{% endtab %}
+{% endtabs %}
+
+## cross-axis-alignment <a id="box-shadow"></a>
+
+Controls how a row or column aligns its children on the cross axis. See the [Flutter layout documentation](https://flutter.io/docs/development/ui/layout#aligning-widgets) for more information.
+
+Maps to Flutter [**CrossAxisAlignment**](https://docs.flutter.io/flutter/rendering/CrossAxisAlignment-class.html) enum values in camelcase.
+
+Valid values:
+
+* **start:** Place the children with their start edge aligned with the start side of the cross axis
+* **end:** Place the children as close to the end of the cross axis as possible
+* **center:** Place the children so that their centers align with the middle of the cross axis
+* **baseline:** Place the children along the cross axis such that their baselines match
+* **stretch:** Require the children to fill the cross axis
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+column(cross-axis-alignment="center")
+    .entry We
+    .entry Are
+    .entry Centered
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+Column(
+  children: [
+    Container(
+      child: Text( 
+        'We',
+      ),
+    ),
+    Container(
+      child: Text( 
+        'Are',
+      ),
+    ),
+    Container(
+      child: Text( 
+        'Centered',
+      ),
+    )
+  ],
+  crossAxisAlignment: CrossAxisAlignment.center,
+),
+```
+{% endtab %}
+{% endtabs %}
+
+## main-axis-size <a id="box-shadow"></a>
+
+Controls how a row or column to deals with left-over free space in the main axis. See the [Flutter layout documentation](https://flutter.io/docs/development/ui/layout#aligning-widgets) for more information.
+
+Maps to Flutter [**MainAxisSize**](https://docs.flutter.io/flutter/rendering/MainAxisSize-class.html) enum values in camelcase.
+
+Valid values:
+
+* **min:** Minimize the amount of free space along the main axis, subject to the incoming layout constraints
+* **max:** Maximize the amount of free space along the main axis, subject to the incoming layout constraints
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+column(main-axis-size="max")
+    .entry Some entry, left over space is maximized
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+Column(
+  children: [
+    Container(
+      child: Text( 
+        'We',
+      ),
+    ),
+    Container(
+      child: Text( 
+        'Are',
+      ),
+    ),
+    Container(
+      child: Text( 
+        'Centered',
+      ),
+    )
+  ],
+  crossAxisAlignment: CrossAxisAlignment.center,
+),
+```
+{% endtab %}
+{% endtabs %}
+
+
 
