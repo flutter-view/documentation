@@ -401,5 +401,152 @@ Container(
 {% endtab %}
 {% endtabs %}
 
-## 
+## background-image <a id="box-shadow"></a>
+
+Sets a background image to [containers](https://docs.flutter.io/flutter/widgets/Container-class.html).
+
+Creates a Flutter [**BoxDecoration**](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with the [image](https://docs.flutter.io/flutter/painting/BoxDecoration/image.html) property set using either [**NetworkImage**](https://docs.flutter.io/flutter/painting/NetworkImage-class.html) or [**ExactAssetImage**](https://docs.flutter.io/flutter/painting/ExactAssetImage-class.html).
+
+The background-image property can have one of two values:
+
+* url\("&lt;image-url&gt;"\) : creates a NetworkImage for the given url
+* asset\("&lt;asset-name&gt;"\): uses an ExactAssetImage for the given name
+
+Examples of valid values:
+
+```css
+background-image: asset('images/background.jpg')
+background-image: url('http://some/image/url.png')
+```
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.cover-image(background-image="asset('images/background.jpg')")
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+Container(
+  decoration: BoxDecoration( 
+    image: DecorationImage( 
+      image: ExactAssetImage( 
+        'images/background.jpg',
+      ),
+    ),
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
+## ​background-color <a id="box-shadow"></a>
+
+Sets a background color to [containers](https://docs.flutter.io/flutter/widgets/Container-class.html).
+
+Creates a Flutter [**BoxDecoration**](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with the [color](https://docs.flutter.io/flutter/painting/BoxDecoration/color.html) property set to the value you pass as a [**Color**](https://docs.flutter.io/flutter/dart-ui/Color-class.html).
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.redbox(width=200 height=200 background-color="red")
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+Container(
+  decoration: BoxDecoration( 
+    color: Colors.red,
+  ),
+  width: 200,
+  height: 200,
+)
+```
+{% endtab %}
+{% endtabs %}
+
+## background-repeat <a id="box-shadow"></a>
+
+Sets how background images of a [container](https://docs.flutter.io/flutter/widgets/Container-class.html) should be repeated.
+
+Creates a Flutter [**BoxDecoration**](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with the repeat property of the image set to the value you pass. 
+
+Maps to Flutter [**ImageRepeat**](https://docs.flutter.io/flutter/painting/ImageRepeat-class.html) values in camelcase.
+
+Valid values:
+
+* **no-repeat:** Leave uncovered portions of the box transparent
+* **repeat:** Repeat the image in both the x and y directions until the box is filled.
+* **repeat-x:** Repeat the image in the x direction until the box is filled horizontally.
+* **repeat-y:** A constant List of the values in this enum, in order of their declaration.
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.cover-image(
+    background-image="asset('images/background.jpg')" 
+    background-repeat='no-repeat')
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+Container( // project://lib/pages/homepage/homepage.pug#8,5
+  decoration: BoxDecoration( 
+    image: DecorationImage( 
+      image: ExactAssetImage( 
+        'images/background.jpg',
+      ),
+      repeat: ImageRepeat.noRepeat,
+    ),
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
+## background-size <a id="box-shadow"></a>
+
+Sets how background images of a [container](https://docs.flutter.io/flutter/widgets/Container-class.html) should be fitted in the container. Usually used together with [**background-image**](css-properties.md#box-shadow-1).
+
+It does so by setting the [fit](https://docs.flutter.io/flutter/painting/DecorationImage/fit.html) property of the [**ImageDecoration**](https://docs.flutter.io/flutter/painting/DecorationImage-class.html) ****that was created for the **background-image**.
+
+See the [**fit property**](css-properties.md#fit) above for valid values and more information.
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.cover-image(
+    background-image="asset('images/background.jpg')" 
+    background-fit='cover')
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+Container(
+  decoration: BoxDecoration( 
+    image: DecorationImage( 
+      image: ExactAssetImage( 
+        'images/background.jpg',
+      ),
+      fit: BoxFit.cover,
+    ),
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
+##  <a id="box-shadow"></a>
 
