@@ -94,6 +94,47 @@ Container(
 {% endtab %}
 {% endtabs %}
 
+## shape
+
+Describes how the container should be shaped.
+
+Maps to Flutter [**BoxShape**](https://docs.flutter.io/flutter/painting/BoxShape-class.html) values in camelcase. Creates a Flutter [**BoxDecoration**](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with the [shape](https://docs.flutter.io/flutter/painting/BoxDecoration/shape.html) property set to to the value you pass.
+
+Valid values:
+
+* **circle:** A circle centered in the middle of the box into which the [Border](https://docs.flutter.io/flutter/painting/painting/Border-class.html) or [BoxDecoration](https://docs.flutter.io/flutter/painting/painting/BoxDecoration-class.html) is painted. The diameter of the circle is the shortest dimension of the box, either the width or the height, such that the circle touches the edges of the box.
+* **rectangle:** An axis-aligned, 2D rectangle. May have rounded corners \(described by a [BorderRadius](https://docs.flutter.io/flutter/painting/painting/BorderRadius-class.html)\). The edges of the rectangle will match the edges of the box into which the [Border](https://docs.flutter.io/flutter/painting/painting/Border-class.html) or [BoxDecoration](https://docs.flutter.io/flutter/painting/painting/BoxDecoration-class.html) is painted.
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.cover-image(
+    background-image="asset('images/background.jpg')"
+    shape='circle')
+
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+Container(
+  decoration: BoxDecoration( 
+    image: DecorationImage( 
+      image: ExactAssetImage( 
+        'images/background.jpg',
+      ),
+    ),
+    shape: BoxShape.circle,
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
+
+
 ## padding
 
 Adds [padding](https://docs.flutter.io/flutter/widgets/Container/padding.html) to [containers](https://docs.flutter.io/flutter/widgets/Container-class.html).
@@ -297,6 +338,63 @@ Container(
         color: Colors.green,
       ),
     ),
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
+## box-shadow
+
+Adds shadows to [containers](https://docs.flutter.io/flutter/widgets/Container-class.html).
+
+Creates a Flutter [**BoxDecoration**](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with the [boxShadow](https://docs.flutter.io/flutter/painting/BoxDecoration/boxShadow.html) property set using [**BoxShadow**](https://docs.flutter.io/flutter/painting/BoxShadow-class.html).
+
+It suppors multiple passed box shadows, separated by a comma.
+
+A single box shadow can have 2, 3 or 4 or 5 properties: offset-x, offset-y, and optionally blur-radius offset-radius and color.
+
+These properties take values according to the [CSS specification](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow), with these exceptions:
+
+* values must be numbers
+* colors not yet supported \(coming soon\)
+* no support for the inset keyword
+
+Examples of valid values:
+
+```css
+box-shadow: 2 3 // single shadow with offset-x: 3, offset-y: 3
+box-shadow: 2 2 5 // single shadow with offset-x: 2, offset-y: 2 and blur: 5
+box-shadow: 4 3 6 7 // single grey shadow with blur: 6 and offset-radius: 7
+box-shadow: 2 3, 3 4 9 4 // two box shadows example
+```
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.greeting(box-shadow='2 3 5 7, -5 -2') Hello world!
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+Container(
+  child: Text( 
+    'Hello world!',
+  ),
+  decoration: BoxDecoration( 
+    boxShadow: [
+      BoxShadow( 
+        offset: Offset(2.00, 3.00),
+        blurRadius: 5.00,
+        spreadRadius: 7.00,
+      ),
+      BoxShadow( 
+        offset: Offset(-5.00, -2.00),
+      )
+    ],
   ),
 )
 ```
