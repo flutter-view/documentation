@@ -1199,5 +1199,86 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
-##  <a id="box-shadow"></a>
+## text-overflow <a id="box-shadow"></a>
+
+A linear decoration to draw near the text.
+
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the overflow in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+
+Maps to Flutter [**TextOverflow**](https://docs.flutter.io/flutter/rendering/TextOverflow-class.html) enum values in camelcase. 
+
+Valid values:
+
+* **clip:** Clip the overflowing text to fix its container.
+* **ellipsis:** Use an ellipsis to indicate that the text has overflowed.
+* **fade:** Fade the overflowing text to transparent.
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.test(text-overflow='ellipsis' width=200) 
+    | This will be cut off nicely with ellipsis
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+DefaultTextStyle.merge( 
+  child: Container(
+    child: Text( 
+      'This will be cut off nicely with ellipsis',
+    ),
+    width: 200,
+  ),
+  overflow: TextOverflow.ellipsis,
+)
+```
+{% endtab %}
+{% endtabs %}
+
+## max-lines <a id="box-shadow"></a>
+
+Sets an optional maximum number of lines for the text to span, wrapping if necessary. If the text exceeds the given number of lines, it will be truncated according to [**overflow**](css-properties.md#box-shadow-18).
+
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the maxLines in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+
+Values must be positive integers.
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.test(
+    width=100
+    max-lines=1
+    text-overflow='ellipsis')
+    | Only one line gets shown, truncated
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+DefaultTextStyle.merge( 
+  child: 
+  Container(
+    child: Text( 
+      'Only one line gets shown, truncated',
+    ),
+    width: 100,
+  ),
+  overflow: TextOverflow.ellipsis,
+  maxLines: 1,
+)
+```
+{% endtab %}
+{% endtabs %}
+
+## line-clamp <a id="box-shadow"></a>
+
+Alias for [**max-lines**](css-properties.md#box-shadow-19).
+
+
 
