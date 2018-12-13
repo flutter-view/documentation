@@ -686,24 +686,16 @@ column(main-axis-size="max")
 ```dart
 Column(
   children: [
-    Container(
+
+    //-- ENTRY ----------------------------------------------------------
+    Container( // project://lib/pages/homepage/homepage.pug#14,6
       child: Text( 
-        'We',
-      ),
-    ),
-    Container(
-      child: Text( 
-        'Are',
-      ),
-    ),
-    Container(
-      child: Text( 
-        'Centered',
+        'Some entry, left over space is maximized',
       ),
     )
   ],
-  crossAxisAlignment: CrossAxisAlignment.center,
-),
+  mainAxisSize: MainAxisSize.max,
+)
 ```
 {% endtab %}
 {% endtabs %}
