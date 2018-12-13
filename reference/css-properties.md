@@ -845,7 +845,7 @@ DefaultTextStyle.merge(
 
 ## font-weight <a id="box-shadow"></a>
 
-Sets the font wieght of text in the container and all its children. Only works on Containers.
+Sets the font weight of text in the container and all its children. Only works on Containers.
 
 It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the font weight in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
 
@@ -887,6 +887,153 @@ DefaultTextStyle.merge(
   ),
   style: TextStyle( 
     fontWeight: FontWeight.bold,
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
+## font-family <a id="box-shadow"></a>
+
+Sets the font family of text in the container and all its children. Only works on Containers.
+
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the font family in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+
+Value must be a string.
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.test(font-size='Arial') Welcome!
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+DefaultTextStyle.merge( 
+  child: Container(
+    child: Text( 
+      'Welcome!',
+    ),
+  ),
+  style: TextStyle( 
+    fontFamily: 'Arial',
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
+## font-style <a id="box-shadow"></a>
+
+Sets the font style of text in the container and all its children. Only works on Containers.
+
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the font style in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+
+Maps to Flutter [**FontStyle**](https://docs.flutter.io/flutter/dart-ui/FontStyle-class.html) enum values in camelcase. 
+
+Valid values:
+
+* **normal:** The default font style
+* **italic:** Use glyphs designed for slanting
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.test(font-style='italic') Welcome!
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+DefaultTextStyle.merge( 
+  child: 
+  Container(
+    child: Text( 
+      'Welcome!',
+    ),
+  ),
+  style: TextStyle( 
+    fontStyle: FontStyle.italic,
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
+## line-height <a id="box-shadow"></a>
+
+Sets the line height text in the container and all its children. Only works on Containers.
+
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the line height in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+
+Valid values are ints and doubles.
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.test(line-height=20) Welcome!
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+DefaultTextStyle.merge( 
+  child: 
+  Container(
+    child: Text( 
+      'Welcome!',
+    ),
+  ),
+  style: TextStyle( 
+    height: 20,
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
+## text-decoration <a id="box-shadow"></a>
+
+A linear decoration to draw near the text.
+
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the textDecoration in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+
+Maps to Flutter [**TextDecoration**](https://docs.flutter.io/flutter/dart-ui/TextDecoration-class.html) enum values in camelcase. 
+
+Valid values:
+
+* **none:** Do not draw a decoration
+* **underline:** Draw a line underneath each line of text
+* **overline:** Draw a line above each line of text
+* **line-through:** Draw a line through each line of text
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.test(text-decoration='underline') Welcome!
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+DefaultTextStyle.merge( 
+  child: 
+  Container(
+    child: Text( 
+      'Welcome!',
+    ),
+  ),
+  style: TextStyle( 
+    textDecoration: TextDecoration.underline,
   ),
 )
 ```
