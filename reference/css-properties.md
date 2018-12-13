@@ -449,6 +449,8 @@ Sets a background color to [containers](https://docs.flutter.io/flutter/widgets/
 
 Creates a Flutter [**BoxDecoration**](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with the [color](https://docs.flutter.io/flutter/painting/BoxDecoration/color.html) property set to the value you pass as a [**Color**](https://docs.flutter.io/flutter/dart-ui/Color-class.html).
 
+See the [color property](css-properties.md#color-color) on valid values.
+
 Example:
 
 {% tabs %}
@@ -702,6 +704,47 @@ Column(
   ],
   crossAxisAlignment: CrossAxisAlignment.center,
 ),
+```
+{% endtab %}
+{% endtabs %}
+
+## color, ...-color
+
+Assigns a [**Color**](https://docs.flutter.io/flutter/dart-ui/Color-class.html) to a property. It works on any property either named color, or ending with -color.
+
+Valid values:
+
+* Any expression that evalutes to a [**Color**](https://docs.flutter.io/flutter/dart-ui/Color-class.html). `:color='Colors.red'`
+* A dash-cased color name from Colors. `color='deep-orange'`
+* A dash-cased color name from Colors with a weight. `color='deep-orange[400]'`
+* A hex color ala CSS. `color='#FF3499'` 
+* A hex color ala CSS with preceding transparency. `color='#80FF3499'`
+
+Examples:
+
+{% tabs %}
+{% tab title="Using Pug" %}
+```css
+.red-container(:background-color='Colors.red')
+.orange-container(background-color='deep-orange')
+.green-container(background-color='green[300]')
+.blue-container(background-color='#00F')
+.blue-container2(background-color='#0000FF')
+```
+{% endtab %}
+
+{% tab title="Using CSS" %}
+```css
+.red-container
+    background-color: ':Colors.red'
+.orange-container
+    background-color: deep-orange
+.green-container
+    background-color: green[300]
+.blue-container
+    background-color: #00F
+.blue-container2
+    background-color: #0000FF
 ```
 {% endtab %}
 {% endtabs %}
