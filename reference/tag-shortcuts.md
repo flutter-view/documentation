@@ -1,5 +1,56 @@
 # Tag shortcuts
 
+## builder
+
+Wraps its child in a builder function that exposes the current [**BuildContext**](https://docs.flutter.io/flutter/widgets/BuildContext-class.html).
+
+Quite frequently you may need the current build context in your views:
+
+* passing it as a parameter into event handlers on your models
+* for Theme.of\(context\) and such common constructions
+
+At any time you need the current context, you can add a builder shortcut. It will write a Builder widget with as its child a function that passes the current context, which you can then use in the child widgets.
+
+#### Parameters
+
+No parameters.
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```c
+example(flutter-view)
+	builder
+		.welcome(color="theme(primary-color)") Hello!
+```
+{% endtab %}
+
+{% tab title="generated Dart" %}
+```dart
+Example() {
+  return Builder(
+    builder: (context) {
+      return DefaultTextStyle.merge( 
+        child: 
+        Container(
+          child: Text( 
+            'Hello!',
+          ),
+        ),
+        style: TextStyle( 
+          color: Theme.of(context).primaryColor,
+        ),
+      );
+    },
+  );
+}
+```
+{% endtab %}
+{% endtabs %}
+
+In the above example, if you leave out the builder, you will get an error because theme requires a context. See the generated Dart how it is used.
+
 ## assign
 
 _Note: Requires the_ [_flutter-view-tools_](https://pub.dartlang.org/packages/flutter_view_tools) _Dart library._
@@ -50,6 +101,60 @@ UserEntry({ @required user }) {
         ]),
       );
     },
+  );
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## lifecycle
+
+_Note: Requires the_ [_flutter-view-tools_](https://pub.dartlang.org/packages/flutter_view_tools) _Dart library._
+
+Widget that lets you listen to the lifecycle of the `BuildContext` it is part of.
+
+Useful in combination with `Model` and `ReactiveModel`, since your model can be informed when the `BuildContext` is being initialized, built, rendered and disposed of.
+
+#### Parameters
+
+* **onInit**: `@required Object` the rest of the widgets that get rerendered if the watched model updates
+* **onBuild**: `Function(BuildContext)` Called when build is called on the widget
+* **onRender**: `Function` Called when render is called on the widget
+* **onDispose**: `Function` Called when dispose is called on the widget
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```c
+example(flutter-view :model[MyModel])
+	lifecycle(:on-dispose='model.onDisposed()')
+		| ${model.message}!
+```
+{% endtab %}
+
+{% tab title="MyModel.dart" %}
+```dart
+class MyModel extends Model {
+    
+    String message = 'Hello world';
+    
+    onDisposed() {
+        // we can do some cleanup here
+    }
+    
+}
+```
+{% endtab %}
+
+{% tab title="generated Dart" %}
+```dart
+Lifecycle Example({ @required model }) {
+  return Lifecycle( // project://lib/pages/homepage/homepage.pug#21,2
+    onDispose: model.onDispose(),
+    child: Text( 
+      '${model.message}',
+    ),
   );
 }
 ```
@@ -112,60 +217,6 @@ UserEntry({ @required user }) {
 {% endtabs %}
 
 In the above example, a user model is passed into the view. If a user is an instance of a Model, and user.notifyListeners\(\) gets called, part below the reactive tag \(the .name and .user containers\) will automatically be re-rendered.
-
-## Lifecycle
-
-_Note: Requires the_ [_flutter-view-tools_](https://pub.dartlang.org/packages/flutter_view_tools) _Dart library._
-
-Widget that lets you listen to the lifecycle of the `BuildContext` it is part of.
-
-Useful in combination with `Model` and `ReactiveModel`, since your model can be informed when the `BuildContext` is being initialized, built, rendered and disposed of.
-
-#### Parameters
-
-* **onInit**: `@required Object` the rest of the widgets that get rerendered if the watched model updates
-* **onBuild**: `Function(BuildContext)` Called when build is called on the widget
-* **onRender**: `Function` Called when render is called on the widget
-* **onDispose**: `Function` Called when dispose is called on the widget
-
-Example:
-
-{% tabs %}
-{% tab title="Pug" %}
-```c
-example(flutter-view :model[MyModel])
-	lifecycle(:on-dispose='model.onDisposed()')
-		| ${model.message}!
-```
-{% endtab %}
-
-{% tab title="MyModel.dart" %}
-```dart
-class MyModel extends Model {
-    
-    String message = 'Hello world';
-    
-    onDisposed() {
-        // we can do some cleanup here
-    }
-    
-}
-```
-{% endtab %}
-
-{% tab title="generated Dart" %}
-```dart
-Lifecycle Example({ @required model }) {
-  return Lifecycle( // project://lib/pages/homepage/homepage.pug#21,2
-    onDispose: model.onDispose(),
-    child: Text( 
-      '${model.message}',
-    ),
-  );
-}
-```
-{% endtab %}
-{% endtabs %}
 
 
 
