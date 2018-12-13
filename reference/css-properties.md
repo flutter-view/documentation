@@ -1042,7 +1042,7 @@ DefaultTextStyle.merge(
 
 ## text-decoration-color <a id="box-shadow"></a>
 
-The colo of the text decoration you have set.
+The color of the text decoration you have set.
 
 It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the decorationColor in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
 
@@ -1116,6 +1116,83 @@ DefaultTextStyle.merge(
   style: TextStyle( 
     decoration: TextDecoration.underline,
     decorationStyle: TextDecorationStyle.wavy,
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
+## word-spacing <a id="box-shadow"></a>
+
+Sets the space between words in a text.
+
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the wordSpacing in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+
+Valid values are ints and doubles.
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.test(word-spacing=5.3) Welcome!
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+DefaultTextStyle.merge( 
+  child: 
+  Container(
+    child: Text( 
+      'Welcome!',
+    ),
+  ),
+  style: TextStyle( 
+    wordSpacing: 5.3,
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
+## text-align <a id="box-shadow"></a>
+
+Whether and how to align text horizontally.
+
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the textAlign in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+
+Maps to Flutter [**TextAlign**](https://docs.flutter.io/flutter/dart-ui/TextAlign-class.html) enum values in camelcase. 
+
+Valid values:
+
+* **start:** Align the text on the leading edge of the container.
+* **end:** Align the text on the trailing edge of the container.
+* **left:** Align the text on the left edge of the container.
+* **right:** Align the text on the right edge of the container.
+* **center:** Align the text in the center of the container.
+* **justify:** Stretch lines of text that end with a soft line break to fill the width of the container.
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.test(text-align='center') Welcome!
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+DefaultTextStyle.merge( 
+  child: 
+  Container(
+    child: Text( 
+      'Welcome!',
+    ),
+  ),
+  style: TextStyle( 
+    textAlign: TextAlign.center,
   ),
 )
 ```
