@@ -1,4 +1,4 @@
-# Returning content
+# Creating widget layouts
 
 In Flutter, widget trees are built by passing a child or children. Widget trees have a lot of indentation, especially since in Flutter nearly everything is a widget, and composition is preferred to inheritance. This can lead to complex nesting and child parameters.
 

@@ -14,12 +14,12 @@
 ## Guide
 
 * [Creating a new view](guide/creating-a-new-view.md)
-* [Returning content](guide/adding-content.md)
+* [Creating widget layouts](guide/adding-content.md)
 * [Flow control](guide/flow-control.md)
 * [Shortcuts](guide/overview.md)
 
 ## Shortcuts Reference
 
-* [Property shortcuts](reference/css-properties.md)
 * [Tag shortcuts](reference/tag-shortcuts.md)
+* [Property shortcuts](reference/css-properties.md)
 
