@@ -1040,5 +1040,87 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
+## text-decoration-color <a id="box-shadow"></a>
+
+The colo of the text decoration you have set.
+
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the decorationColor in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+
+The value must be a valid [**color** property](css-properties.md#color-color) value.
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.test(
+    text-decoration='underline'
+    text-decoration-color='red') 
+    | Hello world!
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+DefaultTextStyle.merge( 
+  child: Container(
+    child: Text( 
+      'Hello world!',
+    ),
+  ),
+  style: TextStyle( 
+    decoration: TextDecoration.underline,
+    decorationColor: Colors.red,
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
+## text-decoration-style <a id="box-shadow"></a>
+
+The style in which to draw a text decoration.
+
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the decorationStyle in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+
+Maps to Flutter [**TextDecorationStyle**](https://docs.flutter.io/flutter/dart-ui/TextDecorationStyle-class.html) enum values in camelcase. 
+
+Valid values:
+
+* **solid:** Draw a solid line
+* **double:** Draw two lines
+* **dotted:** Draw a dotted line
+* **dashed:** Draw a dashed line
+* **wavy:** Draw a sinusoidal line
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.test(
+	text-decoration='underline'
+	text-decoration-style='wavy') 
+	| Hello world!
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+DefaultTextStyle.merge( 
+  child: Container( // project://lib/pages/homepage/homepage.pug#8,5
+    child: Text( 
+      'Hello world!',
+    ),
+  ),
+  style: TextStyle( 
+    decoration: TextDecoration.underline,
+    decorationStyle: TextDecorationStyle.wavy,
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
 ##  <a id="box-shadow"></a>
 
