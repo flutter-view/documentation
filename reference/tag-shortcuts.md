@@ -1,0 +1,171 @@
+# Tag shortcuts
+
+## assign
+
+_Note: Requires the_ [_flutter-view-tools_](https://pub.dartlang.org/packages/flutter_view_tools) _Dart library._
+
+Assigns a the value of an expression to a new variable.
+
+In flutter-view layouts, you cannot directly use code, since it is meant for presentation. This means that for computed properties and other calculations, you normally defer to functions in a model that you pass. However sometimes it is practical to make simple assignments.
+
+#### Parameters
+
+* **name**: `@required String` the name of the new variable to assign to \(required
+* **value**: `@required String` a string or expression to assign to the new variable
+* **child**: `@required object` the rest of the widgets that get access to the new variable
+
+#### Implementation
+
+The shortcut tag processor writes an [**Assign**](https://pub.dartlang.org/documentation/flutter_view_tools/latest/flutter_view_tools/Assign-class.html) widget, and an associated builder function which gets the new variable. This function returns what you pass as the child.
+
+{% tabs %}
+{% tab title="Pug" %}
+```c
+user-entry(flutter-view :user)
+	assign(name='username' :^value="user.firstName+' '+user.lastName")
+		.name $username
+		.age ${user.age}
+```
+{% endtab %}
+
+{% tab title="generated Dart" %}
+```dart
+UserEntry({ @required user }) {
+  return Assign(
+    name: 'username',
+    value: user.firstName+' '+user.lastName,
+    builder: (context, username) {
+      return Column( 
+        children: [
+          Container(
+            child: Text(
+              '$username',
+            ),
+          ),
+          Container(
+            child: Text( 
+              '${user.age}',
+            ),
+          )
+        ]),
+      );
+    },
+  );
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## reactive
+
+_Note: Requires the_ [_flutter-view-tools_](https://pub.dartlang.org/packages/flutter_view_tools) _Dart library._
+
+Rerenders its children if the Listenable it watches updates.
+
+This widget was made to work well with the [ScopedModel library](https://pub.dartlang.org/packages/scoped_model). However when using flutter-view, you no longer need to use the **ScopedModel** and **ScopedModelDescendant** widgets. Instead, you pass a model into a flutter-view, and use the reactive tag to watch for changes.
+
+#### Parameters
+
+* **watch**: `@required Listenable` Something to watch for updates. Usually a [**Model**](https://pub.dartlang.org/documentation/scoped_model/latest/scoped_model/Model-class.html).
+* **child**: `@required Object` the rest of the widgets that get rerendered if the watched model updates
+
+#### Implementation
+
+The shortcut tag processor writes a [**ReactiveWidget**](https://pub.dartlang.org/documentation/flutter_view_tools/latest/flutter_view_tools/ReactiveWidget-class.html), and an associated builder function which gets called to build the widget layout.
+
+{% tabs %}
+{% tab title="Pug" %}
+```c
+user-entry(flutter-view :user)
+	reactive(watch='user')
+		.name ${user.name}
+		.age ${user.age}
+```
+{% endtab %}
+
+{% tab title="generated Dart" %}
+```dart
+UserEntry({ @required user }) {
+  return ReactiveWidget(
+    watch: user as Listenable,
+    builder: (context, $) {
+      return Column( 
+        children: [
+          Container(
+            child: Text( 
+              '${user.name}',
+            ),
+          ),
+          Container(
+            child: Text( 
+              '${user.age}',
+            ),
+          )
+        ]),
+      );
+    },
+  );
+}
+
+```
+{% endtab %}
+{% endtabs %}
+
+In the above example, a user model is passed into the view. If a user is an instance of a Model, and user.notifyListeners\(\) gets called, part below the reactive tag \(the .name and .user containers\) will automatically be re-rendered.
+
+## Lifecycle
+
+_Note: Requires the_ [_flutter-view-tools_](https://pub.dartlang.org/packages/flutter_view_tools) _Dart library._
+
+Widget that lets you listen to the lifecycle of the `BuildContext` it is part of.
+
+Useful in combination with `Model` and `ReactiveModel`, since your model can be informed when the `BuildContext` is being initialized, built, rendered and disposed of.
+
+#### Parameters
+
+* **onInit**: `@required Object` the rest of the widgets that get rerendered if the watched model updates
+* **onBuild**: `Function(BuildContext)` Called when build is called on the widget
+* **onRender**: `Function` Called when render is called on the widget
+* **onDispose**: `Function` Called when dispose is called on the widget
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```c
+example(flutter-view :model[MyModel])
+	lifecycle(:on-dispose='model.onDisposed()')
+		| ${model.message}!
+```
+{% endtab %}
+
+{% tab title="MyModel.dart" %}
+```dart
+class MyModel extends Model {
+    
+    String message = 'Hello world';
+    
+    onDisposed() {
+        // we can do some cleanup here
+    }
+    
+}
+```
+{% endtab %}
+
+{% tab title="generated Dart" %}
+```dart
+Lifecycle Example({ @required model }) {
+  return Lifecycle( // project://lib/pages/homepage/homepage.pug#21,2
+    onDispose: model.onDispose(),
+    child: Text( 
+      '${model.message}',
+    ),
+  );
+}
+```
+{% endtab %}
+{% endtabs %}
+
+
+

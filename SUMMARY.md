@@ -21,4 +21,5 @@
 ## Shortcuts Reference
 
 * [Property shortcuts](reference/css-properties.md)
+* [Tag shortcuts](reference/tag-shortcuts.md)
 
