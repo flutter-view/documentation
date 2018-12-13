@@ -28,7 +28,7 @@ Some commonly used examples are:
 * **font-size, font-family** and **font-weight**: to style text
 * any property name ending on [**color**](../reference/css-properties.md#color-color) accepts both color names and hex codes
 
-### Avoiding property shortcut processing
+### Escaping property shortcut processing
 
 If you have to pass a parameter which has the name of a shortcut, and you do not wish to apply the shortcut, you can escape it with the ^ character.
 
@@ -36,9 +36,9 @@ For example, by default the [**fit** property](../reference/css-properties.md#fi
 
 `box-decoration(fit="cover")`
 
-However you can also pass an actual value. You do so by prepending the property name with the escape `^` character:
+However if you have a situation where you have a widget that happens to have the fit property as well, but do not want flutter-view to processes it as a BoxFit value, you can escape the property:
 
-`box-decoration(:^fit="BoxFit.cover")`
+`my-widget(:^fit="someValue")`
 
 
 

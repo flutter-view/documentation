@@ -1,4 +1,4 @@
-# Layout
+# Property shortcuts
 
 ## alignment
 
@@ -1280,5 +1280,32 @@ DefaultTextStyle.merge(
 
 Alias for [**max-lines**](css-properties.md#box-shadow-19).
 
+## display
 
+CSS-like setting of how you want a widget to be displayed. This can be useful for removing layout elements through CSS.
+
+Valid values:
+
+* **none**: this will remove the widget
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.test
+    .message(display="none") I never even become code
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+//-- TEST ----------------------------------------------------------
+Container(
+)
+```
+{% endtab %}
+{% endtabs %}
+
+##  <a id="box-shadow"></a>
 

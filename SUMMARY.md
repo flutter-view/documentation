@@ -20,5 +20,5 @@
 
 ## Shortcuts Reference
 
-* [Layout](reference/css-properties.md)
+* [Property shortcuts](reference/css-properties.md)
 
