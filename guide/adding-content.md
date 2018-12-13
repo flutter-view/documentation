@@ -163,11 +163,11 @@ This has the same generated result but is cleaner.
 
 ## Passing parameters
 
-### Named parameters
-
 To pass parameters besides child or children, you pass them as pug/html parameters.
 
-You can pass either as text or by value. To pass by value, start the variable name with **:** as you would in [VueJS](https://vuejs.org).
+### String parameters
+
+You can pass strings by using quotes. Both double and single quotes work.
 
 For example:
 
@@ -175,7 +175,7 @@ For example:
 {% tab title="Pug" %}
 ```css
 banner(title='testing')
-    flat-button(:color='Colors.red') Click me!     
+    | Hello world!
 ```
 {% endtab %}
 
@@ -183,10 +183,34 @@ banner(title='testing')
 ```dart
 return Banner(
     title: 'testing',
-    child: FlatButton(
-        color: Colors.red,
-        child: Text('Click me!'),
-    ),
+    child: Text('Hello world!'),
+);
+```
+{% endtab %}
+{% endtabs %}
+
+### Expression parameters
+
+To assign a Dart expression as the value of a parameter:
+
+* start the parameter name with `:`
+* wrap the expression in quotes. You may need to escape strings.
+
+For example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+flat-button(:color='highlighted ? Colors.red : Colors.grey')
+    | Click me!     
+```
+{% endtab %}
+
+{% tab title="generated Dart" %}
+```dart
+return FlatButton(
+    color: highlighted ? Colors.red : Colors.grey,
+    child: Text('Click me!'),
 );
 ```
 {% endtab %}

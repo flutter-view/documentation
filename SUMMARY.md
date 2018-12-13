@@ -16,9 +16,9 @@
 * [Creating a new view](guide/creating-a-new-view.md)
 * [Returning content](guide/adding-content.md)
 * [Flow control](guide/flow-control.md)
+* [Shortcuts](guide/overview.md)
 
 ## Shortcuts Reference
 
-* [Overview](reference/overview.md)
 * [Layout](reference/css-properties.md)
 

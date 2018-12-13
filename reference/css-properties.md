@@ -712,6 +712,8 @@ Column(
 
 Assigns a [**Color**](https://docs.flutter.io/flutter/dart-ui/Color-class.html) to a property. It works on any property either named color, or ending with -color.
 
+When a color is set on a [**Container**](https://docs.flutter.io/flutter/widgets/Container-class.html), it will set the text color, much like you would set a color CSS property on a DIV in HTML. It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the text color in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed.
+
 Valid values:
 
 * Any expression that evalutes to a [**Color**](https://docs.flutter.io/flutter/dart-ui/Color-class.html). `:color='Colors.red'`
@@ -725,6 +727,7 @@ Examples:
 {% tabs %}
 {% tab title="Using Pug" %}
 ```css
+.red-text-container(color='red') This text is red
 .red-container(:background-color='Colors.red')
 .orange-container(background-color='deep-orange')
 .green-container(background-color='green[300]')
@@ -735,6 +738,8 @@ Examples:
 
 {% tab title="Using CSS" %}
 ```css
+.red-text-container
+    color: red
 .red-container
     background-color: ':Colors.red'
 .orange-container
@@ -747,7 +752,146 @@ Examples:
     background-color: #0000FF
 ```
 {% endtab %}
+
+{% tab title="generated Dart" %}
+```dart
+Column( 
+  children: [
+    DefaultTextStyle.merge( 
+      child: 
+      //-- RED-TEXT-CONTAINER ----------------------------------------------------------
+      Container(
+        child: Text( 
+          'This text is red',
+        ),
+      ),
+      style: TextStyle( 
+        color: Colors.red,
+      ),
+    ),
+
+    //-- RED-CONTAINER ----------------------------------------------------------
+    Container(
+      decoration: BoxDecoration( 
+        color: Colors.red,
+      ),
+    ),
+
+    //-- ORANGE-CONTAINER ----------------------------------------------------------
+    Container(
+      decoration: BoxDecoration( 
+        color: Colors.deepOrange,
+      ),
+    ),
+
+    //-- GREEN-CONTAINER ----------------------------------------------------------
+    Container(
+      decoration: BoxDecoration( 
+        color: Colors.green.shade300,
+      ),
+    ),
+
+    //-- BLUE-CONTAINER ----------------------------------------------------------
+    Container(
+      decoration: BoxDecoration( 
+        color: Color(0xFF0000FF),
+      ),
+    ),
+
+    //-- BLUE-CONTAINER2 ----------------------------------------------------------
+    Container(
+      decoration: BoxDecoration( 
+        color: Color(0xFF0000FF),
+      ),
+    )
+  ],
+)
+```
+{% endtab %}
 {% endtabs %}
 
+## font-size <a id="box-shadow"></a>
 
+Sets the font size of text in the container and all its children. Only works on Containers.
+
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the font size in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+
+Allowed values are ints, doubles and theme font sizes.
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.test(font-size=12.5) Welcome!
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+DefaultTextStyle.merge( 
+  child: Container(
+    child: Text( 
+      'Welcome!',
+    ),
+  ),
+  style: TextStyle( 
+    fontSize: 12.5,
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
+## font-weight <a id="box-shadow"></a>
+
+Sets the font wieght of text in the container and all its children. Only works on Containers.
+
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the font weight in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+
+Maps to Flutter [**FontWeight**](https://docs.flutter.io/flutter/dart-ui/FontWeight-class.html) enum values in camelcase. 
+
+Valid values:
+
+* **normal:** The default font weight
+* **bold:** A commonly used font weight that is heavier than normal
+* **w100:** Thin, the least thick
+* **w200:** Extra light
+* **w300:** Light
+* **w400:** Normal / regular / plain
+* **w500:** Medium
+* **w600:** Semi bold
+* **w700:** Bold
+* **w800:** Extra bold
+* **w900:** Black, the most thick
+
+_Note: Instead of passing w100, you may also pass 100, etc._
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.test(font-weight='bold') Welcome!
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+DefaultTextStyle.merge( 
+  child: 
+  Container(
+    child: Text( 
+      'Welcome!',
+    ),
+  ),
+  style: TextStyle( 
+    fontWeight: FontWeight.bold,
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
+##  <a id="box-shadow"></a>
 
