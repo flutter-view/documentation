@@ -119,10 +119,10 @@ card
 
 We have a layout, and now we can style it. 
 
-The "buy tickets" and "listen" buttons we want to have uppercase text:
+The "buy tickets" and "listen" FlatButtons we want to have uppercase text:
 
 ```css
-flat-button.tickets, flat-button.listen
+flat-button
     .label
         text-transform: uppercase
 ```
@@ -136,39 +136,40 @@ card
         main-axis-size: min
 ```
 
-We want to give some padding to the title and subtitle, and make the text color grey\[300\]:
+We want to give some padding to the title and subtitle, and give each slightly different colors:
 
 ```css
 card
     $title-color: grey[300]
     list-tile
         .title
-            color: $title-color
+            color: white
             padding: 4 6
         .subtitle
-            color: $title-color
+            color: grey[100]
             padding: 2 6
 ```
 
-Note how we use Sass variables to avoid repetition.
-
 Here is the end result:
+
+![](../.gitbook/assets/screen-shot-2018-12-14-at-3.55.26-pm.png)
 
 {% tabs %}
 {% tab title="artist-card.pug" %}
 ```css
-card
-    column
-        list-tile
-            icon(as='leading' :value='Icons.album')
-            .title(as='title') The Enchanted Nightingale
-            .subtitle(as='subtitle') Music by Julie Gable. Lyrics by Sidney Stein.
-        button-theme:bar
-            button-bar
-                flat-button.tickets(@on-pressed='...')
-                    .label Buy tickets
-                flat-button.listen(@on-pressed='...')
-                    .label Listen
+artist-card(flutter-view :on-buy-pressed :on-listen-pressed)    
+    card
+        column
+            list-tile
+                icon(as='leading' :value='Icons.album')
+                .title(as='title') The Enchanted Nightingale
+                .subtitle(as='subtitle') Music by Julie Gable. Lyrics by Sidney Stein.
+            button-theme:bar
+                button-bar
+                    flat-button.tickets(@on-pressed='onBuyPressed()')
+                        .label Buy tickets
+                    flat-button.listen(@on-pressed='onListenPressed()')
+                        .label Listen
 ```
 {% endtab %}
 
@@ -179,12 +180,11 @@ card
     column
         main-axis-size: min
     list-tile
-        $title-color: grey[300]
         .title
-            color: $title-color
+            color: white
             padding: 4 6
         .subtitle
-            color: $title-color
+            color: grey[100]
             padding: 2 6
         flat-button
             .label
@@ -197,5 +197,5 @@ card
 {% endtab %}
 {% endtabs %}
 
-
+As you can see, Sass is a very nice match with Pug, since you can retain the same structure. This makes it easy to find the matching styles to your pug elements.
 
