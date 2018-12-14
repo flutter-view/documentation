@@ -6,7 +6,9 @@ In Flutter, widget trees are built by passing a child or children. Widget trees 
 
 Flutter-views are optimised for building widget trees. Pug in particular is well suited for creating tree structures and moving parts around.
 
-To add content to return from a flutter-view, simply add it as the child or children:
+The following example generates a Dart method **FooPage\(\)**, which returns a Scaffold with an AppBar, and a centralized greeting message. 
+
+The Pug creates the layout, and the main.dart file uses this layout to render the app. This separation between layout and logic is fundamental to using flutter-view.
 
 {% tabs %}
 {% tab title="Pug" %}
@@ -70,15 +72,13 @@ class TestApp extends StatelessWidget {
 {% endtab %}
 {% endtabs %}
 
-The above generates a Dart method **FooPage\(\)**, which returns a Scaffold with an AppBar, and a centralized greeting message.
-
 ## Adding children to widgets
 
-In flutter-view pug/html content, an html tag is a method or constructor call, and its parameters are parameters for this method or constructor. Its pug/html children are assigned as the child/children parameters. 
+**In a flutter-view, add indented child tags to tags to automatically have them assigned as child or children parameters**.
 
-In other words, simply add indented childen to automatically have flutter-view assign them as child or children parameters for you.
+In flutter-view Pug/HTML content, an HTML **tag** is a **method or constructor call**, and its parameters are parameters for this method or constructor. The tag **children** are assigned as the Flutter child/children **parameters**.
 
-Compare the Pug and generated Dart code in this example:
+To see how this works, compare the Pug and generated Dart code in this example:
 
 {% tabs %}
 {% tab title="Pug" %}
@@ -122,6 +122,8 @@ return Container(
 {% endtab %}
 {% endtabs %}
 
+### Automatic columns
+
 Flutter-view knows which classes generally need children instead of single child, and automatically creates [**Columns**](https://docs.flutter.io/flutter/widgets/Column-class.html) when you pass multiple children. Also, if you pass text, flutter-view it automatically wraps it in a [**Text**](https://docs.flutter.io/flutter/widgets/Text-class.html) widget as well. This together allows you to be more terse:
 
 {% tabs %}
@@ -161,7 +163,30 @@ return Container(
 {% endtab %}
 {% endtabs %}
 
-This has the same generated result but is cleaner.
+### Calling dart factory constructors
+
+Some Flutter Dart classes may use factory constructors. For example, ButtonTheme has a [**ButtonTheme.bar\(\)**](https://docs.flutter.io/flutter/material/ButtonTheme/ButtonTheme.bar.html) constructor. 
+
+To call the factory constructor instead of the default constructor, pass the constructor after the class name, separated with a colon.
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+button-theme:bar
+    | some content here
+```
+{% endtab %}
+
+{% tab title="generated Dart" %}
+```dart
+ButtonTheme.bar(
+    child: Text(
+        'some content here'
+    ),
+)
+```
+{% endtab %}
+{% endtabs %}
 
 ### Passing children instead of child
 
