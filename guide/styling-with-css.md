@@ -279,3 +279,37 @@ Card ArtistCard({ @required onBuyPressed, @required onListenPressed }) {
 
 As you can see here, Sass is a nice match with Pug, since you can retain the same structure. This makes it easy to find the matching styles to your pug elements.
 
+## Using Flutter Themes in styles
+
+Flutter's Material library has [theming support](https://flutter.io/docs/cookbook/design/themes). You may want to assign the values of the theme of the current BuildContext. Flutter-view has support for easily assigning [**ThemeData**](https://docs.flutter.io/flutter/material/ThemeData-class.html) values to your properties.
+
+To understand how it works, let's first look at how you would use it in pure Dart code. To assign a font size to a style, you may write something like this:
+
+```dart
+style: TextStyle( 
+  fontSize: Theme.of(context).textTheme.title.fontSize,
+)
+```
+
+First we find the Theme of the current [**BuildContext**](https://docs.flutter.io/flutter/widgets/BuildContext-class.html), then we get a path of properties.
+
+In flutter-view CSS, you might write this the same way:
+
+```css
+.foo
+    font-size: ':Theme.of(context).textTheme.title.fontSize'
+```
+
+Instead, you may write it like this:
+
+```css
+.foo
+    font-size: theme(text-theme/title/font-size)
+```
+
+This still requires the context to be available. If you have no current context, you can use the [**builder shortcut**](../reference/tag-shortcuts.md#builder). The theme properties path has been replaced by dash-cased steps, separated by forward slashes`/`.
+
+_Pro tip: You can define CSS classes that set multiple theme style properties at once and reuse them across your app._
+
+
+
