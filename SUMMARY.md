@@ -10,7 +10,6 @@
 * [Test drive](get-started/test-drive.md)
 * [VS Code support](get-started/vs-code-support.md)
 * [Examples](get-started/examples.md)
-* [Styling with CSS](get-started/styling-with-css.md)
 
 ## Guide
 
@@ -18,6 +17,7 @@
 * [Creating widget layouts](guide/adding-content.md)
 * [Flow control](guide/flow-control.md)
 * [Shortcuts](guide/overview.md)
+* [Styling with CSS](guide/styling-with-css.md)
 
 ## Shortcuts Reference
 

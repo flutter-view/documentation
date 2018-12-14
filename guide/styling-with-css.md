@@ -12,7 +12,7 @@ Example structure:
 
 ![](../.gitbook/assets/screen-shot-2018-12-14-at-11.57.56-am.png)
 
-See the[ example projects](examples.md) for more ideas for structuring your application.
+See the[ example projects](../get-started/examples.md) for more ideas for structuring your application.
 
 ## Applying styles as properties
 
