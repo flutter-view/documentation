@@ -96,9 +96,7 @@ Note the colon before `TableCellVerticleAlignment.middle`in the pug file.
 
 **Flutter-view provides many shortcut properties, that let you style in a CSS-style manner.**
 
-Some examples are [color](../reference/css-properties.md#color-color), [padding](../reference/css-properties.md#padding), [margin](../reference/css-properties.md#margin) and [background-image](../reference/css-properties.md#box-shadow-1).
-
-See the [shortcut properties reference](../reference/css-properties.md) for the full list.
+Some examples are [color](../reference/css-properties.md#color-color), [padding](../reference/css-properties.md#padding), [margin](../reference/css-properties.md#margin) and [background-image](../reference/css-properties.md#box-shadow-1). See the [shortcut properties reference](../reference/css-properties.md) for the full list.
 
 As an example, consider the following Pug layout we want to style \(taken and converted into flutter-view Pug from the [Flutter Card sample](https://docs.flutter.io/flutter/material/Card-class.html)\):
 
