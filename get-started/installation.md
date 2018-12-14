@@ -39,6 +39,8 @@ To install it, add the following dependency to your project **pubspec.yaml** fil
 
 Then perform a flutter packages get to pull in the new dependency.
 
+_Note: for the latest version, check the_ [_flutter-view-tools pub page_](https://pub.dartlang.org/packages/flutter_view_tools)_._
+
 ### Importing the tools
 
 To import the library in Dart:
