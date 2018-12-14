@@ -2,6 +2,51 @@
 
 To create a new view, create either an HTML or Pug page. It is common to put this page in its own directory with the same name, to group the page, styling and optional models together. A single page can contain many flutter-views.
 
+## Importing Dart dependencies
+
+### Default imports
+
+By default, the following imports are added to **** generated Dart files:
+
+```dart
+import 'package:flutter/material.dart'
+import 'package:flutter/cupertino.dart';
+```
+
+### Adding imports
+
+To import additional packages in a Pug or HTML file, use the import tag with the package parameter:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+import(package='flutter_view_tools/flutter_view_tools.dart')
+```
+{% endtab %}
+
+{% tab title="HTML" %}
+```markup
+<import package='flutter_view_tools/flutter_view_tools.dart'/>
+```
+{% endtab %}
+{% endtabs %}
+
+To import files in a Pug or HTML file, use the import tag with the file parameter. The files are relative to the current file directory:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+import(file='../directory/test.dart')
+```
+{% endtab %}
+
+{% tab title="HTML" %}
+```markup
+<import file='../directory/test.dart'/>
+```
+{% endtab %}
+{% endtabs %}
+
 ## Creating Flutter-views
 
 A flutter-view is transformed into a Dart function. As such, you are just writing Dart functions in an HTML-like format.

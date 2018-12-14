@@ -18,6 +18,7 @@
 * [Flow control](guide/flow-control.md)
 * [Shortcuts](guide/overview.md)
 * [Styling with CSS](guide/styling-with-css.md)
+* [Writing Reactive code](guide/writing-reactive-code.md)
 
 ## Shortcuts Reference
 
