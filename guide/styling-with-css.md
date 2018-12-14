@@ -90,7 +90,7 @@ table
 {% endtab %}
 {% endtabs %}
 
-Note the colon before `TableCellVerticleAlignment.middle`in the pug file.
+Note the colon before `TableCellVerticleAlignment.middle`in the Sass file.
 
 ## Using shortcut properties in styles
 
