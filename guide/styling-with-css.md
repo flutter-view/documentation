@@ -152,7 +152,7 @@ card
 
 Here is the end result:
 
-![](../.gitbook/assets/screen-shot-2018-12-14-at-3.55.26-pm.png)
+![](../.gitbook/assets/screen-shot-2018-12-14-at-3.55.26-pm%20%281%29.png)
 
 {% tabs %}
 {% tab title="artist-card.pug" %}
@@ -193,9 +193,92 @@ card
 {% endtab %}
 
 {% tab title="generated artist-card.dart" %}
+```dart
+Card ArtistCard({ @required onBuyPressed, @required onListenPressed }) {
+  return Card(
+    child: Column(
+      children: [
+        ListTile(
+          leading: Icon(
+            Icons.album,
+            color: Colors.white,
+          ),
+          title: DefaultTextStyle.merge( 
+            child: 
+            //-- TITLE ----------------------------------------------------------
+            Container(
+              child: Text( 
+                'The Enchanted Nightingale',
+              ),
+              padding: EdgeInsets.only(top: 4, right: 6, bottom: 4, left: 6),
+            ),
+            style: TextStyle( 
+              color: Colors.white,
+            ),
+          ),
+          subtitle: DefaultTextStyle.merge( 
+            child: 
+            //-- SUBTITLE ----------------------------------------------------------
+            Container(
+              child: Text( 
+                'Music by Julie Gable. Lyrics by Sidney Stein.',
+              ),
+              padding: EdgeInsets.only(top: 2, right: 6, bottom: 2, left: 6),
+            ),
+            style: TextStyle( 
+              color: Colors.grey.shade300,
+            ),
+          ),
+        ),
+        ButtonTheme.bar(
+          child: ButtonBar(
+            children: [
 
+              //-- TICKETS ----------------------------------------------------------
+              FlatButton(
+                onPressed: () { onBuyPressed(); },
+                child: DefaultTextStyle.merge( 
+                  child: 
+                  //-- LABEL ----------------------------------------------------------
+                  Container(
+                    child: Text( 
+                      'Buy tickets'.toUpperCase(),
+                    ),
+                  ),
+                  style: TextStyle( 
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+
+              //-- LISTEN ----------------------------------------------------------
+              FlatButton(
+                onPressed: () { onListenPressed(); },
+                child: DefaultTextStyle.merge( 
+                  child: 
+                  //-- LABEL ----------------------------------------------------------
+                  Container(
+                    child: Text( 
+                      'Listen'.toUpperCase(),
+                    ),
+                  ),
+                  style: TextStyle( 
+                    color: Colors.white,
+                  ),
+                ),
+              )
+            ],
+          ),
+        )
+      ]),
+      mainAxisSize: MainAxisSize.min,
+    ),
+    color: Colors.blue,
+  );
+}
+```
 {% endtab %}
 {% endtabs %}
 
-As you can see, Sass is a very nice match with Pug, since you can retain the same structure. This makes it easy to find the matching styles to your pug elements.
+As you can see here, Sass is a nice match with Pug, since you can retain the same structure. This makes it easy to find the matching styles to your pug elements.
 
