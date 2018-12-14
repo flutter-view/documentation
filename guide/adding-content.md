@@ -1,5 +1,7 @@
 # Creating widget layouts
 
+## Overview
+
 In Flutter, widget trees are built by passing a child or children. Widget trees have a lot of indentation, especially since in Flutter nearly everything is a widget, and composition is preferred to inheritance. This can lead to complex nesting and child parameters.
 
 Flutter-views are optimised for building widget trees. Pug in particular is well suited for creating tree structures and moving parts around.
@@ -160,6 +162,40 @@ return Container(
 {% endtabs %}
 
 This has the same generated result but is cleaner.
+
+### Passing children instead of child
+
+There may be cases where flutter-view does not recognise your tag needs a children parameter instead of a child parameter. In that case use and array and assign it as children:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+column
+    array(as='children')
+        row first!
+        row second!
+```
+{% endtab %}
+
+{% tab title="generated Dart" %}
+```dart
+Column(
+    children: [
+        Row(
+            children: [
+                Text('first!'),
+            ]
+        ),
+        Row(
+            children: [
+                Text('second!'),
+            ]
+        ),
+    ]
+)
+```
+{% endtab %}
+{% endtabs %}
 
 ## Passing parameters
 

@@ -119,7 +119,7 @@ card
 
 We have a layout, and now we can style it. 
 
-The "buy tickets" and "listen" FlatButtons we want to have uppercase text:
+The "buy tickets" and "listen" FlatButtons we want to have uppercase text. We can use the **text-transform** shortcut:
 
 ```css
 flat-button
@@ -127,7 +127,7 @@ flat-button
         text-transform: uppercase
 ```
 
-We want the card to be blue and the column of the card to have `mainAxisSize: MainAxisSize.min`:
+We want the card to be blue and the column of the card to have `mainAxisSize: MainAxisSize.min`:. Here we can use the [**color**](../reference/css-properties.md#color-color) shortcut, so we can use CSS colors, and the [**main-axis-size**](../reference/css-properties.md#box-shadow-7) shortcut, which lets us simply use 'min':
 
 ```css
 card
@@ -136,11 +136,10 @@ card
         main-axis-size: min
 ```
 
-We want to give some padding to the title and subtitle, and give each slightly different colors:
+We want to give some padding to the title and subtitle, and give each slightly different colors. [**Padding**](../reference/css-properties.md#padding) and [**margin**](../reference/css-properties.md#margin) are shortcuts that adhere to CSS standards:
 
 ```css
 card
-    $title-color: grey[300]
     list-tile
         .title
             color: white
