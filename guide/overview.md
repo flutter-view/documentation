@@ -15,6 +15,8 @@ Other notable examples are:
 * **reactive**: lets you write terse reactive code that responds to your model changes
 * **assign**: easily assign values with expressions
 
+See the [**shortcut tags reference**](../reference/tag-shortcuts.md) for all tags.
+
 ## Shortcut properties
 
 The shortcut properties are macros that insert common layout behavior that take more code in Flutter, such as easily setting a background color to a container or adding text styling. These properties are as much as **CSS** properties as possible. However when there is no direct CSS-like analogy, the **Flutter** names and values are used. They are in **dash case**, since camelcase is not officially supported.
@@ -27,6 +29,8 @@ Some commonly used examples are:
 * \*\*\*\*[**background-image**](../reference/css-properties.md#box-shadow-1)**,** [**background-color**](../reference/css-properties.md#box-shadow-2) ****and ****[**border-radius**](../reference/css-properties.md#border-radius) to style containers
 * **font-size, font-family** and **font-weight**: to style text
 * any property name ending on [**color**](../reference/css-properties.md#color-color) accepts both color names and hex codes
+
+See the [**shortcut properties reference**](../reference/css-properties.md) for all supported properties.
 
 ### Escaping property shortcut processing
 

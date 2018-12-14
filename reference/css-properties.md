@@ -1,4 +1,4 @@
-# Property shortcuts
+# Shortcut properties
 
 ## alignment
 

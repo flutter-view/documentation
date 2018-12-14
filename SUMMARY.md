@@ -10,6 +10,7 @@
 * [Test drive](get-started/test-drive.md)
 * [VS Code support](get-started/vs-code-support.md)
 * [Examples](get-started/examples.md)
+* [Styling with CSS](get-started/styling-with-css.md)
 
 ## Guide
 
@@ -20,6 +21,6 @@
 
 ## Shortcuts Reference
 
-* [Tag shortcuts](reference/tag-shortcuts.md)
-* [Property shortcuts](reference/css-properties.md)
+* [Shortcut tags](reference/tag-shortcuts.md)
+* [Shortcut properties](reference/css-properties.md)
 

@@ -1,4 +1,4 @@
-# Tag shortcuts
+# Shortcut tags
 
 ## builder
 
