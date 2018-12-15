@@ -71,5 +71,32 @@ In any reactive app you want to be able to inform views to react to the data cha
 
 ## Creating a view
 
+To present the app, we need two basic things:
+
+* the view model, a class that represents what we want to show on the page and handles any events and has presentation code
+* the view, which contains code that lays out the widgets that paint what we see
+
+We want our app to look like this:
+
+
+
+Our view model starts out simple, for now it only needs a reference to the app, so it can show the tasks we have:
+
+{% code-tabs %}
+{% code-tabs-item title="lib/pages/taskspage/taskspage-model.dart" %}
+```dart
+import 'package:meta/meta.dart';
+import 'package:scoped_model/scoped_model.dart';
+import 'package:todolist/model/app-model.dart';
+
+class TasksPageModel extends Model {
+  TasksPageModel({@required this.app});
+
+  final AppModel app;
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
 
 
