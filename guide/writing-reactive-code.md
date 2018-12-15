@@ -78,7 +78,7 @@ To present the app, we need two basic things:
 
 We want our app to look like this:
 
-
+![](../.gitbook/assets/screen-shot-2018-12-15-at-10.36.22-pm.png)
 
 Our view model starts out simple, for now it only needs a reference to the app, so it can show the tasks we have:
 
