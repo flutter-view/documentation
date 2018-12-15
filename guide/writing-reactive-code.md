@@ -2,7 +2,9 @@
 
 **Flutter leaves us with a lot of freedom in how we want to write reactive code. Flutter-view proposes a structure but does not impose it.**
 
-This guide will show you how we recommend you build a simple reactive app with an [MVVM approach](https://en.wikipedia.org/wiki/Model–view–viewmodel) using the ReactiveWidget and flutter-view.
+This guide will show you how we recommend you build a simple reactive app with an [MVVM approach](https://en.wikipedia.org/wiki/Model–view–viewmodel) using the ReactiveWidget and flutter-view. It will look like this:
+
+![](../.gitbook/assets/screen-shot-2018-12-15-at-10.36.22-pm.png)
 
 _Note: this approach requires you add the_ [_**flutter\_view\_tools**_](https://pub.dartlang.org/packages/flutter_view_tools) _dependency to your project's **pubspec.yaml** file._
 
@@ -76,10 +78,6 @@ To present the app, we need two basic things:
 * the view model, a class that represents what we want to show on the page and handles any events and has presentation code
 * the view, which contains code that lays out the widgets that paint what we see
 
-We want our app to look like this:
-
-![](../.gitbook/assets/screen-shot-2018-12-15-at-10.36.22-pm.png)
-
 Our view model starts out simple, for now it only needs a reference to the app, so it can show the tasks we have:
 
 {% code-tabs %}
@@ -98,5 +96,38 @@ class TasksPageModel extends Model {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
+Our view is a page scaffold with a list of tasks and a floating add button on the bottom right. In flutter-view, we can easily construct it:
 
+```css
+import(package='flutter_view_tools/flutter_view_tools.dart')
+import(package='todolist/model/app-model.dart')
+import(package='todolist/model/task.dart')
+import(file='taskspage-model.dart')
+
+tasks-page(flutter-view :model[TasksPageModel])
+	builder
+		scaffold
+			app-bar(as='appBar')
+				#title(as='title') Tasks
+				
+			#body(as='body')
+				center Here be tasks!
+
+			floating-action-button(as='floatingActionButton')
+				icon(:value='Icons.add')
+```
+
+In lines **1-4** we [**import**](creating-a-new-view.md#adding-imports) all the elements we use in our view: the flutter\_view\_tools library and all our models.
+
+Line **6** tells flutter-view to create a new function that takes a TasksPageModel as a parameter, and returns our widgets.
+
+At line **7** we start with a builder. This is a convenient way to get access to the **context** variable. We will need this later.
+
+Line **8** creates the Scaffold of our page. It has three parts: an AppBar at line **9-10**, a body with a placeholder text at line **12-13** and a FloatingActionButton at like **15-16**. For now, we are not yet showing the tasks.
+
+## Using a view and view-model
+
+To use the **AppModel**, **Task**, **TasksPage** and **TasksPageModel** we just created, we need to start the app from **main.dart.**
+
+Since 
 
