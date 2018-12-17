@@ -19,6 +19,7 @@
 * [Shortcuts](guide/overview.md)
 * [Styling with CSS](guide/styling-with-css.md)
 * [Writing Reactive code](guide/writing-reactive-code.md)
+* [Configuring flutter-view](guide/configuring-flutter-view.md)
 
 ## Shortcuts Reference
 
