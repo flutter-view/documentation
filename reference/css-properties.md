@@ -169,7 +169,6 @@ Example:
 {% tab title="Pug" %}
 ```css
 .greeting(padding=10) Hello world!
-
 ```
 {% endtab %}
 
@@ -409,8 +408,8 @@ Creates a Flutter [**BoxDecoration**](https://docs.flutter.io/flutter/painting/B
 
 The background-image property can have one of two values:
 
-* url\("&lt;image-url&gt;"\) : creates a NetworkImage for the given url
-* asset\("&lt;asset-name&gt;"\): uses an ExactAssetImage for the given name
+* **url\("&lt;image-url&gt;"\)** : creates a NetworkImage for the given url
+* **asset\("&lt;asset-name&gt;"\)**: uses an ExactAssetImage for the given name
 
 Examples of valid values:
 
