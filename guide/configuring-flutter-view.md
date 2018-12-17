@@ -1,10 +1,8 @@
 # Configuring flutter-view
 
-Flutter-view has been made to run without needing configuration. However by providing a configuration, you can use some more advanced features.
+**Flutter-view does not need a configuration file to run.** However by providing a configuration, you can use some more advanced features.
 
-To configure flutter-view, put a file named **flutter-view.json** in the directory you run it from \(normally your project root directory\).
-
-There are many options you can play with. Each of these options is optional. Options will merge their values with the ones you provides.
+To configure flutter-view, put a file named **flutter-view.json** in the directory you run it from \(normally your project root directory\). The options you can set are described below. Each of these options is optional. Options will merge their values with the ones you provides.
 
 For example, to change the indentation of the generated Dart to 4 spaces:
 
