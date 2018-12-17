@@ -8,8 +8,8 @@ You can use flutter-view with any IDE. However for Visual Studio Code users ther
 
 Enabling linking between Pug and Dart will make it easier to see the effects of your changes. To get this functionality in VSCode, install the following two extensions:
 
-* the flutter-view extension lets you link from Pug to generated Dart
-* the[ project-links](https://github.com/KyleDavidE/vscode-project-links) extension lets you link from links in the generated Dart to the source Pug
+* the [**flutter-view extension**](https://marketplace.visualstudio.com/items?itemName=blueneogeo.flutter-view-vscode) lets you link from Pug to generated Dart
+* the [**project-links extension**](https://marketplace.visualstudio.com/items?itemName=KyleDavidE.vscode-project-links) lets you link from links in the generated Dart to the source Pug
 
 _Note: for this to work, the project link comments in flutter-view must be enabled \(default is on\)_
 
