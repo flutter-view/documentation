@@ -88,7 +88,16 @@ For example, if you want to use FlatButton when you use the button tag:
 
 In Flutter, some widgets expect a child parameter, while others expect a children parameter. With multiChildClasses you can list classes that require the children parameter \(otherwise child is used\).
 
-Default value:
+Note: in case an entry is not in the default list, you can also pass the children via the array tag. For example:
+
+```css
+column
+    array(as='children')
+        row first child
+        row second child
+```
+
+Default values:
 
 ```javascript
 multiChildClasses: [

@@ -229,7 +229,74 @@ Now that we have wired up all the basic parts, we can run our app:
 
 ![](../.gitbook/assets/screen-shot-2018-12-15-at-11.20.06-pm.png)
 
+## Showing data from the model
 
+Now that the basic framework is in place, **we can use flutter-view to present model data it in the view**.
+
+In the case of our app, we want to show the tasks from the **AppModel** in our **tasks-page**. When there are no tasks, we want to show a message that encourages someone to create the first task. When there are already tasks, we want to show the list.
+
+First lets set some example starter tasks. In **AppModel**, add some starter tasks:
+
+```text
+// this.tasks = [];
+this.tasks = [
+  Task(name: 'Do the dishes'),
+  Task(name: 'Cut the grass'),
+];
+
+```
+
+To actually show the tasks on the **tasks-page**, we can iterate through them with the flutter-view [**for property**](flow-control.md#for)**:**
+
+```css
+// #body(as='body')
+//    center Here be tasks!
+#body(as='body')
+    list-view
+        .task(for='task in model.app.tasks') ${task.name}
+```
+
+Now after hot reloading you should see the two tasks, as two lines of text. 
+
+In line 5, we are creating an array of .task Containers, one for each element in **TaskPageModel.app.tasks.** In each container we put a text with the task name.
+
+To clean up the presentation a bit, we can create a view that creates a single task, and repeat that instread. Add the following flutter-view code in **tasks-page.pug**:
+
+```css
+task-entry(flutter-view :task[Task] :model[TasksPageModel])
+	card
+		row
+			.title ${task.name}
+			checkbox(:^value='task.done')
+```
+
+This renders a single task entry. Now we can use it in the body:
+
+```css
+#body(as='body')
+    list-view
+        task-entry(for='task in model.app.tasks' :task='task' :model='model')
+```
+
+In line 3, we are again using for to repeat the tag for each task. A **task-entry** takes two parameters: the task and the model, so we pass both.
+
+Finally, let's add some styling. Create a tasks-page.sass next to tasks-page.pug, and put in the following styling:
+
+```css
+task-entry
+	card
+		row
+			main-axis-alignment: space-between
+			.title
+				margin-left: 20
+				font-size: 20
+```
+
+Please compare this sass styling with the pug task-entry we added. The Row in task-entry gets assigned a space between main-axis-alignment, which pushes the text to the left and the checkbox to the right. Besides that we set a font size and margin to the **.title** Container.
+
+See the generated task-page.dart to see what actually is being generated in Dart, by taking the Pug  and applying the styles with shortcuts. The result looks like this:
+
+![](../.gitbook/assets/screen-shot-2018-12-18-at-4.20.01-pm.png)
 
 
 
