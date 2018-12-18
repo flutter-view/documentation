@@ -15,7 +15,7 @@ Our app will look like this:
 
 You can find the[ full app source code](https://github.com/flutter-view/examples/tree/master/todolist) with some extra features added such as deleting and persistence in [the examples](../get-started/examples.md#todolist).
 
-_Note: this approach requires you add the_ [_**flutter\_view\_tools**_](https://pub.dartlang.org/packages/flutter_view_tools) _dependency to your project's **pubspec.yaml** file._
+_Note: this approach requires you add the_ [_**flutter\_view\_tools**_](https://pub.dartlang.org/packages/flutter_view_tools) _dependency to your project's **pubspec.yaml** file. It is also recommended to use VS Code with the_ [_**flutter-view extensions**_](../get-started/vs-code-support.md)_._
 
 ## The basic structure
 
