@@ -154,7 +154,7 @@ home-page(flutter-view)
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Flutter-view has plugins that recognise css properties, and transform them into code. Setting a `background-image` CSS property on a **Container** will add an [BoxDecoration](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with a [DecorationImage](https://docs.flutter.io/flutter/painting/DecorationImage-class.html), and set it to the decoration property of that **Container**. Add the following to your **homepage.sass** and press refresh on your emulator:
+Flutter-view has [shortcuts](../reference/css-properties.md) that recognise CSS-like properties, and transform them into code. Setting a [**background-image**](../reference/css-properties.md#box-shadow-1) property on a **Container** will add an [BoxDecoration](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with a [DecorationImage](https://docs.flutter.io/flutter/painting/DecorationImage-class.html), and set it to the decoration property of that **Container**. Add the following to your **homepage.sass** and press refresh on your emulator:
 
 ```css
 .cover
@@ -228,7 +228,7 @@ Scaffold HomePage() {
 
 Feel free to play around with some CSS styles to see effect. Some of the things you could try:
 
-* add margin between the cover image and the greeting by adding `margin-top: 10` to the .greeting class in **homepage.sass**.
+* add [**margin**](../reference/css-properties.md#margin) between the cover image and the greeting by adding `margin-top: 10` to the .greeting class in **homepage.sass**.
 * instead of a background image, give the **.cover** class a `background-color: blue`.
 
 Currently you need to press the hot refresh button in your emulator to see changes. In the next section we add Visual Studio Code support so this will happen immediately when you change your .pug or .sass file.
