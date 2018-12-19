@@ -61,7 +61,7 @@ This generated function can be used like any other Dart code, and will return th
 
 ## Adding Styling
 
-You can add Sass/CSS to styles to your view. Flutter-view contains plugins that take your CSS properties and convert them into code. For our example, you can easily add a text color, background color, some font properties, and add padding:
+You can add Sass/CSS to styles to your view. Flutter-view contains [shortcut properties](reference/css-properties.md) that take your CSS-like properties and convert them into code. For our example, you can easily add a text [**color**](reference/css-properties.md#color-color), [**background color**](reference/css-properties.md#box-shadow-2), some [**font properties**](reference/css-properties.md#box-shadow-8), and add [**padding**](reference/css-properties.md#padding):
 
 {% tabs %}
 {% tab title="Pug" %}
@@ -118,9 +118,9 @@ Hello() {
 {% endtab %}
 {% endtabs %}
 
-Flutter-view supports many CSS properties, and makes it easy to change styles and immediately see the effect. Since single CSS rules can apply to many elements, small CSS changes may have big code effects.
+Flutter-view supports [many CSS properties](reference/css-properties.md), and makes it easy to change styles and immediately see the effect. Since single CSS rules can apply to many elements, small CSS changes may have big code effects.
 
-You can also fully leverage both Pug and Sass mixin and function support, allowing for some powerful patters, such as different styling based on running Android or iOS.
+You can also fully leverage both Pug and Sass mixin and function support, allowing for some powerful patters, such as [different styling based on running Android or iOS](guide/untitled.md).
 
 ## Making it Reactive
 
