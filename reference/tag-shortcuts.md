@@ -161,6 +161,8 @@ Lifecycle Example({ @required model }) {
 {% endtab %}
 {% endtabs %}
 
+For more information, see [monitoring the state lifecycle](../guide/writing-reactive-code.md#monitoring-the-state-lifecycle). 
+
 ## reactive
 
 _Note: Requires the_ [_flutter-view-tools_](https://pub.dartlang.org/packages/flutter_view_tools) _Dart library._
@@ -218,5 +220,5 @@ UserEntry({ @required user }) {
 
 In the above example, a user model is passed into the view. If a user is an instance of a Model, and user.notifyListeners\(\) gets called, part below the reactive tag \(the .name and .user containers\) will automatically be re-rendered.
 
-
+For more information and a more elaborate example, see [Writing Reactive code](../guide/writing-reactive-code.md).
 
