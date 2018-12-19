@@ -44,7 +44,7 @@ Our task has a name and can be done:
 {% code-tabs-item title="lib/model/task.dart" %}
 ```dart
 import 'package:meta/meta.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:flutter_view_tools/flutter_view_tools.dart';
 
 class Task extends Model {
 
@@ -62,7 +62,7 @@ Our application has a model that contains the list of tasks we want to keep:
 {% code-tabs %}
 {% code-tabs-item title="lib/model/appmodel.dart" %}
 ```dart
-import 'package:scoped_model/scoped_model.dart';
+import 'package:flutter_view_tools/flutter_view_tools.dart';
 import 'package:todolist/model/task.dart';
 
 class AppModel extends Model {
@@ -93,7 +93,7 @@ Our view model starts out simple, for now it only needs a reference to the app, 
 {% code-tabs-item title="lib/pages/taskspage/taskspage-model.dart" %}
 ```dart
 import 'package:meta/meta.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:flutter_view_tools/flutter_view_tools.dart';
 import 'package:todolist/model/app-model.dart';
 
 class TasksPageModel extends Model {
@@ -443,7 +443,7 @@ At line 4 we have added a computed [**text-decoration**](../reference/css-proper
 {% code-tabs-item title="lib/pages/taskspage/taskspage-model.dart" %}
 ```dart
 import 'package:meta/meta.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:flutter_view_tools/flutter_view_tools.dart';
 import 'package:todolist/model/app-model.dart';
 
 class TasksPageModel extends Model {
@@ -463,11 +463,81 @@ Now completed tasks look more completed:
 
 ![done means done!](../.gitbook/assets/screen-shot-2018-12-19-at-4.10.57-pm.png)
 
+## Monitoring the state lifecycle
+
+You may need to _**initialize**_ some things in your **view-model** when the state of your layout starts, and _**free**_ those resources when the state is disposed of. In that case, **use a** [**lifecycle**](../reference/tag-shortcuts.md#lifecycle) **widget**. It is part of the flutter-view-tools library. 
+
+For example, let's say your **view** has a [**ListView**](https://docs.flutter.io/flutter/widgets/ListView-class.html) widget with a long list and you want to be able to load more items when you scroll near the bottom.
+
+This requires we create a [**ScrollController**](https://docs.flutter.io/flutter/widgets/ScrollController-class.html) in the **view-model** and pass it to the [**ListView**](https://docs.flutter.io/flutter/widgets/ListView-class.html) ****in the **view**. We can then listen to the [**ScrollController**](https://docs.flutter.io/flutter/widgets/ScrollController-class.html) and react when the scrollposition is very low. Finally, when the **view** is disposed of, we also want our listener to be removed.
+
+In the todo app we can do this as follows in the **view**: 
+
+{% code-tabs %}
+{% code-tabs-item title="tasks-page.pug" %}
+```css
+#body(as='body')
+    lifecycle(:on-init='model.init' :on-dispose='model.dispose')
+        list-view(:controller='model.scrollController')
+            task-entry(for='task in model.app.tasks' :task='task' :model='model')
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+At line **2** we add the [**lifecycle**](../reference/tag-shortcuts.md#lifecycle) widget with handlers for the init and dispose events, and pass them along to the **view-model**. 
+
+At line **3** we pass the scrollController of the view-model to the list, so we can monitor the scrolling position.
+
+The **view-model** needs to store the scrollController, initialize it and dispose of it:
+
+{% code-tabs %}
+{% code-tabs-item title="lib/pages/taskspage/taskspage-model.dart" %}
+```dart
+import 'package:meta/meta.dart';
+import 'package:flutter/widgets.dart'
+import 'package:flutter_view_tools/flutter_view_tools.dart';
+import 'package:todolist/model/app-model.dart';
+
+class TasksPageModel extends Model {
+  TasksPageModel({@required this.app})
+    : scrollController = ScrollController(initialScrollOffset: 0.0, keepScrollOffset: true);
+
+  final AppModel app;
+  final flutter.ScrollController scrollController;
+
+  init() {
+    this.scrollController.addListener(this.onScroll)
+  }
+  
+  dispose() {
+    this.scrollController.removeListener(this.onScroll)
+  }
+  
+  onScroll() {
+    if (this.scrollController.position.extentAfter < 500) {
+      // if not already loading, load more entries here!
+    }
+  }
+      
+  taskTextDecoration(Task task) {
+    return task.done ? TextDecoration.lineThrough : TextDecoration.none;
+  }
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+At line 8 the **scrollController** is set up.
+
+At lines **13** and **17** we add the **init** and **dispose** methods that are called by the lifecycle widget. These will start and stop listening to our scrollController.
+
+Finally at line **21** we have an **onScroll** method that actually checks the scroll position and loads more entries.
+
 ## See the full example
 
-This covers the basics of how to make any app react to your model changes. 
+This covers the basics of how to structure a reactive app with flutter-view, ScopedModel and the flutter-view-tools.
 
-Of course our todo app is still incomplete,however with this you should be able to understand the full implementation. See [the full example](../get-started/examples.md#todolist) with [source code](https://github.com/flutter-view/examples/tree/master/todolist) for a full implementation of this todo app. Notable additions there are:
+Of course our todo app is still incomplete, however you now should be able to understand the full implementation. See [the full example](../get-started/examples.md#todolist) with [source code](https://github.com/flutter-view/examples/tree/master/todolist) for a full implementation of this todo app. Notable additions there are:
 
 * an add-task-dialog view that lets you enter a new task
 * being able to check tasks as done
