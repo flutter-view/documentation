@@ -5,9 +5,9 @@
 This guide will show you how we recommend you build a simple reactive app with an [MVVM approach](https://en.wikipedia.org/wiki/Model–view–viewmodel) using the ReactiveWidget and flutter-view. In essence building a reactive app in flutter-view always works the same:
 
 1. **handle events from your views on the view-model**
-2. **have the view-model call your business logic for actions**
-3. **have those actions update your business model**
-4. **have your views use the reactive tag to listen for any updates**
+2. **have the view-model call your business model for actions**
+3. **have those actions update your business model data**
+4. **have your views use the** [**reactive**](../reference/tag-shortcuts.md#reactive) **tag to listen for any updates**
 
 Our app will look like this:
 
@@ -253,7 +253,7 @@ First lets set some example starter tasks. In **AppModel**, add some starter tas
 
 {% code-tabs %}
 {% code-tabs-item title="app-model.dart" %}
-```text
+```dart
 // this.tasks = [];
 
 this.tasks = [
@@ -269,7 +269,7 @@ To actually show the tasks on the **tasks-page**, we can iterate through them wi
 
 {% code-tabs %}
 {% code-tabs-item title="task-page.pug" %}
-```css
+```c
 // #body(as='body')
 //    center Here be tasks!
 
@@ -417,6 +417,53 @@ reactive(as='body' watch='model.app')
 The only real replacement is that we changed a simple \#body container into a reactive tag, that watches the app for changes. When the **notifyListeners\(\)** call is made on the **AppModel**, everything below the reactive tag is reevaluated. Thus when we add a new task, it should now show in the view:
 
 ![](../.gitbook/assets/screen-shot-2018-12-18-at-5.00.15-pm%20%281%29.png)
+
+## Using computed properties
+
+Often you may need to calculate things for your presentation that are not possible with just simple layout presentation logic. Instead **you use the view-model to compute values for your view**.
+
+For example, let's have the tasks that are completed have their title text decorated with strike-through. And as an exercise, let's have the text-decoration computed on the view-model instead of in the view. Update the task-entry in tasks-page.pug:
+
+{% code-tabs %}
+{% code-tabs-item title="tasks-page.pug" %}
+```css
+task-entry(flutter-view :task[Task] :model[TasksPageModel])
+	card
+		row
+			.title(:text-decoration='model.taskTextDecoration(task)')
+				| ${task.name}
+			checkbox(:^value='task.done')
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+At line 4 we have added a computed [**text-decoration**](../reference/css-properties.md#box-shadow-13) property. It starts with `:` so it will use the result of the expression we pass. This expression is **model.taskTextDecoration\(task\)**. We want this expression to return [**TextDecoration.lineThrough**](https://docs.flutter.io/flutter/dart-ui/TextDecoration/lineThrough-constant.html) if our passed current task is done. Let's add this method to the **TasksPageModel**:
+
+{% code-tabs %}
+{% code-tabs-item title="lib/pages/taskspage/taskspage-model.dart" %}
+```dart
+import 'package:meta/meta.dart';
+import 'package:scoped_model/scoped_model.dart';
+import 'package:todolist/model/app-model.dart';
+
+class TasksPageModel extends Model {
+  TasksPageModel({@required this.app});
+
+  final AppModel app;
+  
+  taskTextDecoration(Task task) {
+    return task.done ? TextDecoration.lineThrough : TextDecoration.none;
+  }
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+Now completed tasks look more completed:
+
+![done means done!](../.gitbook/assets/screen-shot-2018-12-19-at-4.10.57-pm.png)
+
+## See the full example
 
 This covers the basics of how to make any app react to your model changes. 
 
