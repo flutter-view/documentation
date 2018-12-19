@@ -1229,6 +1229,36 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
+## text-transform <a id="box-shadow"></a>
+
+Changes the case of the text. It follows the CSS standards.
+
+Valid values:
+
+* **uppercase:** changes the text to uppercase
+* **lowercase:** changes the text to lowercase
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.test(text-transform='uppercase') 
+    | This text will be shown in uppercase
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```dart
+Container(
+  child: Text( 
+    'This will be cut off nicely with ellipsis'.toUpperCase(),
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
 ## max-lines <a id="box-shadow"></a>
 
 Sets an optional maximum number of lines for the text to span, wrapping if necessary. If the text exceeds the given number of lines, it will be truncated according to [**overflow**](css-properties.md#box-shadow-18).
