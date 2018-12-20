@@ -91,7 +91,7 @@ mixin platform-slot
 We can then import this tool into our view and use it like this:
 
 {% code-tabs %}
-{% code-tabs-item title="using mixin" %}
+{% code-tabs-item title="pug" %}
 ```css
 include /screens/default.pug
 
