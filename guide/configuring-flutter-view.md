@@ -165,7 +165,7 @@ Container(
 )
 ```
 
-By setting showCommentsInDart, this feature is disabled.
+By setting showCommentsInDart to false, this feature is disabled.
 
 Default value:
 
@@ -177,7 +177,7 @@ showCommentsInDart: true
 
 If set to true, if there is an error processing a pug or css file, the error will not only be printed by flutter-view in the console, but also be shown as text in the Dart file.
 
-The benefit of this is that you will get a red Dart file, so you get an active warning something got broken. A downside is that sometimes it breaks hot reloading.
+The benefit of this is that if you make a Pug or Sass mistake, it will show as an error in your IDE, instead of just in the flutter-view output.
 
 Default value:
 
