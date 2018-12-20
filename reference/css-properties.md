@@ -1252,7 +1252,7 @@ Example:
 ```dart
 Container(
   child: Text( 
-    'This will be cut off nicely with ellipsis'.toUpperCase(),
+    'This text will be shown in uppercase'.toUpperCase(),
   ),
 )
 ```
