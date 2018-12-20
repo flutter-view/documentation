@@ -8,12 +8,12 @@ See the shortcuts reference for a list of all included shortcuts.
 
 The shortcut tags are macros that help you code layouts more easily. 
 
-For example, the **builder** tag is a shortcut to a [**Builder**](https://docs.flutter.io/flutter/widgets/Builder-class.html) widget with a build function, so you do not need to write the function. You simply keep writing widgets as its children.
+For example, the [**builder**](../reference/tag-shortcuts.md#builder) tag is a shortcut to a [**Builder**](https://docs.flutter.io/flutter/widgets/Builder-class.html) widget with a build function, so you do not need to write the function. You simply keep writing widgets as its children.
 
 Other notable examples are:
 
-* **reactive**: lets you write terse reactive code that responds to your model changes
-* **assign**: easily assign values with expressions
+* \*\*\*\*[**reactive**](../reference/tag-shortcuts.md#reactive): lets you write terse reactive code that responds to your model changes
+* \*\*\*\*[**assign**](../reference/tag-shortcuts.md#assign): easily assign values with expressions
 
 See the [**shortcut tags reference**](../reference/tag-shortcuts.md) for all tags.
 
@@ -27,7 +27,7 @@ Some commonly used examples are:
 
 * \*\*\*\*[**margin**](../reference/css-properties.md#margin) ****and ****[**padding**](../reference/css-properties.md#padding) to let you lay out code easily
 * \*\*\*\*[**background-image**](../reference/css-properties.md#box-shadow-1)**,** [**background-color**](../reference/css-properties.md#box-shadow-2) ****and ****[**border-radius**](../reference/css-properties.md#border-radius) to style containers
-* **font-size, font-family** and **font-weight**: to style text
+* \*\*\*\*[**font-size**](../reference/css-properties.md#box-shadow-8)**,**[ **font-family**](../reference/css-properties.md#box-shadow-10) ****and ****[**font-weight**](../reference/css-properties.md#box-shadow-9): to style text
 * any property name ending on [**color**](../reference/css-properties.md#color-color) accepts both color names and hex codes
 
 See the [**shortcut properties reference**](../reference/css-properties.md) for all supported properties.
