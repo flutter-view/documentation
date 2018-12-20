@@ -4,9 +4,9 @@
 
 **You can use CSS or Sass to set any property to any class or id in your Pug or HTML file.**
 
-To do so, create a style file with the same name as your Pug or HTML file, in the same directory. For example, if you have a startpage.pug, to style it simply add a startpage.sass in the same directory.
+To style a Pug file, create a Sass style file with the same name \(but different extension\) as your Pug file, in the same directory. For example, if you have a startpage.pug, to style it simply add a startpage.sass in the same directory.
 
-Recommendation: create a directory per layout, with the name of your layout. Then inside, create a pug file, sass file and your model and other supporting files.
+_Recommendation_: create a directory per layout, with the name of your layout. Then inside, create a pug file, sass file and your model and other supporting files.
 
 Example structure:
 
@@ -100,7 +100,7 @@ Some examples are [color](../reference/css-properties.md#color-color), [padding]
 
 As an example, consider the following Pug layout we want to style \(taken and converted into flutter-view Pug from the [Flutter Card sample](https://docs.flutter.io/flutter/material/Card-class.html)\):
 
-```text
+```css
 card
     column
         list-tile
@@ -117,7 +117,7 @@ card
 
 We have a layout, and now we can style it. 
 
-The "buy tickets" and "listen" FlatButtons we want to have uppercase text. We can use the **text-transform** shortcut:
+The "buy tickets" and "listen" FlatButtons we want to have uppercase text. We can use the [**text-transform**](../reference/css-properties.md#box-shadow-18) shortcut:
 
 ```css
 flat-button
