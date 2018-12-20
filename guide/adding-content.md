@@ -163,6 +163,8 @@ return Container(
 {% endtab %}
 {% endtabs %}
 
+You can [override the default wrapper](configuring-flutter-view.md#autowrapchildren-and-autowrapchildrenclass) in **flutter-view.json**.
+
 ### Calling dart factory constructors
 
 Some Flutter Dart classes may use factory constructors. For example, ButtonTheme has a [**ButtonTheme.bar\(\)**](https://docs.flutter.io/flutter/material/ButtonTheme/ButtonTheme.bar.html) constructor. 
@@ -345,6 +347,10 @@ return Scaffold(
 {% endtabs %}
 
 The [Scaffold](https://docs.flutter.io/flutter/material/Scaffold-class.html) class used above has no child or children parameters. Instead we add two children and assign them as parameters using the **as** property.
+
+### Passing functions as children
+
+You can create functions that return children using the [**function shortcut**](../reference/tag-shortcuts.md#function).
 
 ### Passing handlers
 

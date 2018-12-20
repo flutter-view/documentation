@@ -13,6 +13,8 @@ import 'package:flutter/material.dart'
 import 'package:flutter/cupertino.dart';
 ```
 
+You can [add additional default imports](configuring-flutter-view.md#imports) using **flutter-view.json**.
+
 ### Adding imports
 
 To import additional packages in a Pug or HTML file, use the import tag with the package parameter:
