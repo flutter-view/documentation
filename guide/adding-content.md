@@ -346,9 +346,9 @@ return Scaffold(
 
 The [Scaffold](https://docs.flutter.io/flutter/material/Scaffold-class.html) class used above has no child or children parameters. Instead we add two children and assign them as parameters using the **as** property.
 
-### Passing Functions / Closures
+### Passing handlers
 
-Passing a function or closure is no different than in Dart:
+Passing a handler function or closure is no different than in Dart:
 
 ```css
 my-button(flutter-view :on-click[Function])

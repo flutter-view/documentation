@@ -1,5 +1,39 @@
 # Shortcut tags
 
+## function
+
+Creates a function, and uses the body as what is returned. This allows you to pass functions as parameters.
+
+#### Parameters
+
+* **params**: `@required String` a list of comma separated parameters your function expects
+
+Example, to pass a builder function to a [**LayoutBuilder**](https://docs.flutter.io/flutter/widgets/LayoutBuilder-class.html):
+
+{% tabs %}
+{% tab title="Pug" %}
+```c
+layout-builder
+    function(as='builder' params='context, constraints')
+        container Layout constraints: $constraints
+```
+{% endtab %}
+
+{% tab title="generated Dart" %}
+```dart
+LayoutBuilder(
+    builder: (context, constraints) {
+        return Container(
+            child: Text(
+                'Layout constraints: $constraints'
+            ),
+        );
+    }
+)
+```
+{% endtab %}
+{% endtabs %}
+
 ## builder
 
 Wraps its child in a builder function that exposes the current [**BuildContext**](https://docs.flutter.io/flutter/widgets/BuildContext-class.html).
