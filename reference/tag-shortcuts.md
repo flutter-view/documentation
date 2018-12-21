@@ -151,10 +151,10 @@ Useful in combination with `Model` and `ReactiveModel`, since your model can be 
 
 #### Parameters
 
-* **onInit**: `@required Object` the rest of the widgets that get rerendered if the watched model updates
-* **onBuild**: `Function(BuildContext)` Called when build is called on the widget
+* **onInit**: `Function` Called when [**initState**](https://docs.flutter.io/flutter/widgets/State/initState.html) is called on the widget state
+* **onBuild**: `Function(BuildContext)` Called when [**build**](https://docs.flutter.io/flutter/widgets/State/build.html) is called on the widget state
 * **onRender**: `Function` Called when render is called on the widget
-* **onDispose**: `Function` Called when dispose is called on the widget
+* **onDispose**: `Function` Called when [**dispose**](https://docs.flutter.io/flutter/widgets/State/dispose.html) is called on the widget state
 
 Example:
 

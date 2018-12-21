@@ -224,6 +224,39 @@ Column(
 {% endtab %}
 {% endtabs %}
 
+### Passing const widgets
+
+For optimising performance, you may want to pass some widgets as constants. You can do this by adding a **const** parameter in a widget:
+
+To see how this works, compare the Pug and generated Dart code in this example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+container
+    column(const)
+        row 
+            text(:value='first row!')
+```
+{% endtab %}
+
+{% tab title="generated Dart" %}
+```dart
+return Container(
+    child: const Column(
+        children: [
+            Row(
+                children: [
+                    Text('first row!'),
+                ],
+            ),
+        ],
+    ),
+);
+```
+{% endtab %}
+{% endtabs %}
+
 ## Passing parameters
 
 To pass parameters besides child or children, you pass them as pug/html parameters.
