@@ -162,7 +162,7 @@ Example:
 {% tab title="Pug" %}
 ```c
 example(flutter-view :model[MyModel])
-	lifecycle(:on-dispose='model.onDisposed()')
+	lifecycle(:on-dispose='model.onDisposed')
 		| ${model.message}!
 ```
 {% endtab %}
@@ -185,7 +185,7 @@ class MyModel extends Model {
 ```dart
 Lifecycle Example({ @required model }) {
   return Lifecycle( // project://lib/pages/homepage/homepage.pug#21,2
-    onDispose: model.onDispose(),
+    onDispose: model.onDisposed,
     child: Text( 
       '${model.message}',
     ),
