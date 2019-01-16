@@ -22,7 +22,3 @@ Instead of having the counter state in the widgets, it is kept in the applicatio
 
 An example of how you can build a simple todo app using flutter-view and the [flutter-view-tools library](https://pub.dartlang.org/packages/flutter_view_tools). It separates the app model from the page model. This is a structure that can scale as your app grows and you add more pages. The [Writing Reactive code](../guide/writing-reactive-code.md) chapter builds this app step by step.
 
-
-
-
-
