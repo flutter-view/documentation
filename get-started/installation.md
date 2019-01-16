@@ -35,7 +35,7 @@ Flutter-view has an optional Dart tooling library. It allows you to use the reac
 
 To install it, add the following dependency to your project **pubspec.yaml** file:
 
-> `flutter_view_tools: ^1.0.0`
+> `flutter_view_tools: ^1.0.3`
 
 Then perform a flutter packages get to pull in the new dependency.
 
