@@ -24,5 +24,5 @@ Flutter-view is completely free and open source, licensed throught the[ **BSD-3 
 
 ## Who built this and why?
 
-Flutter-view was created by Christian Vogel. I am a software developer and entrepreneur who loves new technology. I found Flutter to have a great developer experience, but missed the clear separations of concerns and patterns that I enjoyed in frameworks like Vue.js and React. With Flutter-view I scratched my own itch, was able to use it in my company, and hope it can also help you. If you encounter any issues or have suggestions, please let me know on Twitter at [http://twitter.com/christianvogel](http://twitter.com/christianvogel).
+Flutter-view was created by Christian Vogel. I am a software developer and entrepreneur who loves new technology. I found Flutter to have a great developer experience, but missed the clear separations of concerns and patterns that I enjoyed in frameworks like Vue.js and React. With Flutter-view I scratched my own itch, was able to use it in my company, and hope it can also help you. If you encounter any issues or have suggestions, please post an [issue on Github](https://github.com/flutter-view/flutter-view/issues), or contact me on Twitter at [http://twitter.com/christianvogel](http://twitter.com/christianvogel).
 
