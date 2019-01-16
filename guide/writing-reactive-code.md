@@ -1,5 +1,7 @@
 # Writing Reactive code
 
+_Note: This example leverages the excellent_ [_**scoped\_model library**_](https://pub.dartlang.org/packages/scoped_model)_, which usage inspired the reactive pattern for flutter-view!_
+
 **Flutter leaves us with a lot of freedom in how we want to write reactive code. Flutter-view proposes a structure but does not impose it.**
 
 This guide will show you how we recommend you build a simple reactive app with an [MVVM approach](https://en.wikipedia.org/wiki/Model–view–viewmodel) using the ReactiveWidget and flutter-view. In essence building a reactive app in flutter-view always works the same:
