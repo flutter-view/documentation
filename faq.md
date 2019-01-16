@@ -6,7 +6,7 @@ Flutter-view is a tool for creating Flutter Dart code, meant to make it easier t
 
 ## How does it work?
 
-Flutter-view itself is an npm program that you run in a terminal window. It monitors your project's Pug, Sass, HTML and CSS files. When a file updates, it will create or update Dart files of the same name.
+Flutter-view itself is an [**npm**](https://www.npmjs.com) program that you run in a terminal window. It monitors your project's Pug, Sass, HTML and CSS files. When a file updates, it will create or update Dart files of the same name.
 
 You use the Pug or HTML files to define flutter-views, which flutter-view will convert into Flutter Widget layout functions in Dart. You can them use these Dart functions in your normal Flutter code.
 
@@ -17,6 +17,10 @@ For reactive programming, it uses the fantastic [**scoped\_model library**](http
 ## How stable and complete is it?
 
 Flutter-view is pretty much complete at this point. We have been using it at my company for half a year, and fixed many bugs and contributed features in the process. With the 1.0.0 release, it is stable, fast and fully documented.
+
+## Is it free? How is it licensed?
+
+Flutter-view is completely free and open source, licensed throught the[ **BSD-3 open source license**](https://github.com/flutter-view/flutter-view/blob/master/LICENSE). Please enjoy!
 
 ## Who built this and why?
 
