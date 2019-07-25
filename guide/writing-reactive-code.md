@@ -17,7 +17,7 @@ Our app will look like this:
 
 You can find the[ full app source code](https://github.com/flutter-view/examples/tree/master/todolist) with some extra features added such as deleting and persistence in [the examples](../get-started/examples.md#todolist).
 
-_Note: this approach requires you add the_ [_**flutter\_view\_tools**_](https://pub.dartlang.org/packages/flutter_view_tools) _dependency to your project's **pubspec.yaml** file. It is also recommended to use VS Code with the_ [_**flutter-view extensions**_](../get-started/vs-code-support.md)_._
+_Note: this approach requires you add the_ [_**flutter\_view\_widgets**_](https://pub.dev/packages/flutter_view_widgets) _dependency to your project's **pubspec.yaml** file. It is also recommended to use VS Code with the_ [_**flutter-view extensions**_](../get-started/vs-code-support.md)_._
 
 ## The basic structure
 
@@ -46,7 +46,7 @@ Our task has a name and can be done:
 {% code-tabs-item title="lib/model/task.dart" %}
 ```dart
 import 'package:meta/meta.dart';
-import 'package:flutter_view_tools/flutter_view_tools.dart';
+import 'package:flutter_view_widgets/flutter_view_widgets.dart';
 
 class Task extends Model {
 
@@ -64,7 +64,7 @@ Our application has a model that contains the list of tasks we want to keep:
 {% code-tabs %}
 {% code-tabs-item title="lib/model/appmodel.dart" %}
 ```dart
-import 'package:flutter_view_tools/flutter_view_tools.dart';
+import 'package:flutter_view_widgets/flutter_view_widgets.dart';
 import 'package:todolist/model/task.dart';
 
 class AppModel extends Model {
@@ -95,7 +95,7 @@ Our view model starts out simple, for now it only needs a reference to the app, 
 {% code-tabs-item title="lib/pages/taskspage/taskspage-model.dart" %}
 ```dart
 import 'package:meta/meta.dart';
-import 'package:flutter_view_tools/flutter_view_tools.dart';
+import 'package:flutter_view_widgets/flutter_view_widgets.dart';
 import 'package:todolist/model/app-model.dart';
 
 class TasksPageModel extends Model {
@@ -112,7 +112,7 @@ Our view is a page scaffold with a list of tasks and a floating add button on th
 {% code-tabs %}
 {% code-tabs-item title="lib/pages/taskspage/taskspage.pug" %}
 ```css
-import(package='flutter_view_tools/flutter_view_tools.dart')
+import(package='flutter_view_widgets/flutter_view_widgets.dart')
 import(package='todolist/model/app-model.dart')
 import(package='todolist/model/task.dart')
 import(file='taskspage-model.dart')
@@ -445,7 +445,7 @@ At line 4 we have added a computed [**text-decoration**](../reference/css-proper
 {% code-tabs-item title="lib/pages/taskspage/taskspage-model.dart" %}
 ```dart
 import 'package:meta/meta.dart';
-import 'package:flutter_view_tools/flutter_view_tools.dart';
+import 'package:flutter_view_widgets/flutter_view_widgets.dart';
 import 'package:todolist/model/app-model.dart';
 
 class TasksPageModel extends Model {
@@ -497,7 +497,7 @@ The **view-model** needs to store the scrollController, initialize it and dispos
 ```dart
 import 'package:meta/meta.dart';
 import 'package:flutter/widgets.dart'
-import 'package:flutter_view_tools/flutter_view_tools.dart';
+import 'package:flutter_view_widgets/flutter_view_widgets.dart';
 import 'package:todolist/model/app-model.dart';
 
 class TasksPageModel extends Model {

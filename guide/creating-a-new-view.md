@@ -22,13 +22,13 @@ To import additional packages in a Pug or HTML file, use the import tag with the
 {% tabs %}
 {% tab title="Pug" %}
 ```css
-import(package='flutter_view_tools/flutter_view_tools.dart')
+import(package='flutter_view_widgets/flutter_view_widgets.dart')
 ```
 {% endtab %}
 
 {% tab title="HTML" %}
 ```markup
-<import package='flutter_view_tools/flutter_view_tools.dart'/>
+<import package='flutter_view_widgets/flutter_view_widgets.dart'/>
 ```
 {% endtab %}
 {% endtabs %}

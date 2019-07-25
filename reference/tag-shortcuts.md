@@ -87,7 +87,7 @@ In the above example, if you leave out the builder, you will get an error becaus
 
 ## assign
 
-_Note: Requires the_ [_flutter-view-tools_](https://pub.dartlang.org/packages/flutter_view_tools) _Dart library._
+_Note: Requires the_ [_flutter-view-widgets_](https://pub.dev/packages/flutter_view_widgets) _Dart library._
 
 Assigns a the value of an expression to a new variable.
 
@@ -143,7 +143,7 @@ UserEntry({ @required user }) {
 
 ## lifecycle
 
-_Note: Requires the_ [_flutter-view-tools_](https://pub.dartlang.org/packages/flutter_view_tools) _Dart library._
+_Note: Requires the_ [_flutter-view-widgets_](https://pub.dev/packages/flutter_view_widgets) _Dart library._
 
 Widget that lets you listen to the lifecycle of the `BuildContext` it is part of.
 
@@ -199,7 +199,7 @@ For more information, see [monitoring the state lifecycle](../guide/writing-reac
 
 ## reactive
 
-_Note: Requires the_ [_flutter-view-tools_](https://pub.dartlang.org/packages/flutter_view_tools) _Dart library._
+_Note: Requires the_ [_flutter-view-widgets_](https://pub.dev/packages/flutter_view_widgets) _Dart library._
 
 Rerenders its children if the Listenable it watches updates.
 

@@ -22,7 +22,7 @@
 * [Writing Reactive code](guide/writing-reactive-code.md)
 * [Styling per platform](guide/untitled.md)
 
-## Shortcuts Reference
+## Shortcuts Reference <a id="reference"></a>
 
 * [Shortcut tags](reference/tag-shortcuts.md)
 * [Shortcut properties](reference/css-properties.md)

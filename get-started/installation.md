@@ -27,7 +27,7 @@ To test your installation worked, type the flutter-view command in your Terminal
 
 If you got the above text, your installation was succesfull.
 
-## Installing flutter-view-tools
+## Installing flutter-view-widgets
 
 Flutter-view has an optional Dart tooling library. It allows you to use the reactive, assign and life-cycle tags.
 
@@ -35,19 +35,19 @@ Flutter-view has an optional Dart tooling library. It allows you to use the reac
 
 To install it, add the following dependency to your project **pubspec.yaml** file:
 
-> `flutter_view_tools: ^1.0.3`
+> `flutter_view_widgets: ^1.0.6`
 
 Then perform a flutter packages get to pull in the new dependency.
 
-_Note: for the latest version, check the_ [_flutter-view-tools pub page_](https://pub.dartlang.org/packages/flutter_view_tools)_._
+_Note: for the latest version, check the_ [_flutter-view-widgets pub page_](https://pub.dartlang.org/packages/flutter_view_tools)_._
 
 ### Importing the tools
 
 To import the library in Dart:
 
-`import 'package:flutter_view_tools/flutter_view_tools.dart'`
+`import 'package:flutter_view_widgets/flutter_view_widgets.dart'`
 
 To import the library in a Pug file:
 
-`import(package='flutter_view_tools/flutter_view_tools.dart')`
+`import(package='flutter_view_widgets/flutter_view_widgets.dart')`
 

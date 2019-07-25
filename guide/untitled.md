@@ -11,7 +11,7 @@ First tip is, use the [**platform\_widgets library**](https://pub.dartlang.org/p
 ```javascript
 {
 	"imports": [
-		"package:flutter_view_tools/flutter_view_tools.dart",
+		"package:flutter_view_widgets/flutter_view_widgets.dart",
 		"package:flutter_platform_widgets/flutter_platform_widgets.dart"
 	]
 }

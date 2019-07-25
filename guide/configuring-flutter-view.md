@@ -39,14 +39,14 @@ imports: [
 ]
 ```
 
-For example, to add the [**flutter\_view\_tools**](../get-started/installation.md#installing-flutter-view-tools) to each file:
+For example, to add the[ **flutter\_view\_widgets**](https://pub.dev/packages/flutter_view_widgets) to each file:
 
 {% code-tabs %}
 {% code-tabs-item title="flutter-view.json" %}
 ```javascript
 {
     imports: [
-        "package:flutter_view_tools/flutter_view_tools.dart"
+        "package:flutter_view_widgets/flutter_view_widgets.dart"
     ]
 }
 ```
