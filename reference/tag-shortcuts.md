@@ -1,4 +1,10 @@
-# Shortcut tags
+---
+description: >-
+  A list of special tags you can use in your pug code that generate code in your
+  Dart code.
+---
+
+# Pug tag shortcuts
 
 ## function
 

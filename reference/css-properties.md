@@ -1,4 +1,11 @@
-# Shortcut properties
+---
+description: >-
+  A list of all the supported CSS style like shortcuts you can use as properties
+  in your pug tags. These will then transform themselves into the appropriate
+  Dart code.
+---
+
+# CSS style shortcuts
 
 ## alignment
 
