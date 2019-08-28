@@ -4,7 +4,7 @@ description: >-
   Dart code.
 ---
 
-# Pug tag shortcuts
+# Special pug tags
 
 ## function
 

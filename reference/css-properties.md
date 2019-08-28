@@ -5,7 +5,7 @@ description: >-
   Dart code.
 ---
 
-# CSS style shortcuts
+# CSS style properties
 
 ## alignment
 

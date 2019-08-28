@@ -24,6 +24,6 @@
 
 ## Shortcuts Reference <a id="reference"></a>
 
-* [Pug tag shortcuts](reference/tag-shortcuts.md)
-* [CSS style shortcuts](reference/css-properties.md)
+* [Special pug tags](reference/tag-shortcuts.md)
+* [CSS style properties](reference/css-properties.md)
 

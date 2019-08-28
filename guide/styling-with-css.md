@@ -1,5 +1,32 @@
 # Styling with CSS
 
+## Overview
+
+One of the most powerful features in flutter-view is that it allows you to use CSS styles to flutter widgets, and to set any property of any flutter widget.
+
+For example, you can start with a simple Container:
+
+```yaml
+greeting(flutter-view)
+    .example Hello world!
+```
+
+This will generate a function that returns a Container with the class name "example", that in turns contains a Text widget with the text "Hello world".
+
+Then you can style this Container by assigning Sass styles to the class:
+
+```css
+.example
+    width: 500
+    height: 300
+    color: red
+    background-color: #333
+    font-size: 20
+    font-weight: bold
+```
+
+Flutter-view will process your styles, attaching them to the classes. Properties such as width and height are directly assigned. Some properties are recognized as CSS properties, and generate more code, such as color and font-size. The result is a normal Dart function you can call in your normal Dart code to render the styled view. In this case, a grey box with red bold text saying "Hello world!".
+
 ## Structuring your files for styling
 
 **You can use CSS or Sass to set any property to any class or id in your Pug or HTML file.**
@@ -17,6 +44,13 @@ See the[ example projects](../get-started/examples.md) for more ideas for struct
 ## Applying styles as properties
 
 **You can apply extra properties to html elements by adding them through style rules.**
+
+To style anything in a flutter-view you:
+
+1. add classes to the elements in your pug file,
+2. add style rules to these classes in the related sass file
+
+To assign a class in pug, use the  [Pug .classname syntax](https://pugjs.org/language/attributes.html#class-literal). Any div element becomes a Container widget.
 
 For example, given the following Pug:
 
@@ -49,48 +83,6 @@ Container(
   height: 200,
 );
 ```
-
-## Setting expressions
-
-**You can set an expression in CSS by wrapping the expression in quotes and starting it with a colon.**
-
-It is recommended to keep Dart expressions in your Pug files. However, in some cases it can be practical to be able to set an expression as a value, for example if flutter-view does not have special support for it.
-
-Say you want to achieve the following Dart:
-
-```dart
-Table( 
-    defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-    children: [ ... ]
-)
-```
-
-Which you can achieve with the following Pug code:
-
-```css
-table(:default-verticle-alignment='TableCellVerticalAlignment.middle')
-    ...children...
-```
-
-Now let's move the `defaultVerticleAlignment` property into a Sass file:
-
-{% tabs %}
-{% tab title="Sass" %}
-```css
-table
-    default-verticle-alignment: ':TableCellVerticalAlignment.middle'
-```
-{% endtab %}
-
-{% tab title="Pug" %}
-```css
-table
-    ...children...
-```
-{% endtab %}
-{% endtabs %}
-
-Note the colon before `TableCellVerticleAlignment.middle`in the Sass file.
 
 ## Using shortcut properties in styles
 
@@ -278,6 +270,48 @@ Card ArtistCard({ @required onBuyPressed, @required onListenPressed }) {
 {% endtabs %}
 
 As you can see here, Sass is a nice match with Pug, since you can retain the same structure. This makes it easy to find the matching styles to your pug elements.
+
+## Setting expressions
+
+**You can set an expression in CSS by wrapping the expression in quotes and starting it with a colon.**
+
+It is recommended to keep Dart expressions in your Pug files. However, in some cases it can be practical to be able to set an expression as a CSS value, for example if flutter-view does not have special support for it.
+
+Say you want to achieve the following Dart:
+
+```dart
+Table( 
+    defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+    children: [ ... ]
+)
+```
+
+Which you can achieve with the following \(a bit contrived\) Pug code:
+
+```css
+table(:default-verticle-alignment='TableCellVerticalAlignment.middle')
+    ...children...
+```
+
+Now let's move the `defaultVerticleAlignment` property into a Sass file:
+
+{% tabs %}
+{% tab title="Sass" %}
+```css
+table
+    default-verticle-alignment: ':TableCellVerticalAlignment.middle'
+```
+{% endtab %}
+
+{% tab title="Pug" %}
+```css
+table
+    ...children...
+```
+{% endtab %}
+{% endtabs %}
+
+Note the colon before `TableCellVerticleAlignment.middle`in the Sass file.
 
 ## Using Flutter Themes in styles
 
