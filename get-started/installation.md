@@ -39,7 +39,7 @@ To install it, add the following dependency to your project **pubspec.yaml** fil
 
 Then perform a flutter packages get to pull in the new dependency.
 
-_Note: for the latest version, check the_ [_flutter-view-widgets pub page_](https://pub.dartlang.org/packages/flutter_view_tools)_._
+_Note: for the latest version, check the_ [_flutter-view-widgets pub page_](https://pub.dev/packages/flutter_view_widgets)_._
 
 ### Importing the tools
 
