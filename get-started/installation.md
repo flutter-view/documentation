@@ -20,9 +20,9 @@ To test your installation worked, type the flutter-view command in your Terminal
 
 > `flutter-view`
 >
-> `flutter-view - flutter template code generator  
-> Converts html and css templates into Flutter view widget code.  
-> Please pass a directory to scan.  
+> `flutter-view - flutter template code generator    
+> Converts html and css templates into Flutter view widget code.    
+> Please pass a directory to scan.    
 > flutter-view -h for help.`
 
 If you got the above text, your installation was succesfull.

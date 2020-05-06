@@ -18,19 +18,16 @@ A single flutter-view generates a Dart function that usually returns a widget tr
 
 {% tabs %}
 {% tab title="Pug" %}
-{% code-tabs %}
-{% code-tabs-item title="hello.pug" %}
+{% code title="hello.pug" %}
 ```c
 hello(flutter-view)
     .greeting Hello world!
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 {% endtab %}
 
 {% tab title="HTML" %}
-{% code-tabs %}
-{% code-tabs-item title="hello.html" %}
+{% code title="hello.html" %}
 ```markup
 <hello flutter-view>
     <div class="greeting">
@@ -38,13 +35,11 @@ hello(flutter-view)
     </div>
 </hello>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 {% endtab %}
 
 {% tab title="Generated Dart" %}
-{% code-tabs %}
-{% code-tabs-item title="hello.dart" %}
+{% code title="hello.dart" %}
 ```dart
 Container Hello() {
     return Container(
@@ -52,8 +47,7 @@ Container Hello() {
     );
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -67,19 +61,16 @@ You can add Sass/CSS to styles to your view. Flutter-view supports [CSS style pr
 
 {% tabs %}
 {% tab title="Pug" %}
-{% code-tabs %}
-{% code-tabs-item title="hello.pug" %}
+{% code title="hello.pug" %}
 ```c
 hello(flutter-view)
     .greeting Hello world!
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 {% endtab %}
 
 {% tab title="Sass" %}
-{% code-tabs %}
-{% code-tabs-item title="hello.sass" %}
+{% code title="hello.sass" %}
 ```css
 .greeting
     color: red
@@ -87,13 +78,11 @@ hello(flutter-view)
     text-transform: uppercase
     padding: 10 20
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 {% endtab %}
 
 {% tab title="Generated Dart" %}
-{% code-tabs %}
-{% code-tabs-item title="hello.dart" %}
+{% code title="hello.dart" %}
 ```dart
 Hello() {
     return DefaultTextStyle.merge(
@@ -115,8 +104,7 @@ Hello() {
     );
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -132,8 +120,7 @@ Flutter-view does not force you into any particular Reactive model. For example 
 
 {% tabs %}
 {% tab title="user.dart" %}
-{% code-tabs %}
-{% code-tabs-item title="user.dart" %}
+{% code title="user.dart" %}
 ```dart
 class User extends Model {
     User({this.name, this.age});
@@ -142,25 +129,21 @@ class User extends Model {
     int age;
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 {% endtab %}
 
 {% tab title="hello.pug" %}
-{% code-tabs %}
-{% code-tabs-item title="hello.pug" %}
+{% code title="hello.pug" %}
 ```c
 hello(flutter-view :user)
     reactive(watch='user')
         .greeting Hello ${user.name}!
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 {% endtab %}
 
 {% tab title="generated hello.dart" %}
-{% code-tabs %}
-{% code-tabs-item title="hello.dart" %}
+{% code title="hello.dart" %}
 ```dart
 Widget Hello({user}) {
     return ReactiveWidget(
@@ -173,8 +156,7 @@ Widget Hello({user}) {
     );
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 

@@ -42,8 +42,7 @@ To create any model class, we extend the [**Model**](https://pub.dartlang.org/do
 
 Our task has a name and can be done:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/model/task.dart" %}
+{% code title="lib/model/task.dart" %}
 ```dart
 import 'package:meta/meta.dart';
 import 'package:flutter_view_widgets/flutter_view_widgets.dart';
@@ -56,13 +55,11 @@ class Task extends Model {
   bool done;
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Our application has a model that contains the list of tasks we want to keep:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/model/appmodel.dart" %}
+{% code title="lib/model/appmodel.dart" %}
 ```dart
 import 'package:flutter_view_widgets/flutter_view_widgets.dart';
 import 'package:todolist/model/task.dart';
@@ -75,8 +72,7 @@ class AppModel extends Model {
   List<Task> tasks;
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Both **Task** and **AppModel** extend [**Model**](https://pub.dartlang.org/documentation/scoped_model/latest/scoped_model/Model-class.html). This allows them to be listened to for updates. 
 
@@ -91,8 +87,7 @@ To present the app, we need two basic things:
 
 Our view model starts out simple, for now it only needs a reference to the app, so it can show the tasks we have:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/pages/taskspage/taskspage-model.dart" %}
+{% code title="lib/pages/taskspage/taskspage-model.dart" %}
 ```dart
 import 'package:meta/meta.dart';
 import 'package:flutter_view_widgets/flutter_view_widgets.dart';
@@ -104,13 +99,12 @@ class TasksPageModel extends Model {
   final AppModel app;
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Our view is a page scaffold with a list of tasks and a floating add button on the bottom right. In flutter-view, we can easily construct it using Pug:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/pages/taskspage/taskspage.pug" %}
+{% tabs %}
+{% tab title="lib/pages/taskspage/taskspage.pug" %}
 ```css
 import(package='flutter_view_widgets/flutter_view_widgets.dart')
 import(package='todolist/model/app-model.dart')
@@ -129,9 +123,9 @@ tasks-page(flutter-view :model[TasksPageModel])
 			floating-action-button(as='floatingActionButton')
 				icon(:value='Icons.add')
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="lib/pages/taskspage/taskspage.dart" %}
+{% tab title="lib/pages/taskspage/taskspage.dart" %}
 ```dart
 // note: __flatten, ignores and package links removed for clarity
 import 'package:flutter/material.dart';
@@ -174,8 +168,8 @@ Builder TasksPage({ @required TasksPageModel model }) {
   );
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 _Note: be sure to be running flutter-view -w lib in your project directory on a Terminal._
 
@@ -198,8 +192,7 @@ The top-level widget we create in **main.dart** should do the following:
 * create our **AppModel** and keep it in its state
 * start as home with our **TasksPage** and pass a **TasksPageModel**
 
-{% code-tabs %}
-{% code-tabs-item title="main.dart" %}
+{% code title="main.dart" %}
 ```dart
 import 'package:flutter/material.dart';
 import 'package:todolist/model/app-model.dart';
@@ -234,8 +227,7 @@ class _TodoListAppState extends State<TodoListApp> {
       );
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 At line **15** we create the state for our **TodoListApp.** It keeps the **AppModel** at line **17**. In the **initState\(\)** method, we initialize our **app**.
 
@@ -253,8 +245,7 @@ In the case of our app, we want to show the tasks from the **AppModel** in our *
 
 First lets set some example starter tasks. In **AppModel**, add some starter tasks:
 
-{% code-tabs %}
-{% code-tabs-item title="app-model.dart" %}
+{% code title="app-model.dart" %}
 ```dart
 // this.tasks = [];
 
@@ -264,13 +255,11 @@ this.tasks = [
 ];
 
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 To actually show the tasks on the **tasks-page**, we can iterate through them with the flutter-view [**for property**](flow-control.md#for)**:**
 
-{% code-tabs %}
-{% code-tabs-item title="task-page.pug" %}
+{% code title="task-page.pug" %}
 ```c
 // #body(as='body')
 //    center Here be tasks!
@@ -279,8 +268,7 @@ To actually show the tasks on the **tasks-page**, we can iterate through them wi
     list-view
         .task(for='task in model.app.tasks') ${task.name}
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Now after hot reloading you should see the two tasks, as two lines of text. 
 
@@ -288,8 +276,7 @@ In line 5, we are creating an array of .task Containers, one for each element in
 
 To clean up the presentation a bit, we can create a view that creates a single task, and repeat that instread. Add the following flutter-view code in **tasks-page.pug**:
 
-{% code-tabs %}
-{% code-tabs-item title="tasks-page.pug" %}
+{% code title="tasks-page.pug" %}
 ```css
 task-entry(flutter-view :task[Task] :model[TasksPageModel])
 	card
@@ -297,8 +284,7 @@ task-entry(flutter-view :task[Task] :model[TasksPageModel])
 			.title ${task.name}
 			checkbox(:^value='task.done')
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 This renders a single task entry. 
 
@@ -306,22 +292,19 @@ _Note the **value** property in the checkbox tag. It needs to be escaped because
 
 Now we can use it in the body:
 
-{% code-tabs %}
-{% code-tabs-item title="tasks-page.pug" %}
+{% code title="tasks-page.pug" %}
 ```css
 #body(as='body')
     list-view
         task-entry(for='task in model.app.tasks' :task='task' :model='model')
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 In line 3, we are again using for to repeat the tag for each task. A **task-entry** takes two parameters: the task and the model, so we pass both.
 
 Finally, let's add some styling. Create a tasks-page.sass next to tasks-page.pug, and put in the following styling:
 
-{% code-tabs %}
-{% code-tabs-item title="tasks-page.sass" %}
+{% code title="tasks-page.sass" %}
 ```css
 task-entry
 	card
@@ -331,8 +314,7 @@ task-entry
 				margin-left: 20
 				font-size: 20
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Please compare this sass styling with the pug task-entry we added. The Row in task-entry gets assigned a space between main-axis-alignment, which pushes the text to the left and the checkbox to the right. Besides that we set a font size and margin to the **.title** Container.
 
@@ -355,16 +337,14 @@ Now let us create a new task entry with the text "new task" whenever the user pr
 
 The + button is defined in tasks-page.pug. Change the code for the floating-action-button like this:
 
-{% code-tabs %}
-{% code-tabs-item title="tasks-page.pug" %}
+{% code title="tasks-page.pug" %}
 ```css
 floating-action-button(
     as='floatingActionButton'
     @on-pressed='model.onAddButtonPressed(context)')
     icon(:value='Icons.add')
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 The **@on-pressed** event handler is new. It calls **TasksPageModel.onAddButtonPressed\(\)** with the current BuildContext. We need to create this method on **TasksPageModel.**
 
@@ -372,22 +352,19 @@ The **@on-pressed** event handler is new. It calls **TasksPageModel.onAddButtonP
 
 We want the view-model to ask the app to create a new task. Add the following code to **TasksPageModel** in tasks-page-model.dart:
 
-{% code-tabs %}
-{% code-tabs-item title="tasks-page-model.dart" %}
+{% code title="tasks-page-model.dart" %}
 ```dart
 onAddButtonPressed(BuildContext context) {
     this.app.addTask(title: "new task");
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ### Have the AppModel create the new task
 
 Now to create the new task in the AppModel, we need to create a task and add it to the list of tasks. Add the following code to **AppModel** in app-model.dart:
 
-{% code-tabs %}
-{% code-tabs-item title="app-model.dart" %}
+{% code title="app-model.dart" %}
 ```dart
 addTask({String title}) {
   final task = Task(name: title);
@@ -395,8 +372,7 @@ addTask({String title}) {
   this.notifyListeners();
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 In line **2** we create the new task. We then add it. Finally and importantly, we need to call **notifyListeners\(\)** on the AppModel. This will inform the interface to respond to the new task being added.
 
@@ -404,8 +380,7 @@ In line **2** we create the new task. We then add it. Finally and importantly, w
 
 To make page-view react to changes of the **AppModel**, we need to watch the **AppModel** using the **reactive tag**. Since we pass the **AppModel** to the **TasksPageModel**, we can use model.app to get a reference to the **AppModel.** Update the tasks-page body again:
 
-{% code-tabs %}
-{% code-tabs-item title="tasks-page.pug" %}
+{% code title="tasks-page.pug" %}
 ```css
 // #body(as='body')
 
@@ -413,8 +388,7 @@ reactive(as='body' watch='model.app')
     list-view
         task-entry(for='task in model.app.tasks' :task='task' :model='model')
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 The only real replacement is that we changed a simple \#body container into a reactive tag, that watches the app for changes. When the **notifyListeners\(\)** call is made on the **AppModel**, everything below the reactive tag is reevaluated. Thus when we add a new task, it should now show in the view:
 
@@ -426,8 +400,7 @@ Often you may need to calculate things for your presentation that are not possib
 
 For example, let's have the tasks that are completed have their title text decorated with strike-through. And as an exercise, let's have the text-decoration computed on the view-model instead of in the view. Update the task-entry in tasks-page.pug:
 
-{% code-tabs %}
-{% code-tabs-item title="tasks-page.pug" %}
+{% code title="tasks-page.pug" %}
 ```css
 task-entry(flutter-view :task[Task] :model[TasksPageModel])
 	card
@@ -436,13 +409,11 @@ task-entry(flutter-view :task[Task] :model[TasksPageModel])
 				| ${task.name}
 			checkbox(:^value='task.done')
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 At line 4 we have added a computed [**text-decoration**](../reference/css-properties.md#box-shadow-13) property. It starts with `:` so it will use the result of the expression we pass. This expression is **model.taskTextDecoration\(task\)**. We want this expression to return [**TextDecoration.lineThrough**](https://docs.flutter.io/flutter/dart-ui/TextDecoration/lineThrough-constant.html) if our passed current task is done. Let's add this method to the **TasksPageModel**:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/pages/taskspage/taskspage-model.dart" %}
+{% code title="lib/pages/taskspage/taskspage-model.dart" %}
 ```dart
 import 'package:meta/meta.dart';
 import 'package:flutter_view_widgets/flutter_view_widgets.dart';
@@ -458,8 +429,7 @@ class TasksPageModel extends Model {
   }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Now completed tasks look more completed:
 
@@ -475,16 +445,14 @@ This requires we create a [**ScrollController**](https://docs.flutter.io/flutter
 
 In the todo app we can do this as follows in the **view**: 
 
-{% code-tabs %}
-{% code-tabs-item title="tasks-page.pug" %}
+{% code title="tasks-page.pug" %}
 ```css
 #body(as='body')
     lifecycle(:on-init='model.init' :on-dispose='model.dispose')
         list-view(:controller='model.scrollController')
             task-entry(for='task in model.app.tasks' :task='task' :model='model')
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 At line **2** we add the [**lifecycle**](../reference/tag-shortcuts.md#lifecycle) widget with handlers for the init and dispose events, and pass them along to the **view-model**. 
 
@@ -492,8 +460,7 @@ At line **3** we pass the scrollController of the view-model to the list, so we 
 
 The **view-model** needs to store the scrollController, initialize it and dispose of it:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/pages/taskspage/taskspage-model.dart" %}
+{% code title="lib/pages/taskspage/taskspage-model.dart" %}
 ```dart
 import 'package:meta/meta.dart';
 import 'package:flutter/widgets.dart'
@@ -526,8 +493,7 @@ class TasksPageModel extends Model {
   }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 At line 8 the **scrollController** is set up.
 

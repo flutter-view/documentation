@@ -28,8 +28,7 @@ In the lib directory of your project, add a directory called "**screens**". In i
 
 Now let's create our first flutter-view. Open **homepage.pug** and put in the following pug code:
 
-{% code-tabs %}
-{% code-tabs-item title="homepage.pug" %}
+{% code title="homepage.pug" %}
 ```css
 home-page(flutter-view)
 	scaffold
@@ -38,8 +37,7 @@ home-page(flutter-view)
 		center(as='body')
 			.greeting Hello world!
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 This code will create a material Scaffold with an AppBar and put "hello world!" in the center of it.
 
@@ -49,8 +47,7 @@ To convert this flutter-view into Dart code, we need to run flutter-view. Go to 
 
 Then check your lib/screens/homepage directory. Flutter-view should have generated homepage.dart there:
 
-{% code-tabs %}
-{% code-tabs-item title="hompage.dart" %}
+{% code title="hompage.dart" %}
 ```dart
 // some imports
 
@@ -79,8 +76,7 @@ Scaffold HomePage() {
 
 // _flatten method
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 You may notice the comments referring back to the Pug file. These can be turned off, but help the [VSCode flutter-view plugin](vs-code-support.md#linking-between-pug-and-generated-dart) \(and you\) easily navigate between the Pug file and the Dart file.
 
@@ -121,16 +117,14 @@ Our homepage looks very bland, so let us add some styling.
 
 In the same directory as **homepage.pug**, create a new file called **homepage.sass**. Let's style the .**greeting**:
 
-{% code-tabs %}
-{% code-tabs-item title="homepage.sass" %}
+{% code title="homepage.sass" %}
 ```css
 .greeting
 	color: blue
 	font-size: 30
 	font-weight: bold
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Press hot refresh in your emulator and you will now see the greeting styled:
 
@@ -138,8 +132,7 @@ Press hot refresh in your emulator and you will now see the greeting styled:
 
 Now let's add an image. We can choose to use a NetworkImage directly, or to use a background decoration on a container. To do the latter, we need to add the cover container for the image. Since we want to have the image and text to be centered together, we can wrap them in a [FittedBox](https://docs.flutter.io/flutter/widgets/FittedBox-class.html) widget. To do so, change **homepage.pug**:
 
-{% code-tabs %}
-{% code-tabs-item title="homepage.pug" %}
+{% code title="homepage.pug" %}
 ```css
 home-page(flutter-view)
 	scaffold
@@ -151,8 +144,7 @@ home-page(flutter-view)
 				.greeting Hello world!
 
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Flutter-view has [shortcuts](../reference/css-properties.md) that recognise CSS-like properties, and transform them into code. Setting a [**background-image**](../reference/css-properties.md#box-shadow-1) property on a **Container** will add an [BoxDecoration](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with a [DecorationImage](https://docs.flutter.io/flutter/painting/DecorationImage-class.html), and set it to the decoration property of that **Container**. Add the following to your **homepage.sass** and press refresh on your emulator:
 
@@ -170,8 +162,7 @@ The result should look like this:
 
 If you look at the generated **homepage.dart**, you will see how flutter-view took homepage.pug and homepage.sass and merged them:
 
-{% code-tabs %}
-{% code-tabs-item title="homepage.dart" %}
+{% code title="homepage.dart" %}
 ```dart
 Scaffold HomePage() {
   return Scaffold( // project://lib/screens/homepage/homepage.pug#2,2
@@ -223,8 +214,7 @@ Scaffold HomePage() {
   );
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Feel free to play around with some CSS styles to see effect. Some of the things you could try:
 

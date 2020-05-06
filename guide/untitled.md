@@ -6,8 +6,7 @@ When you write your Flutter app you probably want to target both iOS and Android
 
 First tip is, use the [**platform\_widgets library**](https://pub.dartlang.org/packages/flutter_platform_widgets), and add it as an [default import](configuring-flutter-view.md#imports) in flutter-view.json:
 
-{% code-tabs %}
-{% code-tabs-item title="flutter-view.json" %}
+{% code title="flutter-view.json" %}
 ```javascript
 {
 	"imports": [
@@ -16,8 +15,7 @@ First tip is, use the [**platform\_widgets library**](https://pub.dartlang.org/p
 	]
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Put `flutter-view.json` in the root of your Flutter project.
 
@@ -27,8 +25,8 @@ This will allow you to use widgets that adapt to the platform they are used on, 
 
 A common pattern is a [**slot**](flow-control.md#slot) with two implementations with two [**if**](flow-control.md#if) statements below it, one per platform:
 
-{% code-tabs %}
-{% code-tabs-item title="pug" %}
+{% tabs %}
+{% tab title="pug" %}
 ```css
 .foo
     slot
@@ -37,9 +35,9 @@ A common pattern is a [**slot**](flow-control.md#slot) with two implementations 
         .android(if='isMaterial')
             ...Android layout here...
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="css" %}
+{% tab title="css" %}
 ```
 .foo
     .ios
@@ -47,8 +45,8 @@ A common pattern is a [**slot**](flow-control.md#slot) with two implementations 
     .android
         // android layout styling here
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 The above will render different layout depending on the phone OS you run it on. Since we are adding a different class, we can also add different styling through CSS.
 
@@ -73,8 +71,7 @@ This will work, we can apply different styling for .bar.ios and .bar.android. Ho
 
 Instead, we can let Pug mixins help us. We can make a default.pug in our project that multiple view pugs can import. Then in this pug we can write a mixin:
 
-{% code-tabs %}
-{% code-tabs-item title="default.pug" %}
+{% code title="default.pug" %}
 ```css
 mixin platform-slot
 	slot
@@ -85,13 +82,12 @@ mixin platform-slot
 			.android
 				block
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 We can then import this tool into our view and use it like this:
 
-{% code-tabs %}
-{% code-tabs-item title="pug" %}
+{% tabs %}
+{% tab title="pug" %}
 ```css
 include /screens/default.pug
 
@@ -101,9 +97,9 @@ include /screens/default.pug
             .layout
                 .here
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="generated pug" %}
+{% tab title="generated pug" %}
 ```css
 include /screens/default.pug
 
@@ -122,9 +118,9 @@ include /screens/default.pug
                         .layout
                             .here 
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="css" %}
+{% tab title="css" %}
 ```
 .foo
     .ios
@@ -134,8 +130,8 @@ include /screens/default.pug
         .some
             // android layout styling here
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 Now we have no repetition in our layout! 
 

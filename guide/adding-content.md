@@ -12,8 +12,7 @@ The Pug creates the layout, and the main.dart file uses this layout to render th
 
 {% tabs %}
 {% tab title="Pug" %}
-{% code-tabs %}
-{% code-tabs-item title="foo-page.pug" %}
+{% code title="foo-page.pug" %}
 ```css
 foo-page(flutter-view :greeting)
     scaffold
@@ -21,13 +20,11 @@ foo-page(flutter-view :greeting)
             container(as='title') Foo Page
         center(as='body') Hello $greeting!
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 {% endtab %}
 
 {% tab title="generated Dart" %}
-{% code-tabs %}
-{% code-tabs-item title="foo-page.dart" %}
+{% code title="foo-page.dart" %}
 ```dart
 FooPage({@required greeting}) {
     return Scaffold(
@@ -42,13 +39,11 @@ FooPage({@required greeting}) {
     );
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 {% endtab %}
 
 {% tab title="main.dart" %}
-{% code-tabs %}
-{% code-tabs-item title="main.dart" %}
+{% code title="main.dart" %}
 ```dart
 import 'package:flutter/material.dart';
 import 'foo-page.dart';
@@ -67,8 +62,7 @@ class TestApp extends StatelessWidget {
 
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -86,12 +80,12 @@ To see how this works, compare the Pug and generated Dart code in this example:
 container
     column
         row 
-            text(:value='first row!')
+            text(value='first row!')
         row 
-            text(:value='second row!')
+            text(value='second row!')
         row
             flat-button 
-                text(:value='Click me!')
+                text(value='Click me!')
             
 ```
 {% endtab %}
@@ -236,7 +230,7 @@ To see how this works, compare the Pug and generated Dart code in this example:
 container
     column(const)
         row 
-            text(:value='first row!')
+            text(value='first row!')
 ```
 {% endtab %}
 

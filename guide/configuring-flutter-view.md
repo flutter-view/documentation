@@ -6,15 +6,13 @@ To configure flutter-view, put a file named **flutter-view.json** in the directo
 
 For example, to change the indentation of the generated Dart to 4 spaces:
 
-{% code-tabs %}
-{% code-tabs-item title="flutter-view.json" %}
+{% code title="flutter-view.json" %}
 ```javascript
 {
     indentation: 4
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ## indentation
 
@@ -41,8 +39,7 @@ imports: [
 
 For example, to add the[ **flutter\_view\_widgets**](https://pub.dev/packages/flutter_view_widgets) to each file:
 
-{% code-tabs %}
-{% code-tabs-item title="flutter-view.json" %}
+{% code title="flutter-view.json" %}
 ```javascript
 {
     imports: [
@@ -50,8 +47,7 @@ For example, to add the[ **flutter\_view\_widgets**](https://pub.dev/packages/fl
     ]
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ## tagClasses
 
@@ -72,8 +68,7 @@ tagClasses: {
 
 For example, if you want to use FlatButton when you use the button tag:
 
-{% code-tabs %}
-{% code-tabs-item title="flutter-view.json" %}
+{% code title="flutter-view.json" %}
 ```javascript
 {
     tagClasses: {
@@ -81,8 +76,7 @@ For example, if you want to use FlatButton when you use the button tag:
     }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ## multiChildClasses
 
