@@ -963,6 +963,40 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
+## letter-spacing <a id="box-shadow"></a>
+
+The amount of space \(in logical pixels\) to add between each letter. A negative value can be used to bring the letters closer. Only works on Containers.
+
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the letter spacing in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+
+Valid values are ints and doubles.
+
+Example:
+
+{% tabs %}
+{% tab title="Pug" %}
+```css
+.test(letter-spacing=3) This text gets spaced out
+```
+{% endtab %}
+
+{% tab title="Dart" %}
+```
+DefaultTextStyle.merge( 
+  child: 
+  Container(
+    child: Text( 
+      'This text gets spaced out',
+    ),
+  ),
+  style: TextStyle( 
+    letterSpacing: 3,
+  ),
+)
+```
+{% endtab %}
+{% endtabs %}
+
 ## line-height <a id="box-shadow"></a>
 
 Sets the line height text in the container and all its children. Only works on Containers.
