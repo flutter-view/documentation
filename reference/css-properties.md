@@ -58,7 +58,7 @@ Container(
 
 ## fit
 
-Describes how a box should be inscribed into another box.
+Describes how a box should be inscribed into another box. Used for the ****[**FittedBox**](https://api.flutter.dev/flutter/widgets/FittedBox-class.html) Flutter container. Use the [background-size](css-properties.md#box-shadow-4) style property instead if you want to apply a sizing to a [background-image](css-properties.md#box-shadow-1).
 
 Maps to Flutter [**BoxFit**](https://docs.flutter.io/flutter/painting/BoxFit-class.html) values in camelcase.
 
