@@ -153,7 +153,7 @@ Flutter-view has [shortcuts](../reference/css-properties.md) that recognise CSS-
 	width: 300
 	height: 300
 	background-size: cover
-	background-image: url("https://goo.gl/49zLA9")
+	background-image: url("https://cutt.ly/Gat1ivy")
 ```
 
 The result should look like this:
@@ -185,7 +185,7 @@ Scaffold HomePage() {
               decoration: BoxDecoration( 
                 image: DecorationImage( 
                   image: NetworkImage( 
-                    'https://goo.gl/49zLA9',
+                    'https://cutt.ly/Gat1ivy',
                   ),
                   fit: BoxFit.cover,
                 ),
