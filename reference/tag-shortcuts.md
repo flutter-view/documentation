@@ -157,7 +157,7 @@ For more information, see [monitoring the state lifecycle](../guide/writing-reac
 
 _Note: Requires the_ [_flutter-view-widgets_](https://pub.dev/packages/flutter\_view\_widgets) _Dart library._
 
-Rerenders its children if the Listenable it watches updates.
+Re-renders its children if the Listenable it watches updates.
 
 This widget was made to work well with the [ScopedModel library](https://pub.dartlang.org/packages/scoped\_model). However when using flutter-view, you no longer need to use the **ScopedModel** and **ScopedModelDescendant** widgets. Instead, you pass a model into a flutter-view, and use the reactive tag to watch for changes.
 
