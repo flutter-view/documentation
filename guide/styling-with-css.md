@@ -6,7 +6,7 @@ One of the most powerful features in flutter-view is that it allows you to use C
 
 For example, you can start with a simple Container:
 
-```yaml
+```pug
 greeting(flutter-view)
     .example Hello world!
 ```
@@ -15,7 +15,7 @@ This will generate a function that returns a Container with the class name "exam
 
 Then you can style this Container by assigning Sass styles to the class:
 
-```css
+```sass
 .example
     width: 500
     height: 300
@@ -66,7 +66,7 @@ This will translate into the following HTML:
 
 You can then use the `.message` class to assign properties using Sass or CSS:
 
-```css
+```sass
 .message
     width: 200
     height: 200
@@ -92,7 +92,7 @@ Some examples are [color](../reference/css-properties.md#color-color), [padding]
 
 As an example, consider the following Pug layout we want to style (taken and converted into flutter-view Pug from the [Flutter Card sample](https://docs.flutter.io/flutter/material/Card-class.html)):
 
-```css
+```pug
 card
     column
         list-tile
@@ -111,7 +111,7 @@ We have a layout, and now we can style it.&#x20;
 
 The "buy tickets" and "listen" FlatButtons we want to have uppercase text. We can use the [**text-transform**](../reference/css-properties.md#box-shadow-18) shortcut:
 
-```css
+```pug
 flat-button
     .label
         text-transform: uppercase
@@ -119,7 +119,7 @@ flat-button
 
 We want the card to be blue and the column of the card to have `mainAxisSize: MainAxisSize.min`:. Here we can use the [**color**](../reference/css-properties.md#color-color) shortcut, so we can use CSS colors, and the [**main-axis-size**](../reference/css-properties.md#box-shadow-7) shortcut, which lets us simply use 'min':
 
-```css
+```pug
 card
     color: blue
     column
@@ -128,7 +128,7 @@ card
 
 We want to give some padding to the title and subtitle, and give each slightly different colors. [**Padding**](../reference/css-properties.md#padding) and [**margin**](../reference/css-properties.md#margin) are shortcuts that adhere to CSS standards:
 
-```css
+```pug
 card
     list-tile
         .title
@@ -145,7 +145,7 @@ Here is the end result:
 
 {% tabs %}
 {% tab title="artist-card.pug" %}
-```css
+```pug
 artist-card(flutter-view :on-buy-pressed :on-listen-pressed)    
     card
         column
@@ -163,7 +163,7 @@ artist-card(flutter-view :on-buy-pressed :on-listen-pressed)
 {% endtab %}
 
 {% tab title="artist-card.sass" %}
-```css
+```sass
 card
     color: blue
     column
@@ -288,7 +288,7 @@ Table(
 
 Which you can achieve with the following (a bit contrived) Pug code:
 
-```css
+```pug
 table(:default-verticle-alignment='TableCellVerticalAlignment.middle')
     ...children...
 ```
@@ -329,14 +329,14 @@ First we find the Theme of the current [**BuildContext**](https://docs.flutter.i
 
 In flutter-view CSS, you might write this the same way:
 
-```css
+```sass
 .foo
     font-size: ':Theme.of(context).textTheme.title.fontSize'
 ```
 
 Instead, you may write it like this:
 
-```css
+```sass
 .foo
     font-size: theme(text-theme/title/font-size)
 ```

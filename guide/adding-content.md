@@ -6,14 +6,14 @@ In Flutter, widget trees are built by passing a child or children. Widget trees 
 
 Flutter-views are optimised for building widget trees. Pug in particular is well suited for creating tree structures and moving parts around.
 
-The following example generates a Dart method **FooPage\(\)**, which returns a Scaffold with an AppBar, and a centralized greeting message. 
+The following example generates a Dart method **FooPage()**, which returns a Scaffold with an AppBar, and a centralized greeting message.&#x20;
 
 The Pug creates the layout, and the main.dart file uses this layout to render the app. This separation between layout and logic is fundamental to using flutter-view.
 
 {% tabs %}
 {% tab title="Pug" %}
 {% code title="foo-page.pug" %}
-```css
+```pug
 foo-page(flutter-view :greeting)
     scaffold
         app-bar(as='appBar')
@@ -76,7 +76,7 @@ To see how this works, compare the Pug and generated Dart code in this example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 container
     column
         row 
@@ -122,7 +122,7 @@ Flutter-view knows which classes generally need children instead of single child
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 container
     row first row!
     row second row!
@@ -161,13 +161,13 @@ You can [override the default wrapper](configuring-flutter-view.md#autowrapchild
 
 ### Calling dart factory constructors
 
-Some Flutter Dart classes may use factory constructors. For example, ButtonTheme has a [**ButtonTheme.bar\(\)**](https://docs.flutter.io/flutter/material/ButtonTheme/ButtonTheme.bar.html) constructor. 
+Some Flutter Dart classes may use factory constructors. For example, ButtonTheme has a [**ButtonTheme.bar()**](https://docs.flutter.io/flutter/material/ButtonTheme/ButtonTheme.bar.html) constructor.&#x20;
 
 To call the factory constructor instead of the default constructor, pass the constructor after the class name, separated with a colon.
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 button-theme:bar
     | some content here
 ```
@@ -190,7 +190,7 @@ There may be cases where flutter-view does not recognise your tag needs a childr
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 column
     array(as='children')
         row first!
@@ -226,7 +226,7 @@ To see how this works, compare the Pug and generated Dart code in this example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 container
     column(const)
         row 
@@ -263,7 +263,7 @@ For example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 banner(title='testing')
     | Hello world!
 ```
@@ -290,7 +290,7 @@ For example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 flat-button(:color='highlighted ? Colors.red : Colors.grey')
     | Click me!     
 ```
@@ -314,7 +314,7 @@ Some widgets take an unnamed parameter in their constructor. You can pass this u
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 container
     icon(:value='Icons.add')
     text(value='Hello world')
@@ -339,7 +339,7 @@ return Container(
 
 You may need to pass a parameter that has the name of a reserved keyword, such as value. You can bypass this problem by escaping your parameter with the ^ sign:
 
-```text
+```
 :^value='foo'
 ```
 
@@ -349,7 +349,7 @@ Sometimes what you want to pass is not just a single value, but a value that is 
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 scaffold
     app-bar(as='appBar')
         container(as='title') Test App
@@ -383,7 +383,7 @@ You can create functions that return children using the [**function shortcut**](
 
 Passing a handler function or closure is no different than in Dart:
 
-```css
+```pug
 my-button(flutter-view :on-click[Function])
     flat-button(:on-pressed='onClick') Click me!
 ```
@@ -392,7 +392,7 @@ A common case is a closure without any parameters. In that case you can use the 
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 my-button(flutter-view)
     flat-button(@on-pressed='print("Click!")') Click me!
 ```
@@ -416,7 +416,7 @@ Sometimes you need to pass an array of specific items to a parameter. In that ca
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 custom-scroll-view
     array(as='slivers')
         sliver1
@@ -442,7 +442,7 @@ CustomScrollView(
 
 A nice Pug feature is that classes and ids are automatically converted into DIV tags. In flutter-view, they are automatically converted into [Container](https://docs.flutter.io/flutter/widgets/Container-class.html) widgets:
 
-```css
+```pug
 container hello world
 #greeting hello world
 .greeting hello world
@@ -459,4 +459,3 @@ Container(
 The classes and ids you use are forgotten after the conversion to Dart code. However, you do get automatic commenting, which will make it easier to read the generated code.
 
 The biggest benefit is however that you can use them to style your widgets.
-

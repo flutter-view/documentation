@@ -8,7 +8,7 @@ This will only render the widget if the passed condition is true.
 
 {% tabs %}
 {% tab title="Pug" %}
-```c
+```pug
 user-profile(flutter-view :user[User])
     .user
         .name ${user.name}
@@ -47,7 +47,7 @@ A slot is a placeholder for a value. It will take the value of the first valid c
 
 {% tabs %}
 {% tab title="Pug" %}
-```c
+```pug
 wrapper(flutter-view :content[Widget])
     slot(:value='content').content
     .footer A footer
@@ -77,7 +77,7 @@ Slot can function as an if/else. In the next example you see either the .status 
 
 {% tabs %}
 {% tab title="Pug" %}
-```c
+```pug
 tasks-page(flutter-view :tasks[List])
     scaffold
         slot(as='body')
@@ -119,7 +119,7 @@ By adding multiple children with if to a slot, you can also create a switch/case
 
 {% tabs %}
 {% tab title="Pug" %}
-```c
+```pug
 slot
     .apple(if='fruit=="Apple"')
     .pear(if='fruit=="Pear"')
@@ -136,7 +136,7 @@ Use **for** to repeat a widget for every value in a list. For every repetition, 
 
 {% tabs %}
 {% tab title="Pug" %}
-```c
+```pug
 tasks-page(flutter-view :tasks[List])
     scaffold
         slot(as='body')

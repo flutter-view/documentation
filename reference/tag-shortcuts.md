@@ -24,7 +24,7 @@ Example, to pass a builder function to a [**LayoutBuilder**](https://docs.flutte
 
 {% tabs %}
 {% tab title="Pug" %}
-```c
+```pug
 layout-builder
     function(as='builder' params='context, constraints')
         container Layout constraints: $constraints
@@ -65,7 +65,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```c
+```pug
 example(flutter-view)
 	builder
 		.welcome(color="theme(primary-color)") Hello!
@@ -116,7 +116,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```c
+```pug
 example(flutter-view :model[MyModel])
 	lifecycle(:on-dispose='model.onDisposed')
 		| ${model.message}!
@@ -172,7 +172,7 @@ The shortcut tag processor writes a [**ReactiveWidget**](https://pub.dartlang.or
 
 {% tabs %}
 {% tab title="Pug" %}
-```c
+```pug
 user-entry(flutter-view :user)
 	reactive(watch='user')
 		.name ${user.name}

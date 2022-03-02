@@ -17,7 +17,7 @@ _Note: for this to work, the project link comments in flutter-view must be enabl
 
 Normally when you change Flutter Dart code in VSCode, the Dart extension knows you are running a Flutter project and triggers a hot reload in your connected device or emulator.
 
-When you change a Pug, Html, Sass or CSS file, flutter-view will update the Dart code in the background as you save. However the editor will not know that it needs to trigger a hot reload.
+When you change a Pug or Sass file, flutter-view will update the Dart code in the background as you save. However the editor will not know that it needs to trigger a hot reload.
 
 To enable this, we need to do two things:
 

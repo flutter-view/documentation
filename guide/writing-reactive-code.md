@@ -105,7 +105,7 @@ Our view is a page scaffold with a list of tasks and a floating add button on th
 
 {% tabs %}
 {% tab title="lib/pages/taskspage/taskspage.pug" %}
-```css
+```pug
 import(package='flutter_view_widgets/flutter_view_widgets.dart')
 import(package='todolist/model/app-model.dart')
 import(package='todolist/model/task.dart')
@@ -260,7 +260,7 @@ this.tasks = [
 To actually show the tasks on the **tasks-page**, we can iterate through them with the flutter-view [**for property**](flow-control.md#for)**:**
 
 {% code title="task-page.pug" %}
-```c
+```pug
 // #body(as='body')
 //    center Here be tasks!
 
@@ -277,12 +277,12 @@ In line 5, we are creating an array of .task Containers, one for each element in
 To clean up the presentation a bit, we can create a view that creates a single task, and repeat that instread. Add the following flutter-view code in **tasks-page.pug**:
 
 {% code title="tasks-page.pug" %}
-```css
+```pug
 task-entry(flutter-view :task[Task] :model[TasksPageModel])
-	card
-		row
-			.title ${task.name}
-			checkbox(:^value='task.done')
+   card
+      row
+         .title ${task.name}
+         checkbox(:^value='task.done')
 ```
 {% endcode %}
 
@@ -293,7 +293,7 @@ _Note the **value** property in the checkbox tag. It needs to be escaped because
 Now we can use it in the body:
 
 {% code title="tasks-page.pug" %}
-```css
+```pug
 #body(as='body')
     list-view
         task-entry(for='task in model.app.tasks' :task='task' :model='model')
@@ -305,14 +305,14 @@ In line 3, we are again using for to repeat the tag for each task. A **task-entr
 Finally, let's add some styling. Create a tasks-page.sass next to tasks-page.pug, and put in the following styling:
 
 {% code title="tasks-page.sass" %}
-```css
+```sass
 task-entry
-	card
-		row
-			main-axis-alignment: space-between
-			.title
-				margin-left: 20
-				font-size: 20
+    card
+        row
+	    main-axis-alignment: space-between
+	    .title
+                margin-left: 20
+                dafont-size: 20
 ```
 {% endcode %}
 
@@ -338,7 +338,7 @@ Now let us create a new task entry with the text "new task" whenever the user pr
 The + button is defined in tasks-page.pug. Change the code for the floating-action-button like this:
 
 {% code title="tasks-page.pug" %}
-```css
+```pug
 floating-action-button(
     as='floatingActionButton'
     @on-pressed='model.onAddButtonPressed(context)')
@@ -381,7 +381,7 @@ In line **2** we create the new task. We then add it. Finally and importantly, w
 To make page-view react to changes of the **AppModel**, we need to watch the **AppModel** using the **reactive tag**. Since we pass the **AppModel** to the **TasksPageModel**, we can use model.app to get a reference to the **AppModel.** Update the tasks-page body again:
 
 {% code title="tasks-page.pug" %}
-```css
+```pug
 // #body(as='body')
 
 reactive(as='body' watch='model.app')
@@ -401,13 +401,13 @@ Often you may need to calculate things for your presentation that are not possib
 For example, let's have the tasks that are completed have their title text decorated with strike-through. And as an exercise, let's have the text-decoration computed on the view-model instead of in the view. Update the task-entry in tasks-page.pug:
 
 {% code title="tasks-page.pug" %}
-```css
+```pug
 task-entry(flutter-view :task[Task] :model[TasksPageModel])
-	card
-		row
-			.title(:text-decoration='model.taskTextDecoration(task)')
-				| ${task.name}
-			checkbox(:^value='task.done')
+    card
+        row
+            .title(:text-decoration='model.taskTextDecoration(task)')
+                | ${task.name}
+            checkbox(:^value='task.done')
 ```
 {% endcode %}
 
@@ -446,7 +446,7 @@ This requires we create a [**ScrollController**](https://docs.flutter.io/flutter
 In the todo app we can do this as follows in the **view**:&#x20;
 
 {% code title="tasks-page.pug" %}
-```css
+```pug
 #body(as='body')
     lifecycle(:on-init='model.init' :on-dispose='model.dispose')
         list-view(:controller='model.scrollController')

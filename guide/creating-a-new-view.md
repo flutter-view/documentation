@@ -1,6 +1,6 @@
 # Creating a new view
 
-To create a new view, create either an HTML or Pug page. It is common to put this page in its own directory with the same name, to group the page, styling and optional models together. A single page can contain many flutter-views.
+To create a new view, create a Pug file. It is common to put this file in its own directory with the same name, to group the page, styling and optional models together. A single page can contain many flutter-views.
 
 ## Importing Dart dependencies
 
@@ -25,12 +25,6 @@ To import additional packages in a Pug or HTML file, use the import tag with the
 import(package='flutter_view_widgets/flutter_view_widgets.dart')
 ```
 {% endtab %}
-
-{% tab title="HTML" %}
-```markup
-<import package='flutter_view_widgets/flutter_view_widgets.dart'/>
-```
-{% endtab %}
 {% endtabs %}
 
 To import files in a Pug or HTML file, use the import tag with the file parameter. The files are relative to the current file directory:
@@ -41,12 +35,6 @@ To import files in a Pug or HTML file, use the import tag with the file paramete
 import(file='../directory/test.dart')
 ```
 {% endtab %}
-
-{% tab title="HTML" %}
-```markup
-<import file='../directory/test.dart'/>
-```
-{% endtab %}
 {% endtabs %}
 
 ## Creating Flutter-views
@@ -55,19 +43,11 @@ A flutter-view is transformed into a Dart function. As such, you are just writin
 
 ### Method body
 
-The format of a flutter view in HTML is as follows:
+The format of a flutter view in Pug is as follows:
 
 {% tabs %}
-{% tab title="HTML" %}
-```markup
-<method-name flutter-view [optional parameters]>
-    ...method body...
-</method-name>
-```
-{% endtab %}
-
 {% tab title="Pug" %}
-```css
+```pug
 method-name(flutter-view [optional parameters])
     ...method body...
 ```
@@ -92,7 +72,7 @@ Parameters are defined as follows:
 
 `:parameter-name[type]?`
 
-The **\[type\]** and **?** are optional:
+The **\[type]** and **?** are optional:
 
 * The type becomes the type of the parameter in the Dart function. If omitted, it it is considered dynamic
 * By default, parameters you specify are required. Adding a **?** at the end indicates that they are optional.
@@ -100,16 +80,8 @@ The **\[type\]** and **?** are optional:
 Example:
 
 {% tabs %}
-{% tab title="HTML" %}
-```markup
-<task-list-item flutter-view :model[TaskList] :task[Task] :done?>
-    ...widgets that show the task...
-</method-name>
-```
-{% endtab %}
-
 {% tab title="Pug" %}
-```css
+```pug
 task-list-item(flutter-view :task-model[TaskList] :task[Task] :done?)
     ...widgets that show the task...
 ```
@@ -123,6 +95,4 @@ TaskListItem({ @required TaskList taskModel, @required Task task, done) {
     return ...widgets that show the task..
 }
 ```
-
-
 

@@ -1,8 +1,8 @@
 # Introduction
 
-****[**Flutter-view**](https://flutter-view.io) is an open source tool that makes writing reactive [Flutter](http://flutter.io) layouts a breeze. It lets you use [Pug](http://pugjs.org) and [Sass](http://sass-lang.com) (or HTML and CSS if you prefer) to generate the Flutter Dart code that renders the views in your app.
+****[**Flutter-view**](https://flutter-view.io) is an open source tool that makes writing reactive [Flutter](http://flutter.io) layouts a breeze. It lets you use [Pug](http://pugjs.org) and [Sass](http://sass-lang.com) to generate the Flutter Dart code that renders the views in your app.
 
-You use it by running the `flutter-view` command in your terminal to let it monitor your project. When it detects changes in a Pug, HTML, Sass or CSS file, it automatically generates or updates a matching Dart file.
+You use it by running the `flutter-view` command in your terminal to let it monitor your project. When it detects changes in a Pug or Sass file, it automatically generates or updates a matching Dart file.
 
 Flutter-view 2.0.0 fully supports writing null-safe code in Dart 2.13 and up.
 
@@ -16,7 +16,7 @@ The state part comes into play when you make your view **reactive**. You can pas
 
 ## Creating a view
 
-A single flutter-view generates a Dart function that usually returns a widget tree. You can either use Pug or HTML:
+A single flutter-view in pug generates a Dart function that usually returns a widget tree.
 
 {% tabs %}
 {% tab title="Pug" %}
@@ -59,7 +59,7 @@ This generated function can be used like any other Dart code, and will return th
 
 ## Adding Styling
 
-You can add Sass/CSS to styles to your view. Flutter-view supports [CSS style properties](reference/css-properties.md) that convert into code. For our example, you can easily add a text [**color**](reference/css-properties.md#color-color), [**background color**](reference/css-properties.md#box-shadow-2), some [**font properties**](reference/css-properties.md#box-shadow-8), and add [**padding**](reference/css-properties.md#padding):
+You can add Sass to style your view. These styles get mixed with your pug to generate styled Dart code. Flutter-view supports [CSS style properties](reference/css-properties.md) that convert into code. For our example, you can easily add a text [**color**](reference/css-properties.md#color-color), [**background color**](reference/css-properties.md#box-shadow-2), some [**font properties**](reference/css-properties.md#box-shadow-8), and add [**padding**](reference/css-properties.md#padding):
 
 {% tabs %}
 {% tab title="Pug" %}

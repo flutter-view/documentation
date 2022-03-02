@@ -8,9 +8,9 @@ Flutter-view is a tool for creating Flutter Dart code, meant to make it easier t
 
 Flutter-view itself is an [**npm**](https://www.npmjs.com) program that you run in a terminal window. It monitors your project's Pug, Sass, HTML and CSS files. When a file updates, it will create or update Dart files of the same name.
 
-You use the Pug or HTML files to define flutter-views, which flutter-view will convert into Flutter Widget layout functions in Dart. You can them use these Dart functions in your normal Flutter code.
+You use the Pug files to define flutter-views, which flutter-view will convert into Flutter Widget layout functions in Dart. You can them use these Dart functions in your normal Flutter code.
 
-You can use the Sass or CSS files to add style properties to the widget trees.
+You can use the Sass files to add style properties to the widget trees.
 
 For reactive programming, it uses the fantastic [**scoped\_model library**](https://pub.dartlang.org/packages/scoped\_model), in combination with a new pattern where the model is passed into a view, and rendered with a ReactiveWidget. This removes the need for ScopedModel and ScopedModelDescendant, and separating the concerns of state and view. However you are also free to use other patterns, such as streams.
 

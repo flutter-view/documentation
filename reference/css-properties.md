@@ -29,7 +29,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 container(width=500 height=400)
     .greeting(alignment='center-right')
         | Hello, I am positioned at the right!
@@ -78,7 +78,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .cover-image(
     background-image="asset('images/background.jpg')"
     fit='cover')
@@ -116,7 +116,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .cover-image(
     background-image="asset('images/background.jpg')"
     shape='circle')
@@ -163,7 +163,7 @@ These properties take values according to the [CSS specification](https://develo
 
 Examples of valid values:
 
-```css
+```sass
 padding-left: 10 // EdgeInsets.only(left: 10)
 padding-top: 50 // EdgeInsets.only(top: 50)
 padding: 10 // EdgeInsets.only(top: 10, left: 10, bottom: 10, right: 10)
@@ -174,7 +174,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .greeting(padding=10) Hello world!
 ```
 {% endtab %}
@@ -223,7 +223,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .greeting(margin=10) Hello world!
 ```
 {% endtab %}
@@ -263,7 +263,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .greeting(border-radius=4 background-color='grey') Hello world!
 ```
 {% endtab %}
@@ -322,7 +322,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .greeting(border-top='1.4 red' border-bottom='0.5 green') Hello world!
 ```
 {% endtab %}
@@ -379,7 +379,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .greeting(box-shadow='2 3 5 7, -5 -2') Hello world!
 ```
 {% endtab %}
@@ -429,7 +429,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .cover-image(background-image="asset('images/background.jpg')")
 ```
 {% endtab %}
@@ -461,7 +461,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .redbox(width=200 height=200 background-color="red")
 ```
 {% endtab %}
@@ -498,7 +498,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .cover-image(
     background-image="asset('images/background.jpg')" 
     background-repeat='no-repeat')
@@ -533,7 +533,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .cover-image(
     background-image="asset('images/background.jpg')" 
     background-fit='cover')
@@ -575,7 +575,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 row(main-axis-alignment="space-evenly")
     .entry We
     .entry Are
@@ -633,7 +633,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 column(cross-axis-alignment="center")
     .entry We
     .entry Are
@@ -682,7 +682,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 column(main-axis-size="max")
     .entry Some entry, left over space is maximized
 ```
@@ -724,7 +724,7 @@ Examples:
 
 {% tabs %}
 {% tab title="Using Pug" %}
-```css
+```pug
 .red-text-container(color='red') This text is red
 .red-container(:background-color='Colors.red')
 .orange-container(background-color='deep-orange')
@@ -820,7 +820,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .test(font-size=12.5) Welcome!
 ```
 {% endtab %}
@@ -869,7 +869,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .test(font-weight='bold') Welcome!
 ```
 {% endtab %}
@@ -903,7 +903,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .test(font-size='Arial') Welcome!
 ```
 {% endtab %}
@@ -941,7 +941,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .test(font-style='italic') Welcome!
 ```
 {% endtab %}
@@ -975,7 +975,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .test(letter-spacing=3) This text gets spaced out
 ```
 {% endtab %}
@@ -1009,7 +1009,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .test(line-height=20) Welcome!
 ```
 {% endtab %}
@@ -1050,7 +1050,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .test(text-decoration='underline') Welcome!
 ```
 {% endtab %}
@@ -1084,7 +1084,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .test(
     text-decoration='underline'
     text-decoration-color='red') 
@@ -1129,7 +1129,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .test(
 	text-decoration='underline'
 	text-decoration-style='wavy') 
@@ -1166,7 +1166,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .test(word-spacing=5.3) Welcome!
 ```
 {% endtab %}
@@ -1209,7 +1209,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .test(text-align='center') Welcome!
 ```
 {% endtab %}
@@ -1249,7 +1249,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .test(text-overflow='ellipsis' width=200) 
     | This will be cut off nicely with ellipsis
 ```
@@ -1283,7 +1283,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .test(text-transform='uppercase') 
     | This text will be shown in uppercase
 ```
@@ -1312,7 +1312,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .test(
     width=100
     max-lines=1
@@ -1354,7 +1354,7 @@ Example:
 
 {% tabs %}
 {% tab title="Pug" %}
-```css
+```pug
 .test
     .message(display="none") I never even become code
 ```

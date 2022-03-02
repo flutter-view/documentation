@@ -4,7 +4,7 @@ When you write your Flutter app you probably want to target both iOS and Android
 
 ## The platform widgets library
 
-First tip is, use the [**platform\_widgets library**](https://pub.dartlang.org/packages/flutter_platform_widgets), and add it as an [default import](configuring-flutter-view.md#imports) in flutter-view.json:
+First tip is, use the [**platform\_widgets library**](https://pub.dartlang.org/packages/flutter\_platform\_widgets), and add it as an [default import](configuring-flutter-view.md#imports) in flutter-view.json:
 
 {% code title="flutter-view.json" %}
 ```javascript
@@ -19,7 +19,7 @@ First tip is, use the [**platform\_widgets library**](https://pub.dartlang.org/p
 
 Put `flutter-view.json` in the root of your Flutter project.
 
-This will allow you to use widgets that adapt to the platform they are used on, and also provides you with the short [**isCupertino**](https://pub.dartlang.org/documentation/flutter_platform_widgets/latest/flutter_platform_widgets/isCupertino.html) and [**isMaterial**](https://pub.dartlang.org/documentation/flutter_platform_widgets/latest/flutter_platform_widgets/isMaterial.html) properties, that you can use throughout your layouts.
+This will allow you to use widgets that adapt to the platform they are used on, and also provides you with the short [**isCupertino**](https://pub.dartlang.org/documentation/flutter\_platform\_widgets/latest/flutter\_platform\_widgets/isCupertino.html) and [**isMaterial**](https://pub.dartlang.org/documentation/flutter\_platform\_widgets/latest/flutter\_platform\_widgets/isMaterial.html) properties, that you can use throughout your layouts.
 
 ## Layout per platform
 
@@ -27,7 +27,7 @@ A common pattern is a [**slot**](flow-control.md#slot) with two implementations 
 
 {% tabs %}
 {% tab title="pug" %}
-```css
+```pug
 .foo
     slot
         .ios(if='isCupertino')
@@ -37,8 +37,8 @@ A common pattern is a [**slot**](flow-control.md#slot) with two implementations 
 ```
 {% endtab %}
 
-{% tab title="css" %}
-```
+{% tab title="sass" %}
+```sass
 .foo
     .ios
         // ios layout styling here
@@ -54,7 +54,7 @@ The above will render different layout depending on the phone OS you run it on. 
 
 A very common situation is that we have the same basic layout, but want to use different CSS styling per layout. We could do the same as above:
 
-```css
+```sass
 .foo
     slot
         .ios(if='isCupertino')
@@ -72,15 +72,15 @@ This will work, we can apply different styling for .bar.ios and .bar.android. Ho
 Instead, we can let Pug mixins help us. We can make a default.pug in our project that multiple view pugs can import. Then in this pug we can write a mixin:
 
 {% code title="default.pug" %}
-```css
+```pug
 mixin platform-slot
-	slot
-		.ios-slot(if='isCupertino')
-			.ios
-				block
-		.android-slot(if='isMaterial')
-			.android
-				block
+    slot
+        .ios-slot(if='isCupertino')
+            .ios
+                block
+        .android-slot(if='isMaterial')
+            .android
+                block
 ```
 {% endcode %}
 
@@ -88,7 +88,7 @@ We can then import this tool into our view and use it like this:
 
 {% tabs %}
 {% tab title="pug" %}
-```css
+```pug
 include /screens/default.pug
 
 .foo
@@ -100,13 +100,13 @@ include /screens/default.pug
 {% endtab %}
 
 {% tab title="generated pug" %}
-```css
+```pug
 include /screens/default.pug
 
 .foo
     slot
         .ios-slot(if='isCupertino')
-			.ios
+            .ios
                 .bar
                     .some
                         .layout
@@ -133,9 +133,8 @@ include /screens/default.pug
 {% endtab %}
 {% endtabs %}
 
-Now we have no repetition in our layout! 
+Now we have no repetition in our layout!&#x20;
 
 However, there is a downside: the generated pug will not know what source code line it came to, and as a result, you will not get the [source reference comments in the generated Dart](configuring-flutter-view.md#showpuglinenumbers). This means that in VSCode, the [flutter-view extension](../get-started/vs-code-support.md#linking-between-pug-and-generated-dart) hotlinking will not work for these lines.
 
 _Note: kudos for Floris van der Grinten for this nifty solution_
-
