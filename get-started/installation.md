@@ -47,7 +47,7 @@ _Important: the modern version of flutter-view is for Dart 2.13 and higher, and 
 
 Then perform a flutter packages get to pull in the new dependency.
 
-_Note: for the latest version, check the_ [_flutter-view-widgets pub page_](https://pub.dev/packages/flutter\_view\_widgets)_._
+_Note: for the latest version, check the_[ _flutter-view-widgets pub page_](https://pub.dev/packages/flutter\_view\_widgets/versions)_._
 
 ### Importing the tools
 
