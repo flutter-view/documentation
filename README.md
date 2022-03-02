@@ -1,8 +1,10 @@
 # Introduction
 
-\*\*\*\*[**Flutter-view**](https://flutter-view.io) is an open source tool that makes writing reactive [Flutter](http://flutter.io) layouts a breeze. It lets you use [Pug](http://pugjs.org) and [Sass](http://sass-lang.com) \(or HTML and CSS if you prefer\) to generate the Flutter Dart code that renders the views in your app.
+****[**Flutter-view**](https://flutter-view.io) is an open source tool that makes writing reactive [Flutter](http://flutter.io) layouts a breeze. It lets you use [Pug](http://pugjs.org) and [Sass](http://sass-lang.com) (or HTML and CSS if you prefer) to generate the Flutter Dart code that renders the views in your app.
 
 You use it by running the `flutter-view` command in your terminal to let it monitor your project. When it detects changes in a Pug, HTML, Sass or CSS file, it automatically generates or updates a matching Dart file.
+
+Flutter-view 2.0.0 fully supports writing null-safe code in Dart 2.13 and up.
 
 ## Why views in Flutter
 
@@ -10,7 +12,7 @@ In standard Flutter Dart code, the "state" of your application is mixed in with 
 
 Flutter-view is about creating **views**, which are functions that return a widget tree for presenting something. These functions act a bit like components. Flutter-view uses **Pug** to make layouts more terse and **Sass** to let you style faster and more easily.
 
-The state part comes into play when you make your view **reactive**. You can pass models \(or streams\) into your views. When these models change, the views automatically adapt.
+The state part comes into play when you make your view **reactive**. You can pass models (or streams) into your views. When these models change, the views automatically adapt.
 
 ## Creating a view
 
@@ -116,7 +118,7 @@ You can also fully leverage both Pug and Sass mixin and function support, allowi
 
 ## Making it Reactive
 
-Flutter-view does not force you into any particular Reactive model. For example it works well with streams. However, it comes with native [ScopedModel ](https://pub.dartlang.org/packages/scoped_model)support and a [small Dart support library](https://pub.dartlang.org/packages/flutter_view_tools) for terse reactive coding:
+Flutter-view does not force you into any particular Reactive model. For example it works well with streams. However, it comes with native [ScopedModel ](https://pub.dartlang.org/packages/scoped\_model)support and a [small Dart support library](https://pub.dartlang.org/packages/flutter\_view\_tools) for terse reactive coding:
 
 {% tabs %}
 {% tab title="user.dart" %}
@@ -160,5 +162,4 @@ Widget Hello({user}) {
 {% endtab %}
 {% endtabs %}
 
-The view \(hello.pug\) takes a User \(user.dart\) as a parameter and watches it for changes. Now when we change the the user name and call  `user.notifyListeners()`,  the view will automatically update.
-
+The view (hello.pug) takes a User (user.dart) as a parameter and watches it for changes. Now when we change the the user name and call  `user.notifyListeners()`,  the view will automatically update.

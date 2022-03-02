@@ -1,10 +1,10 @@
 # Writing Reactive code
 
-_Note: This example leverages the excellent_ [_**scoped\_model library**_](https://pub.dartlang.org/packages/scoped_model)_, which usage inspired the reactive pattern for flutter-view!_
+_Note: This example leverages the excellent_ [_**scoped\_model library**_](https://pub.dartlang.org/packages/scoped\_model)_, which usage inspired the reactive pattern for flutter-view!_
 
 **Flutter leaves us with a lot of freedom in how we want to write reactive code. Flutter-view proposes a structure but does not impose it.**
 
-This guide will show you how we recommend you build a simple reactive app with an [MVVM approach](https://en.wikipedia.org/wiki/Model–view–viewmodel) using the ReactiveWidget and flutter-view. In essence building a reactive app in flutter-view always works the same:
+This guide will show you how we recommend you build a simple reactive app with an [MVVM approach](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) using the ReactiveWidget and flutter-view. In essence building a reactive app in flutter-view always works the same:
 
 1. **handle events from your views on the view-model**
 2. **have the view-model call your business model for actions**
@@ -13,11 +13,11 @@ This guide will show you how we recommend you build a simple reactive app with a
 
 Our app will look like this:
 
-![](../.gitbook/assets/screen-shot-2018-12-15-at-10.36.22-pm.png)
+![](<../.gitbook/assets/Screen Shot 2018-12-15 at 10.36.22 PM.png>)
 
 You can find the[ full app source code](https://github.com/flutter-view/examples/tree/master/todolist) with some extra features added such as deleting and persistence in [the examples](../get-started/examples.md#todolist).
 
-_Note: this approach requires you add the_ [_**flutter\_view\_widgets**_](https://pub.dev/packages/flutter_view_widgets) _dependency to your project's **pubspec.yaml** file. It is also recommended to use VS Code with the_ [_**flutter-view extensions**_](../get-started/vs-code-support.md)_._
+_Note: this approach requires you add the_ [_**flutter\_view\_widgets**_](https://pub.dev/packages/flutter\_view\_widgets) _dependency to your project's **pubspec.yaml** file. It is also recommended to use VS Code with the_ [_**flutter-view extensions**_](../get-started/vs-code-support.md)_._
 
 ## The basic structure
 
@@ -38,7 +38,7 @@ To make things clearer, we will write a simple todo app. For this app, we will n
 
 ## Creating the business model
 
-To create any model class, we extend the [**Model**](https://pub.dartlang.org/documentation/scoped_model/latest/scoped_model/Model-class.html) class from the [scoped model library](https://pub.dartlang.org/packages/scoped_model).
+To create any model class, we extend the [**Model**](https://pub.dartlang.org/documentation/scoped\_model/latest/scoped\_model/Model-class.html) class from the [scoped model library](https://pub.dartlang.org/packages/scoped\_model).
 
 Our task has a name and can be done:
 
@@ -74,9 +74,9 @@ class AppModel extends Model {
 ```
 {% endcode %}
 
-Both **Task** and **AppModel** extend [**Model**](https://pub.dartlang.org/documentation/scoped_model/latest/scoped_model/Model-class.html). This allows them to be listened to for updates. 
+Both **Task** and **AppModel** extend [**Model**](https://pub.dartlang.org/documentation/scoped\_model/latest/scoped\_model/Model-class.html). This allows them to be listened to for updates.&#x20;
 
-In any reactive app you want to be able to inform views to react to the data changing. The views can listen to the models by calling [**model.addListener\(\)**](https://pub.dartlang.org/documentation/scoped_model/latest/scoped_model/Model/addListener.html). You can then inform that data in a model has changed by calling [**model.notifyListeners\(\)**](https://pub.dartlang.org/documentation/scoped_model/latest/scoped_model/Model/notifyListeners.html).
+In any reactive app you want to be able to inform views to react to the data changing. The views can listen to the models by calling [**model.addListener()**](https://pub.dartlang.org/documentation/scoped\_model/latest/scoped\_model/Model/addListener.html). You can then inform that data in a model has changed by calling [**model.notifyListeners()**](https://pub.dartlang.org/documentation/scoped\_model/latest/scoped\_model/Model/notifyListeners.html).
 
 ## Creating a view and view-model
 
@@ -229,13 +229,13 @@ class _TodoListAppState extends State<TodoListApp> {
 ```
 {% endcode %}
 
-At line **15** we create the state for our **TodoListApp.** It keeps the **AppModel** at line **17**. In the **initState\(\)** method, we initialize our **app**.
+At line **15** we create the state for our **TodoListApp.** It keeps the **AppModel** at line **17**. In the **initState()** method, we initialize our **app**.
 
 We create the **MaterialApp** at line **26**. At line **29** we call **TasksPage**, and we pass as the **model** parameter the **TasksPageModel** as our view-model. The view-model in turn takes the **app** as a parameter.
 
 Now that we have wired up all the basic parts, we can run our app:
 
-![](../.gitbook/assets/screen-shot-2018-12-15-at-11.20.06-pm.png)
+![](<../.gitbook/assets/Screen Shot 2018-12-15 at 11.20.06 PM.png>)
 
 ## Showing data from the model
 
@@ -270,7 +270,7 @@ To actually show the tasks on the **tasks-page**, we can iterate through them wi
 ```
 {% endcode %}
 
-Now after hot reloading you should see the two tasks, as two lines of text. 
+Now after hot reloading you should see the two tasks, as two lines of text.&#x20;
 
 In line 5, we are creating an array of .task Containers, one for each element in **TaskPageModel.app.tasks.** In each container we put a text with the task name.
 
@@ -286,7 +286,7 @@ task-entry(flutter-view :task[Task] :model[TasksPageModel])
 ```
 {% endcode %}
 
-This renders a single task entry. 
+This renders a single task entry.&#x20;
 
 _Note the **value** property in the checkbox tag. It needs to be escaped because value is a reserved flutter-view keyword, used to pass an unnamed parameter._
 
@@ -320,7 +320,7 @@ Please compare this sass styling with the pug task-entry we added. The Row in ta
 
 See the generated task-page.dart to see what actually is being generated in Dart, by taking the Pug  and applying the styles with shortcuts. The result looks like this:
 
-![](../.gitbook/assets/screen-shot-2018-12-18-at-4.20.01-pm.png)
+![](<../.gitbook/assets/Screen Shot 2018-12-18 at 4.20.01 PM.png>)
 
 ## Making the view reactive
 
@@ -346,7 +346,7 @@ floating-action-button(
 ```
 {% endcode %}
 
-The **@on-pressed** event handler is new. It calls **TasksPageModel.onAddButtonPressed\(\)** with the current BuildContext. We need to create this method on **TasksPageModel.**
+The **@on-pressed** event handler is new. It calls **TasksPageModel.onAddButtonPressed()** with the current BuildContext. We need to create this method on **TasksPageModel.**
 
 ### **Handle the event in the view-model**
 
@@ -374,7 +374,7 @@ addTask({String title}) {
 ```
 {% endcode %}
 
-In line **2** we create the new task. We then add it. Finally and importantly, we need to call **notifyListeners\(\)** on the AppModel. This will inform the interface to respond to the new task being added.
+In line **2** we create the new task. We then add it. Finally and importantly, we need to call **notifyListeners()** on the AppModel. This will inform the interface to respond to the new task being added.
 
 ### Make the page-view react to changes to the AppModel.tasks
 
@@ -390,9 +390,9 @@ reactive(as='body' watch='model.app')
 ```
 {% endcode %}
 
-The only real replacement is that we changed a simple \#body container into a reactive tag, that watches the app for changes. When the **notifyListeners\(\)** call is made on the **AppModel**, everything below the reactive tag is reevaluated. Thus when we add a new task, it should now show in the view:
+The only real replacement is that we changed a simple #body container into a reactive tag, that watches the app for changes. When the **notifyListeners()** call is made on the **AppModel**, everything below the reactive tag is reevaluated. Thus when we add a new task, it should now show in the view:
 
-![](../.gitbook/assets/screen-shot-2018-12-18-at-5.00.15-pm%20%281%29.png)
+![](<../.gitbook/assets/Screen Shot 2018-12-18 at 5.00.15 PM (1).png>)
 
 ## Using computed properties
 
@@ -411,7 +411,7 @@ task-entry(flutter-view :task[Task] :model[TasksPageModel])
 ```
 {% endcode %}
 
-At line 4 we have added a computed [**text-decoration**](../reference/css-properties.md#box-shadow-13) property. It starts with `:` so it will use the result of the expression we pass. This expression is **model.taskTextDecoration\(task\)**. We want this expression to return [**TextDecoration.lineThrough**](https://docs.flutter.io/flutter/dart-ui/TextDecoration/lineThrough-constant.html) if our passed current task is done. Let's add this method to the **TasksPageModel**:
+At line 4 we have added a computed [**text-decoration**](../reference/css-properties.md#box-shadow-13) property. It starts with `:` so it will use the result of the expression we pass. This expression is **model.taskTextDecoration(task)**. We want this expression to return [**TextDecoration.lineThrough**](https://docs.flutter.io/flutter/dart-ui/TextDecoration/lineThrough-constant.html) if our passed current task is done. Let's add this method to the **TasksPageModel**:
 
 {% code title="lib/pages/taskspage/taskspage-model.dart" %}
 ```dart
@@ -433,17 +433,17 @@ class TasksPageModel extends Model {
 
 Now completed tasks look more completed:
 
-![done means done!](../.gitbook/assets/screen-shot-2018-12-19-at-4.10.57-pm.png)
+![done means done!](<../.gitbook/assets/Screen Shot 2018-12-19 at 4.10.57 PM.png>)
 
 ## Monitoring the state lifecycle
 
-You may need to _**initialize**_ some things in your **view-model** when the state of your layout starts, and _**free**_ those resources when the state is disposed of. In that case, **use a** [**lifecycle**](../reference/tag-shortcuts.md#lifecycle) **widget**. It is part of the flutter-view-tools library. 
+You may need to _**initialize**_ some things in your **view-model** when the state of your layout starts, and _**free**_ those resources when the state is disposed of. In that case, **use a** [**lifecycle**](../reference/tag-shortcuts.md#lifecycle) **widget**. It is part of the flutter-view-tools library.&#x20;
 
 For example, let's say your **view** has a [**ListView**](https://docs.flutter.io/flutter/widgets/ListView-class.html) widget with a long list and you want to be able to load more items when you scroll near the bottom.
 
-This requires we create a [**ScrollController**](https://docs.flutter.io/flutter/widgets/ScrollController-class.html) in the **view-model** and pass it to the [**ListView**](https://docs.flutter.io/flutter/widgets/ListView-class.html) ****in the **view**. We can then listen to the [**ScrollController**](https://docs.flutter.io/flutter/widgets/ScrollController-class.html) and react when the scrollposition is very low. Finally, when the **view** is disposed of, we also want our listener to be removed.
+This requires we create a [**ScrollController**](https://docs.flutter.io/flutter/widgets/ScrollController-class.html) in the **view-model** and pass it to the [**ListView**](https://docs.flutter.io/flutter/widgets/ListView-class.html) **** in the **view**. We can then listen to the [**ScrollController**](https://docs.flutter.io/flutter/widgets/ScrollController-class.html) and react when the scrollposition is very low. Finally, when the **view** is disposed of, we also want our listener to be removed.
 
-In the todo app we can do this as follows in the **view**: 
+In the todo app we can do this as follows in the **view**:&#x20;
 
 {% code title="tasks-page.pug" %}
 ```css
@@ -454,7 +454,7 @@ In the todo app we can do this as follows in the **view**:
 ```
 {% endcode %}
 
-At line **2** we add the [**lifecycle**](../reference/tag-shortcuts.md#lifecycle) widget with handlers for the init and dispose events, and pass them along to the **view-model**. 
+At line **2** we add the [**lifecycle**](../reference/tag-shortcuts.md#lifecycle) widget with handlers for the init and dispose events, and pass them along to the **view-model**.&#x20;
 
 At line **3** we pass the scrollController of the view-model to the list, so we can monitor the scrolling position.
 
@@ -511,6 +511,4 @@ Of course our todo app is still incomplete, however you now should be able to un
 * being able to check tasks as done
 * swipe to delete tasks
 * automatic saving and loading
-
-
 

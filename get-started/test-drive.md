@@ -18,13 +18,13 @@ Open the project in your favorite editor. [VS Code](https://code.visualstudio.co
 
 Try running the test project in an emulator to see if it all works.
 
-## Adding a screen using flutter-view 
+## Adding a screen using flutter-view&#x20;
 
 Now that we have a working project, let's create a flutter-view that shows a simple welcome screen.
 
 In the lib directory of your project, add a directory called "**screens**". In it create a directory "**homepage**". In the homepage directory, create a file named **homepage.pug**.
 
-![](../.gitbook/assets/screen-shot-2018-11-28-at-4.37.33-pm.png)
+![](<../.gitbook/assets/Screen Shot 2018-11-28 at 4.37.33 PM.png>)
 
 Now let's create our first flutter-view. Open **homepage.pug** and put in the following pug code:
 
@@ -78,15 +78,15 @@ Scaffold HomePage() {
 ```
 {% endcode %}
 
-You may notice the comments referring back to the Pug file. These can be turned off, but help the [VSCode flutter-view plugin](vs-code-support.md#linking-between-pug-and-generated-dart) \(and you\) easily navigate between the Pug file and the Dart file.
+You may notice the comments referring back to the Pug file. These can be turned off, but help the [VSCode flutter-view plugin](vs-code-support.md#linking-between-pug-and-generated-dart) (and you) easily navigate between the Pug file and the Dart file.
 
-Also, notice comments are created for **\#title** and **.greeting** ids and classes in the pug file. These can also be turned off if you wish.
+Also, notice comments are created for **#title** and **.greeting** ids and classes in the pug file. These can also be turned off if you wish.
 
 ## Using the new homepage
 
 A view is simply a Dart function that renders some widgets. This means you can use it in your application as any other Flutter function. Let's change **main.dart** to show our new homepage:
 
-At the top of main.dart, import our new dart file: 
+At the top of main.dart, import our new dart file:&#x20;
 
 > `import 'screens/homepage/homepage.dart';`
 
@@ -99,11 +99,11 @@ home: HomePage(),
 
 Now refresh your app, and you should see this:
 
-![](../.gitbook/assets/screen-shot-2018-11-28-at-5.18.29-pm.png)
+![](<../.gitbook/assets/Screen Shot 2018-11-28 at 5.18.29 PM.png>)
 
 ## Hot Reload
 
-One of the powerful features in Flutter is hot reload. You can do the same thing with flutter-view. 
+One of the powerful features in Flutter is hot reload. You can do the same thing with flutter-view.&#x20;
 
 Start flutter-view in watch mode in your project directory:
 
@@ -128,7 +128,7 @@ In the same directory as **homepage.pug**, create a new file called **homepage.s
 
 Press hot refresh in your emulator and you will now see the greeting styled:
 
-![](../.gitbook/assets/screen-shot-2018-12-02-at-3.16.58-pm.png)
+![](<../.gitbook/assets/Screen Shot 2018-12-02 at 3.16.58 PM.png>)
 
 Now let's add an image. We can choose to use a NetworkImage directly, or to use a background decoration on a container. To do the latter, we need to add the cover container for the image. Since we want to have the image and text to be centered together, we can wrap them in a [FittedBox](https://docs.flutter.io/flutter/widgets/FittedBox-class.html) widget. To do so, change **homepage.pug**:
 
@@ -158,7 +158,7 @@ Flutter-view has [shortcuts](../reference/css-properties.md) that recognise CSS-
 
 The result should look like this:
 
-![](../.gitbook/assets/screen-shot-2018-12-02-at-2.53.13-pm.png)
+![](<../.gitbook/assets/Screen Shot 2018-12-02 at 2.53.13 PM.png>)
 
 If you look at the generated **homepage.dart**, you will see how flutter-view took homepage.pug and homepage.sass and merged them:
 
@@ -222,4 +222,3 @@ Feel free to play around with some CSS styles to see effect. Some of the things 
 * instead of a background image, give the **.cover** class a `background-color: blue`.
 
 Currently you need to press the hot refresh button in your emulator to see changes. In the next section we add Visual Studio Code support so this will happen immediately when you change your .pug or .sass file.
-

@@ -2,7 +2,7 @@
 
 **Flutter-view does not need a configuration file to run.** However by providing a configuration, you can use some more advanced features.
 
-To configure flutter-view, put a file named **flutter-view.json** in the directory you run it from \(normally your project root directory\). The options you can set are described below. Each of these options is optional. Options will merge their values with the ones you provides.
+To configure flutter-view, put a file named **flutter-view.json** in the directory you run it from (normally your project root directory). The options you can set are described below. Each of these options is optional. Options will merge their values with the ones you provides.
 
 For example, to change the indentation of the generated Dart to 4 spaces:
 
@@ -24,6 +24,29 @@ Default value:
 indentation: 2
 ```
 
+## ignores
+
+Starting from flutter-view 2.0.0, instead of having error ignore statements generated per line, each view will have a couple of ignore statements at the top for the whole file. You can add your own. By default these are:
+
+```javascript
+ignores: [
+    // const is not always detectable, so by default suppress the errors
+    'prefer_const_constructors',
+    'non_constant_identifier_names',
+    // we sometimes do unnecessary code but it should not cause performance issues
+    'unnecessary_import',
+    'dead_code',
+    'unused_element',
+    'unnecessary_cast',
+    'unnecessary_string_interpolations',
+    'invalid_null_aware_operator',
+    // for now we use these because classes create containers and we want them to be styleable
+    // later we may be able to detect if we have styles and use Nil and SizedBox containers where possible
+    'avoid_unnecessary_containers',
+    'sized_box_for_whitespace'
+]
+```
+
 ## imports
 
 Lets you provide a list of imports to add in every generated Dart file. This can save you from having to add the same import statement at the top of your files.
@@ -37,7 +60,7 @@ imports: [
 ]
 ```
 
-For example, to add the[ **flutter\_view\_widgets**](https://pub.dev/packages/flutter_view_widgets) to each file:
+For example, to add the[ **flutter\_view\_widgets**](https://pub.dev/packages/flutter\_view\_widgets) to each file:
 
 {% code title="flutter-view.json" %}
 ```javascript
@@ -80,7 +103,7 @@ For example, if you want to use FlatButton when you use the button tag:
 
 ## multiChildClasses
 
-In Flutter, some widgets expect a child parameter, while others expect a children parameter. With multiChildClasses you can list classes that require the children parameter \(otherwise child is used\).
+In Flutter, some widgets expect a child parameter, while others expect a children parameter. With multiChildClasses you can list classes that require the children parameter (otherwise child is used).
 
 Note: in case an entry is not in the default list, you can also pass the children via the array tag. For example:
 
@@ -111,9 +134,9 @@ multiChildClasses: [
 
 ## autowrapChildren and autoWrapChildrenClass
 
-In HTML layouts, any element can have multiple children. However in Flutter, some widgets accept only a single child. 
+In HTML layouts, any element can have multiple children. However in Flutter, some widgets accept only a single child.&#x20;
 
-If autowrapChildren is set to false, only the first child is set. 
+If autowrapChildren is set to false, only the first child is set.&#x20;
 
 If autowrapChildren is set to true, the children are wrapped by a widget that accepts multiple children. The widget used is set in the autowrapChildrenClass property.
 
@@ -148,7 +171,7 @@ For example, the following Pug code:
 #title(as='title') Tasks
 ```
 
-Will add the \#title as a comment:
+Will add the #title as a comment:
 
 ```dart
 //-- TITLE ----------------------------------------------------------
@@ -188,6 +211,4 @@ Default value:
 ```javascript
 propagateDelete: true
 ```
-
-
 

@@ -58,7 +58,7 @@ Container(
 
 ## fit
 
-Describes how a box should be inscribed into another box. Used for the ****[**FittedBox**](https://api.flutter.dev/flutter/widgets/FittedBox-class.html) Flutter container. Use the [background-size](css-properties.md#box-shadow-4) style property instead if you want to apply a sizing to a [background-image](css-properties.md#box-shadow-1).
+Describes how a box should be inscribed into another box. Used for the **** [**FittedBox**](https://api.flutter.dev/flutter/widgets/FittedBox-class.html) Flutter container. Use the [background-size](css-properties.md#box-shadow-4) style property instead if you want to apply a sizing to a [background-image](css-properties.md#box-shadow-1).
 
 Maps to Flutter [**BoxFit**](https://docs.flutter.io/flutter/painting/BoxFit-class.html) values in camelcase.
 
@@ -69,8 +69,8 @@ Valid values:
 * **fill:** Fill the target box by distorting the source's aspect ratio.
 * **fill-height:** Make sure the full height of the source is shown, regardless of whether this means the source overflows the target box horizontally.
 * **fill-width:** Make sure the full width of the source is shown, regardless of whether this means the source overflows the target box vertically.
-* **none:** Align the source within the target box \(by default, centering\) and discard any portions of the source that lie outside the box. The source image is not resized.
-* **scale-down:** Align the source within the target box \(by default, centering\) and, if necessary, scale the source down to ensure that the source fits within the box. This is the same as `contain` if that would shrink the image, otherwise it is the same as `none`.
+* **none:** Align the source within the target box (by default, centering) and discard any portions of the source that lie outside the box. The source image is not resized.
+* **scale-down:** Align the source within the target box (by default, centering) and, if necessary, scale the source down to ensure that the source fits within the box. This is the same as `contain` if that would shrink the image, otherwise it is the same as `none`.
 
 See the [Flutter BoxFit documentation](https://docs.flutter.io/flutter/painting/BoxFit-class.html) for more information on these options.
 
@@ -110,7 +110,7 @@ Maps to Flutter [**BoxShape**](https://docs.flutter.io/flutter/painting/BoxShape
 Valid values:
 
 * **circle:** A circle centered in the middle of the box into which the [Border](https://docs.flutter.io/flutter/painting/painting/Border-class.html) or [BoxDecoration](https://docs.flutter.io/flutter/painting/painting/BoxDecoration-class.html) is painted. The diameter of the circle is the shortest dimension of the box, either the width or the height, such that the circle touches the edges of the box.
-* **rectangle:** An axis-aligned, 2D rectangle. May have rounded corners \(described by a [BorderRadius](https://docs.flutter.io/flutter/painting/painting/BorderRadius-class.html)\). The edges of the rectangle will match the edges of the box into which the [Border](https://docs.flutter.io/flutter/painting/painting/Border-class.html) or [BoxDecoration](https://docs.flutter.io/flutter/painting/painting/BoxDecoration-class.html) is painted.
+* **rectangle:** An axis-aligned, 2D rectangle. May have rounded corners (described by a [BorderRadius](https://docs.flutter.io/flutter/painting/painting/BorderRadius-class.html)). The edges of the rectangle will match the edges of the box into which the [Border](https://docs.flutter.io/flutter/painting/painting/Border-class.html) or [BoxDecoration](https://docs.flutter.io/flutter/painting/painting/BoxDecoration-class.html) is painted.
 
 Example:
 
@@ -146,7 +146,7 @@ Container(
 
 Adds [padding](https://docs.flutter.io/flutter/widgets/Container/padding.html) to [containers](https://docs.flutter.io/flutter/widgets/Container-class.html).
 
-Creates a Flutter padding property using[ **EdgeInsets.only\(\)**](https://docs.flutter.io/flutter/painting/EdgeInsets/EdgeInsets.only.html)**.**
+Creates a Flutter padding property using[ **EdgeInsets.only()**](https://docs.flutter.io/flutter/painting/EdgeInsets/EdgeInsets.only.html)**.**
 
 There are several padding properties you can use:
 
@@ -158,7 +158,7 @@ There are several padding properties you can use:
 
 These properties take values according to the [CSS specification](https://developer.mozilla.org/en-US/docs/Web/CSS/padding), with these exceptions:
 
-* only direct values \(numbers\) are accepted
+* only direct values (numbers) are accepted
 * no support for percentages
 
 Examples of valid values:
@@ -195,7 +195,7 @@ Container(
 
 Adds [margin](https://docs.flutter.io/flutter/material/Card/margin.html) to [containers](https://docs.flutter.io/flutter/widgets/Container-class.html).
 
-Creates a Flutter margin property using[ **EdgeInsets.only\(\)**](https://docs.flutter.io/flutter/painting/EdgeInsets/EdgeInsets.only.html)**.**
+Creates a Flutter margin property using[ **EdgeInsets.only()**](https://docs.flutter.io/flutter/painting/EdgeInsets/EdgeInsets.only.html)**.**
 
 There are several margin properties you can use:
 
@@ -207,7 +207,7 @@ There are several margin properties you can use:
 
 These properties take values according to the [CSS specification](https://developer.mozilla.org/en-US/docs/Web/CSS/margin), with these exceptions:
 
-* only direct values \(numbers\) are accepted
+* only direct values (numbers) are accepted
 * no support for percentages
 
 Examples of valid values:
@@ -244,11 +244,11 @@ Container(
 
 Decorates a container with rounded borders.
 
-Creates a Flutter [**BoxDecoration**](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with [borderRadius](https://docs.flutter.io/flutter/painting/BoxDecoration/borderRadius.html) set using [**BorderRadius.only\(\)**](https://docs.flutter.io/flutter/painting/BorderRadius/BorderRadius.only.html). The values passed to BorderRadius.only for each corner are values of [**Radius.circular\(\)**](https://docs.flutter.io/flutter/dart-ui/Radius/Radius.circular.html).
+Creates a Flutter [**BoxDecoration**](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with [borderRadius](https://docs.flutter.io/flutter/painting/BoxDecoration/borderRadius.html) set using [**BorderRadius.only()**](https://docs.flutter.io/flutter/painting/BorderRadius/BorderRadius.only.html). The values passed to BorderRadius.only for each corner are values of [**Radius.circular()**](https://docs.flutter.io/flutter/dart-ui/Radius/Radius.circular.html).
 
 The border-radius property takes values according to the [CSS specification](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius), with these exceptions:
 
-* only direct values \(numbers\) are accepted
+* only direct values (numbers) are accepted
 * no support for percentages
 
 Examples of valid values:
@@ -287,9 +287,9 @@ Container( // project://lib/pages/homepage/homepage.pug#8,5
 
 Adds [borders](https://docs.flutter.io/flutter/painting/Border-class.html) to [containers](https://docs.flutter.io/flutter/widgets/Container-class.html).
 
-Creates a Flutter Border widget property using[ **EdgeInsets.only\(\)**](https://docs.flutter.io/flutter/painting/EdgeInsets/EdgeInsets.only.html)**.**
+Creates a Flutter Border widget property using[ **EdgeInsets.only()**](https://docs.flutter.io/flutter/painting/EdgeInsets/EdgeInsets.only.html)**.**
 
-Creates a Flutter [**BoxDecoration**](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with [**border**](https://docs.flutter.io/flutter/painting/BoxDecoration/border.html) set using [**Border\(\)**](https://docs.flutter.io/flutter/painting/Border-class.html). The values passed to Border\(\) for each side are values of [**BorderSide**](https://docs.flutter.io/flutter/painting/BorderSide-class.html), with an optional width, style and color.
+Creates a Flutter [**BoxDecoration**](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with [**border**](https://docs.flutter.io/flutter/painting/BoxDecoration/border.html) set using [**Border()**](https://docs.flutter.io/flutter/painting/Border-class.html). The values passed to Border() for each side are values of [**BorderSide**](https://docs.flutter.io/flutter/painting/BorderSide-class.html), with an optional width, style and color.
 
 There are several border properties you can use:
 
@@ -306,7 +306,7 @@ These properties take values according to the [CSS specification](https://develo
 
 * for styles, only solid and none are accepted
 * width must be a number
-* color must be a name _\(this is a bug, will be fixed soon\)_
+* color must be a name _(this is a bug, will be fixed soon)_
 * the **border** property only allows a single style for all, not a style per side
 
 Examples of valid values:
@@ -363,7 +363,7 @@ A single box shadow can have 2, 3 or 4 or 5 properties: offset-x, offset-y, and 
 These properties take values according to the [CSS specification](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow), with these exceptions:
 
 * values must be numbers
-* colors not yet supported \(coming soon\)
+* colors not yet supported (coming soon)
 * no support for the inset keyword
 
 Examples of valid values:
@@ -407,7 +407,7 @@ Container(
 {% endtab %}
 {% endtabs %}
 
-## background-image <a id="box-shadow"></a>
+## background-image <a href="#box-shadow" id="box-shadow"></a>
 
 Sets a background image to [containers](https://docs.flutter.io/flutter/widgets/Container-class.html).
 
@@ -415,8 +415,8 @@ Creates a Flutter [**BoxDecoration**](https://docs.flutter.io/flutter/painting/B
 
 The background-image property can have one of two values:
 
-* **url\("&lt;image-url&gt;"\)** : creates a NetworkImage for the given url
-* **asset\("&lt;asset-name&gt;"\)**: uses an ExactAssetImage for the given name
+* **url("\<image-url>")** : creates a NetworkImage for the given url
+* **asset("\<asset-name>")**: uses an ExactAssetImage for the given name
 
 Examples of valid values:
 
@@ -449,7 +449,7 @@ Container(
 {% endtab %}
 {% endtabs %}
 
-## ​background-color <a id="box-shadow"></a>
+## ​background-color <a href="#box-shadow" id="box-shadow"></a>
 
 Sets a background color to [containers](https://docs.flutter.io/flutter/widgets/Container-class.html).
 
@@ -479,11 +479,11 @@ Container(
 {% endtab %}
 {% endtabs %}
 
-## background-repeat <a id="box-shadow"></a>
+## background-repeat <a href="#box-shadow" id="box-shadow"></a>
 
 Sets how background images of a [container](https://docs.flutter.io/flutter/widgets/Container-class.html) should be repeated. Usually used together with [**background-image**](css-properties.md#box-shadow-1).
 
-Creates a Flutter [**BoxDecoration**](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with the repeat property of the image set to the value you pass. 
+Creates a Flutter [**BoxDecoration**](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) with the repeat property of the image set to the value you pass.&#x20;
 
 Maps to Flutter [**ImageRepeat**](https://docs.flutter.io/flutter/painting/ImageRepeat-class.html) values in camelcase.
 
@@ -521,11 +521,11 @@ Container( // project://lib/pages/homepage/homepage.pug#8,5
 {% endtab %}
 {% endtabs %}
 
-## background-size <a id="box-shadow"></a>
+## background-size <a href="#box-shadow" id="box-shadow"></a>
 
 Sets how background images of a [container](https://docs.flutter.io/flutter/widgets/Container-class.html) should be fitted in the container. Usually used together with [**background-image**](css-properties.md#box-shadow-1).
 
-It does so by setting the [fit](https://docs.flutter.io/flutter/painting/DecorationImage/fit.html) property of the [**ImageDecoration**](https://docs.flutter.io/flutter/painting/DecorationImage-class.html) ****that was created for the **background-image**.
+It does so by setting the [fit](https://docs.flutter.io/flutter/painting/DecorationImage/fit.html) property of the [**ImageDecoration**](https://docs.flutter.io/flutter/painting/DecorationImage-class.html) **** that was created for the **background-image**.
 
 See the [**fit property**](css-properties.md#fit) above for valid values and more information.
 
@@ -556,7 +556,7 @@ Container(
 {% endtab %}
 {% endtabs %}
 
-## main-axis-alignment <a id="box-shadow"></a>
+## main-axis-alignment <a href="#box-shadow" id="box-shadow"></a>
 
 Controls how a row or column aligns its children on the main axis. See the [Flutter layout documentation](https://flutter.io/docs/development/ui/layout#aligning-widgets) for more information.
 
@@ -615,7 +615,7 @@ Row(
 {% endtab %}
 {% endtabs %}
 
-## cross-axis-alignment <a id="box-shadow"></a>
+## cross-axis-alignment <a href="#box-shadow" id="box-shadow"></a>
 
 Controls how a row or column aligns its children on the cross axis. See the [Flutter layout documentation](https://flutter.io/docs/development/ui/layout#aligning-widgets) for more information.
 
@@ -667,7 +667,7 @@ Column(
 {% endtab %}
 {% endtabs %}
 
-## main-axis-size <a id="box-shadow"></a>
+## main-axis-size <a href="#box-shadow" id="box-shadow"></a>
 
 Controls how a row or column to deals with left-over free space in the main axis. See the [Flutter layout documentation](https://flutter.io/docs/development/ui/layout#aligning-widgets) for more information.
 
@@ -717,7 +717,7 @@ Valid values:
 * Any expression that evalutes to a [**Color**](https://docs.flutter.io/flutter/dart-ui/Color-class.html). `:color='Colors.red'`
 * A dash-cased color name from Colors. `color='deep-orange'`
 * A dash-cased color name from Colors with a weight. `color='deep-orange[400]'`
-* A hex color ala CSS. `color='#FF3499'` 
+* A hex color ala CSS. `color='#FF3499'`&#x20;
 * A hex color ala CSS with preceding transparency. `color='#80FF3499'`
 
 Examples:
@@ -808,11 +808,11 @@ Column(
 {% endtab %}
 {% endtabs %}
 
-## font-size <a id="box-shadow"></a>
+## font-size <a href="#box-shadow" id="box-shadow"></a>
 
 Sets the font size of text in the container and all its children. Only works on Containers.
 
-It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the font size in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the font size in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed.&#x20;
 
 Allowed values are ints, doubles and theme font sizes.
 
@@ -841,13 +841,13 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
-## font-weight <a id="box-shadow"></a>
+## font-weight <a href="#box-shadow" id="box-shadow"></a>
 
 Sets the font weight of text in the container and all its children. Only works on Containers.
 
-It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the font weight in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the font weight in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed.&#x20;
 
-Maps to Flutter [**FontWeight**](https://docs.flutter.io/flutter/dart-ui/FontWeight-class.html) enum values in camelcase. 
+Maps to Flutter [**FontWeight**](https://docs.flutter.io/flutter/dart-ui/FontWeight-class.html) enum values in camelcase.&#x20;
 
 Valid values:
 
@@ -891,11 +891,11 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
-## font-family <a id="box-shadow"></a>
+## font-family <a href="#box-shadow" id="box-shadow"></a>
 
 Sets the font family of text in the container and all its children. Only works on Containers.
 
-It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the font family in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the font family in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed.&#x20;
 
 Value must be a string.
 
@@ -924,13 +924,13 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
-## font-style <a id="box-shadow"></a>
+## font-style <a href="#box-shadow" id="box-shadow"></a>
 
 Sets the font style of text in the container and all its children. Only works on Containers.
 
-It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the font style in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the font style in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed.&#x20;
 
-Maps to Flutter [**FontStyle**](https://docs.flutter.io/flutter/dart-ui/FontStyle-class.html) enum values in camelcase. 
+Maps to Flutter [**FontStyle**](https://docs.flutter.io/flutter/dart-ui/FontStyle-class.html) enum values in camelcase.&#x20;
 
 Valid values:
 
@@ -963,11 +963,11 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
-## letter-spacing <a id="box-shadow"></a>
+## letter-spacing <a href="#box-shadow" id="box-shadow"></a>
 
-The amount of space \(in logical pixels\) to add between each letter. A negative value can be used to bring the letters closer. Only works on Containers.
+The amount of space (in logical pixels) to add between each letter. A negative value can be used to bring the letters closer. Only works on Containers.
 
-It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the letter spacing in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the letter spacing in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed.&#x20;
 
 Valid values are ints and doubles.
 
@@ -997,11 +997,11 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
-## line-height <a id="box-shadow"></a>
+## line-height <a href="#box-shadow" id="box-shadow"></a>
 
 Sets the line height text in the container and all its children. Only works on Containers.
 
-It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the line height in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the line height in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed.&#x20;
 
 Valid values are ints and doubles.
 
@@ -1031,13 +1031,13 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
-## text-decoration <a id="box-shadow"></a>
+## text-decoration <a href="#box-shadow" id="box-shadow"></a>
 
 A linear decoration to draw near the text.
 
-It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the textDecoration in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the textDecoration in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed.&#x20;
 
-Maps to Flutter [**TextDecoration**](https://docs.flutter.io/flutter/dart-ui/TextDecoration-class.html) enum values in camelcase. 
+Maps to Flutter [**TextDecoration**](https://docs.flutter.io/flutter/dart-ui/TextDecoration-class.html) enum values in camelcase.&#x20;
 
 Valid values:
 
@@ -1072,11 +1072,11 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
-## text-decoration-color <a id="box-shadow"></a>
+## text-decoration-color <a href="#box-shadow" id="box-shadow"></a>
 
 The color of the text decoration you have set.
 
-It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the decorationColor in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the decorationColor in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed.&#x20;
 
 The value must be a valid [**color** property](css-properties.md#color-color) value.
 
@@ -1109,13 +1109,13 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
-## text-decoration-style <a id="box-shadow"></a>
+## text-decoration-style <a href="#box-shadow" id="box-shadow"></a>
 
 The style in which to draw a text decoration.
 
-It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the decorationStyle in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the decorationStyle in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed.&#x20;
 
-Maps to Flutter [**TextDecorationStyle**](https://docs.flutter.io/flutter/dart-ui/TextDecorationStyle-class.html) enum values in camelcase. 
+Maps to Flutter [**TextDecorationStyle**](https://docs.flutter.io/flutter/dart-ui/TextDecorationStyle-class.html) enum values in camelcase.&#x20;
 
 Valid values:
 
@@ -1154,11 +1154,11 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
-## word-spacing <a id="box-shadow"></a>
+## word-spacing <a href="#box-shadow" id="box-shadow"></a>
 
 Sets the space between words in a text.
 
-It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the wordSpacing in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the wordSpacing in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed.&#x20;
 
 Valid values are ints and doubles.
 
@@ -1188,13 +1188,13 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
-## text-align <a id="box-shadow"></a>
+## text-align <a href="#box-shadow" id="box-shadow"></a>
 
 Whether and how to align text horizontally.
 
-It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the textAlign in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the textAlign in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed.&#x20;
 
-Maps to Flutter [**TextAlign**](https://docs.flutter.io/flutter/dart-ui/TextAlign-class.html) enum values in camelcase. 
+Maps to Flutter [**TextAlign**](https://docs.flutter.io/flutter/dart-ui/TextAlign-class.html) enum values in camelcase.&#x20;
 
 Valid values:
 
@@ -1231,13 +1231,13 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
-## text-overflow <a id="box-shadow"></a>
+## text-overflow <a href="#box-shadow" id="box-shadow"></a>
 
 A linear decoration to draw near the text.
 
-It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the overflow in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the overflow in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed.&#x20;
 
-Maps to Flutter [**TextOverflow**](https://docs.flutter.io/flutter/rendering/TextOverflow-class.html) enum values in camelcase. 
+Maps to Flutter [**TextOverflow**](https://docs.flutter.io/flutter/rendering/TextOverflow-class.html) enum values in camelcase.&#x20;
 
 Valid values:
 
@@ -1270,7 +1270,7 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
-## text-transform <a id="box-shadow"></a>
+## text-transform <a href="#box-shadow" id="box-shadow"></a>
 
 Changes the case of the text. It follows the CSS standards.
 
@@ -1300,11 +1300,11 @@ Container(
 {% endtab %}
 {% endtabs %}
 
-## max-lines <a id="box-shadow"></a>
+## max-lines <a href="#box-shadow" id="box-shadow"></a>
 
 Sets an optional maximum number of lines for the text to span, wrapping if necessary. If the text exceeds the given number of lines, it will be truncated according to [**overflow**](css-properties.md#box-shadow-18).
 
-It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the maxLines in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed. 
+It does so by wrapping the container with [**DefaultTextStyle.merge**](https://docs.flutter.io/flutter/widgets/DefaultTextStyle/merge.html) and setting the maxLines in the [**TextStyle**](https://docs.flutter.io/flutter/painting/TextStyle-class.html) that is passed.&#x20;
 
 Values must be positive integers.
 
@@ -1338,7 +1338,7 @@ DefaultTextStyle.merge(
 {% endtab %}
 {% endtabs %}
 
-## line-clamp <a id="box-shadow"></a>
+## line-clamp <a href="#box-shadow" id="box-shadow"></a>
 
 Alias for [**max-lines**](css-properties.md#box-shadow-19).
 
@@ -1369,5 +1369,4 @@ Container(
 {% endtab %}
 {% endtabs %}
 
-##  <a id="box-shadow"></a>
-
+## &#x20;<a href="#box-shadow" id="box-shadow"></a>

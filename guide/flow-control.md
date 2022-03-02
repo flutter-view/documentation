@@ -18,7 +18,7 @@ user-profile(flutter-view :user[User])
 
 {% tab title="generated Dart" %}
 ```dart
-UserProfile({@required User user}) {
+UserProfile({required User user}) {
     return Container(
         child: Column(
             children: [
@@ -43,7 +43,35 @@ In the above example, the company will only be shown if the passed user has the 
 
 ## slot
 
-A slot is a placeholder for a value. It will always take the value of the first valid child.
+A slot is a placeholder for a value. It will take the value of the first valid child. Alternatively, you can also directly pass a value into it:
+
+{% tabs %}
+{% tab title="Pug" %}
+```c
+wrapper(flutter-view :content[Widget])
+    slot(:value='content').content
+    .footer A footer
+```
+{% endtab %}
+
+{% tab title="Generated Dart" %}
+```dart
+Column Wrapper({ required Widget content }) {
+  return Column( 
+    children: __flatten([
+      content,
+      //-- FOOTER ----------------------------------------------------------
+      Container(
+        child: Text( 
+          'A footer',
+        ),
+      )
+    ]),
+  );
+}
+```
+{% endtab %}
+{% endtabs %}
 
 Slot can function as an if/else. In the next example you see either the .status being shown, or the .empty.
 
@@ -61,7 +89,7 @@ tasks-page(flutter-view :tasks[List])
 
 {% tab title="generated Dart" %}
 ```dart
-Scaffold TasksPage({ @required List tasks }) {
+Scaffold TasksPage({ required List tasks }) {
   return Scaffold(
     body: (tasks.isNotEmpty) ?
       //-- STATUS ----------------------------------------------------------
@@ -87,7 +115,7 @@ Scaffold TasksPage({ @required List tasks }) {
 
 As you can see in the above example, you can use the **as** property to assign the slot value to a parameter as well. In this case, the content of the slot is placed in the body parameter of the Scaffold.
 
-By adding multiple children with if to a slot, you can also create a swich/case:
+By adding multiple children with if to a slot, you can also create a switch/case:
 
 {% tabs %}
 {% tab title="Pug" %}
@@ -120,7 +148,7 @@ tasks-page(flutter-view :tasks[List])
 
 {% tab title="generated Dart" %}
 ```dart
-Scaffold TasksPage({ @required List tasks }) {
+Scaffold TasksPage({ required List tasks }) {
   return Scaffold(
     body: 
     //-- BODY ----------------------------------------------------------
@@ -154,11 +182,9 @@ Scaffold TasksPage({ @required List tasks }) {
 {% endtab %}
 {% endtabs %}
 
-You can also get the index \(starting at 0\) of the current entry as such:
+You can also get the index (starting at 0) of the current entry as such:
 
 ```c
 .task(for='task, index in tasks')
 ```
-
-
 

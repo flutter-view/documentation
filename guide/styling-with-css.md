@@ -31,13 +31,13 @@ Flutter-view will process your styles, attaching them to the classes. Properties
 
 **You can use CSS or Sass to set any property to any class or id in your Pug or HTML file.**
 
-To style a Pug file, create a Sass style file with the same name \(but different extension\) as your Pug file, in the same directory. For example, if you have a startpage.pug, to style it simply add a startpage.sass in the same directory.
+To style a Pug file, create a Sass style file with the same name (but different extension) as your Pug file, in the same directory. For example, if you have a startpage.pug, to style it simply add a startpage.sass in the same directory.
 
 _Recommendation_: create a directory per layout, with the name of your layout. Then inside, create a pug file, sass file and your model and other supporting files.
 
 Example structure:
 
-![](../.gitbook/assets/screen-shot-2018-12-14-at-11.57.56-am.png)
+![](<../.gitbook/assets/Screen Shot 2018-12-14 at 11.57.56 AM.png>)
 
 See the[ example projects](../get-started/examples.md) for more ideas for structuring your application.
 
@@ -90,7 +90,7 @@ Container(
 
 Some examples are [color](../reference/css-properties.md#color-color), [padding](../reference/css-properties.md#padding), [margin](../reference/css-properties.md#margin) and [background-image](../reference/css-properties.md#box-shadow-1). See the [shortcut properties reference](../reference/css-properties.md) for the full list.
 
-As an example, consider the following Pug layout we want to style \(taken and converted into flutter-view Pug from the [Flutter Card sample](https://docs.flutter.io/flutter/material/Card-class.html)\):
+As an example, consider the following Pug layout we want to style (taken and converted into flutter-view Pug from the [Flutter Card sample](https://docs.flutter.io/flutter/material/Card-class.html)):
 
 ```css
 card
@@ -107,7 +107,7 @@ card
                     .label Listen
 ```
 
-We have a layout, and now we can style it. 
+We have a layout, and now we can style it.&#x20;
 
 The "buy tickets" and "listen" FlatButtons we want to have uppercase text. We can use the [**text-transform**](../reference/css-properties.md#box-shadow-18) shortcut:
 
@@ -141,7 +141,7 @@ card
 
 Here is the end result:
 
-![](../.gitbook/assets/screen-shot-2018-12-14-at-3.55.26-pm%20%281%29.png)
+![](<../.gitbook/assets/Screen Shot 2018-12-14 at 3.55.26 PM (1).png>)
 
 {% tabs %}
 {% tab title="artist-card.pug" %}
@@ -286,7 +286,7 @@ Table(
 )
 ```
 
-Which you can achieve with the following \(a bit contrived\) Pug code:
+Which you can achieve with the following (a bit contrived) Pug code:
 
 ```css
 table(:default-verticle-alignment='TableCellVerticalAlignment.middle')
@@ -344,6 +344,4 @@ Instead, you may write it like this:
 This still requires the context to be available. If you have no current context, you can use the [**builder shortcut**](../reference/tag-shortcuts.md#builder). The theme properties path has been replaced by dash-cased steps, separated by forward slashes`/`.
 
 _Pro tip: You can define CSS classes that set multiple theme style properties at once and reuse them across your app._
-
-
 
