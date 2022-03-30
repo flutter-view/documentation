@@ -29,7 +29,7 @@ UserProfile({required User user}) {
                 Container(
                     child: Text('Works at ${user.company}'),
                 ) 
-                : Container(),
+                : SizedBox(),
             ],
         ),
     );
@@ -40,6 +40,36 @@ UserProfile({required User user}) {
 {% endtabs %}
 
 In the above example, the company will only be shown if the passed user has the company property set.
+
+## if-null
+
+This will only render the widget if the passed condition is false, otherwise it returns null.
+
+With type and null-safety in Dart, you sometimes need to either pass an argument or null. The normal `if` above will return a `SizedBox()` if the condition fails. For building widget trees, this is usually makes sense. However sometimes we need to pass an argument that can be null, depending on a condition. In these edge cases, use `if-null.`
+
+{% tabs %}
+{% tab title="Pug" %}
+```pug
+app-bar
+    .title(as='title' null-if='user.name == null') ${user.name}
+```
+{% endtab %}
+
+{% tab title="generated Dart" %}
+```dart
+PlatformAppBar(
+  title: !(name == null) ?
+    Container(
+      child: Text(
+        '${name}',
+      ),
+    ) : null,
+)
+```
+{% endtab %}
+{% endtabs %}
+
+In the above example, the title of the `AppBar` widget will be set to null if the `user.name` is `null`.
 
 ## slot
 

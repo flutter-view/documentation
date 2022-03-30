@@ -4,7 +4,7 @@
 
 You use it by running the `flutter-view` command in your terminal to let it monitor your project. When it detects changes in a Pug or Sass file, it automatically generates or updates a matching Dart file.
 
-Flutter-view 2.0.0 fully supports writing null-safe code in Dart 2.13 and up.
+Flutter-view 2.0.0 and up fully support writing null-safe code in Dart 2.13 and up.
 
 ## Why views in Flutter
 
